@@ -1,0 +1,27 @@
+main {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*TYPE OF USER*/
+form > div.typeOfUser {
+    width: 100%;
+    border-bottom: 1px solid black;
+    display: flex;
+}
+
+form > div.typeOfUser > label.typeOfUser_label {
+    display: block;
+    width: calc(100%/3);
+    text-align: center;
+}
+
+form > div.typeOfUser > label.typeOfUser_label:nth-of-type(n+2) {
+    border-left: 1px solid black;
+}
+
+form > div.typeOfUser > input[type=radio] {
+    display: none;
+}
+

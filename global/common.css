@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a.asButton {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    color: black;
+    background-color: white;
+    text-decoration: none;
+}
+
+a.asButton:hover {
+    background-color: black;
+    color: white;
+}
