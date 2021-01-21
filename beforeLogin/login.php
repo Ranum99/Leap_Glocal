@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../global/common.css">
-    <link rel="stylesheet" type="text/css" href="css/register.css">
     <link rel="stylesheet" type="text/css" href="css/registerAndLogin.css">
 </head>
 <body>
@@ -12,7 +11,8 @@
 <?php include_once "../partsOfWebsite/nav.php"?>
 
 <main>
-    <!-- REGISTER -->
+    <!-- LOGIN -->
+    <h1>Logg inn</h1>
     <section class="registerAndLoginForm">
         <form action="" method="post">
             <label for="emailLogin">Epost</label>

@@ -1,8 +1,8 @@
 <?php
     echo '
     <nav>
-        <img src="">
-        <section>NAV</section>
+        <a href=""><img alt="Leap Glocal logo" src="../img/leap_logo_full.png"></a>
+        <section>NAV ELEMENTER</section>
         <section>PROFIL/LOGIN/REGISTER</section>
     </nav>
     ';

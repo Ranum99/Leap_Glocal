@@ -1,19 +1,38 @@
+main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+}
+
 section.registerAndLoginForm {
-    width: 60%;
+    width: 55%;
     margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+    0 10px 10px rgba(0,0,0,0.22);
     display: flex;
     flex-direction: row;
 }
 
 form {
-    width: 60%;
-    padding: 10px;
+    width: 50%;
+    padding: 0 10px;
     display: flex;
     flex-direction: column;
 }
 
+form > label, button {
+    margin: 10px 0 0 0;
+}
+
 div.toLoginOrRegister {
-    width: 40%;
+    width: 50%;
     padding: 10px;
     background-color: pink;
     display: flex;

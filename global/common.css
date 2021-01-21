@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+@import "../partsOfWebsite/css/nav.css";
+@import "../partsOfWebsite/css/footer.css";
+
 * {
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;

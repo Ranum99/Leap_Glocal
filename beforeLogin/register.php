@@ -14,13 +14,14 @@
 
     <main>
         <!-- REGISTER -->
+        <h1>Registrer bruker</h1>
         <section class="registerAndLoginForm">
             <div class="toLoginOrRegister">
                 <h2>Allerede medlem?</h2>
                 <p>For å fortsette reisen med oss, venligst logg inn ved å trykke på knappen under.</p>
                 <a class="asButton" href="login.php">Login</a>
             </div>
-            <form action="" method="post">
+            <form action="check.php" method="post">
                 <div class="typeOfUser">
                     <label class="typeOfUser_label" for="typeOfUser_company">Bedrift</label>
                     <input class="typeOfUser_input" type="radio" id="typeOfUser_company" name="typeOfUser" value="1" checked required>
