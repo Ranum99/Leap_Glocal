@@ -39,7 +39,7 @@
 
     setSession_login($email_post, $password_checkInSQL, $typeUser_post);
 
-
+    // Going back to main
     header('LOCATION: ../../index.php');
 
 
