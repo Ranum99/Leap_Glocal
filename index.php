@@ -1,0 +1,31 @@
+<?php
+    include_once 'backend/session.php';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="global/common.css">
+</head>
+<body>
+    <!-- HERE COMES <NAV/> FROM PHP FILE -->
+    <?php include_once "partsOfWebsite/nav.php"?>
+
+
+    <?php
+
+        if (session_status() != PHP_SESSION_NONE) {
+            echo 'ID: ' . $_SESSION['idUser'] . '<br>';
+            echo 'EMAIL: ' . $_SESSION['email'] . '<br>';
+            echo 'NAME: ' . $_SESSION['name'] . '<br>';
+            echo 'PASSWORD: ' . $_SESSION['password'] . '<br>';
+            echo 'TYPE OF USER: ' . $_SESSION['typeOfUser'] . '<br>';
+        }
+    ?>
+
+    <!-- HERE COMES <FOOTER/> FROM PHP FILE -->
+    <?php include_once "partsOfWebsite/footer.php"?>
+</body>
+</html>
