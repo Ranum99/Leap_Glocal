@@ -1,3 +1,7 @@
+<?php
+    include_once '../backend/session.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +23,7 @@
             <div class="toLoginOrRegister">
                 <h2>Allerede medlem?</h2>
                 <p>For å fortsette reisen med oss, venligst logg inn ved å trykke på knappen under.</p>
-                <a class="asButton" href="login.php">Login</a>
+                <a class="asButton" href="login.php">Logg inn</a>
             </div>
             <form action="backend/registerBack.php" method="post">
                 <div class="typeOfUser">

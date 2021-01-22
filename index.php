@@ -15,8 +15,7 @@
 
 
     <?php
-
-        if (session_status() != PHP_SESSION_NONE) {
+        if (sizeof($_SESSION) > 0) {
             echo 'ID: ' . $_SESSION['idUser'] . '<br>';
             echo 'EMAIL: ' . $_SESSION['email'] . '<br>';
             echo 'NAME: ' . $_SESSION['name'] . '<br>';

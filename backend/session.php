@@ -23,12 +23,40 @@
         }
     }
 
-    function loginUserSession_register($email, $name, $password, $typeOfUser) {
+    function setSession_register($email, $name, $password, $typeOfUser) {
         $_SESSION['email'] = $email;
         $_SESSION['name'] = $name;
         $_SESSION['password'] = $password;
         $_SESSION['typeOfUser'] = $typeOfUser;
         setIDSession();
+    }
+
+    function setFullSession() {
+        include_once 'db.php';
+
+        $connen = new mysqli(getHostToDatabase(), getDbUsernameToDatabase(), getDbPasswordToDatabase(), getDbNameToDatabase());
+
+        $stmtGetUserInfo = "SELECT id_user, name FROM users
+                                    WHERE email = ?
+                                        AND typeOfUser = ?";
+        $stmtGetUserInfo = $connen->prepare($stmtGetUserInfo);
+        $stmtGetUserInfo->bind_param('ss', $_SESSION['email'], $_SESSION['typeOfUser']);
+        $stmtGetUserInfo->execute();
+        $stmtGetUserInfo->bind_result($idFromSQL, $nameFromSQL);
+        $stmtGetUserInfo->store_result();
+
+        if ($stmtGetUserInfo->num_rows === 1) {
+            $stmtGetUserInfo->fetch();
+            $_SESSION['idUser'] = $idFromSQL;
+            $_SESSION['name'] = $nameFromSQL;
+        }
+    }
+
+    function setSession_login($email, $password, $typeOfUser) {
+        $_SESSION['email'] = $email;
+        $_SESSION['password'] = $password;
+        $_SESSION['typeOfUser'] = $typeOfUser;
+        setFullSession();
     }
 
     function validSession() {

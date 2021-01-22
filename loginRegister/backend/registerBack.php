@@ -2,8 +2,6 @@
     include_once '../../backend/db.php';
     include_once '../../global/global.php';
 
-    $typeUserString = array("Bedrift", "Konsulent", "Bruker");
-
     // Checking if every post is not empty and existing
     if (!existAndNotEmpty_post("typeOfUser") ||
     !existAndNotEmpty_post("email") ||
@@ -54,7 +52,7 @@
     // Setting session
     include_once '../../backend/session.php';
 
-    loginUserSession_register($email_post, $name_post, $hashPassword, $typeUser_post);
+    setSession_register($email_post, $name_post, $hashPassword, $typeUser_post);
 
     //TODO: go to new site where user can pay
         //TODO: meanwhile go to new site where user can fill out rest of info
@@ -65,7 +63,9 @@
 
 
 
-/* echo 'TYPE BRUKER: '.$typeUser_post.' aka '.$typeUserString[$typeUser_post - 1].'<br>';
+/*
+$typeUserString = array("Bedrift", "Konsulent", "Bruker");
+echo 'TYPE BRUKER: '.$typeUser_post.' aka '.$typeUserString[$typeUser_post - 1].'<br>';
 echo 'EMAIL: '.$email_post.'<br>';
 echo 'NAVN: '.$name_post.'<br>';
 echo 'PASSORD: '.$password_post.'<br>';
@@ -84,4 +84,5 @@ else
 SJEKKE OM MAIL OG TYPE BRUKER FINNES I DATABASE
     HVIS JA: SENDES TILBAKE OG FÅR BESKJED
 
-REGISTRERE BRUKER I DATABASE OG BLIR SENDT VIDERE TIL BETALINGSSIDE*/
+REGISTRERE BRUKER I DATABASE OG BLIR SENDT VIDERE TIL BETALINGSSIDE
+*/

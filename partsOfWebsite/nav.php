@@ -1,11 +1,23 @@
 <?php
-    echo '
-    <nav>
-        <a href=""><img alt="Leap Glocal logo" src="/skole/leap-glocal//img/leap_logo_full.png"></a>
-        <section>NAV ELEMENTER</section>
-        <section>
-            <a class="asButton" href="/loginRegister/login.php">Logg inn</a>
-            <a class="asButton" href="/loginRegister/register.php">Bli medlem</a>
-        </section>
-    </nav>
-    ';
+    if (sizeof($_SESSION) > 0) {
+        echo '
+        <nav>
+            <a href="/skole/leap-glocal"><img alt="Leap Glocal logo" src="/skole/leap-glocal/img/leap_logo_full.png"></a>
+            <section>NAV ELEMENTER</section>
+            <section>
+                <a class="asButton" href="/skole/leap-glocal/profil.php">'.$_SESSION['name'].'</a>
+            </section>
+        </nav>
+        ';
+    } else {
+        echo '
+        <nav>
+            <a href="/skole/leap-glocal"><img alt="Leap Glocal logo" src="/skole/leap-glocal/img/leap_logo_full.png"></a>
+            <section>NAV ELEMENTER</section>
+            <section>
+                <a class="asButton" href="/skole/leap-glocal/loginRegister/login.php">Logg inn</a>
+                <a class="asButton" href="/skole/leap-glocal/loginRegister/register.php">Bli medlem</a>
+            </section>
+        </nav>
+        ';
+    }
