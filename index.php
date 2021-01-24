@@ -13,6 +13,9 @@
     <!-- HERE COMES <NAV/> FROM PHP FILE -->
     <?php include_once "partsOfWebsite/nav.php"?>
 
+    <label for="search">Søk</label>
+    <input type="text" autofocus id="search">
+
 
     <?php
         if (sizeof($_SESSION) > 0) {
@@ -21,6 +24,7 @@
             echo 'NAME: ' . $_SESSION['name'] . '<br>';
             echo 'PASSWORD: ' . $_SESSION['password'] . '<br>';
             echo 'TYPE OF USER: ' . $_SESSION['typeOfUser'] . '<br>';
+            echo 'HAS FILLED ALL COLUMNS: ' . $_SESSION['hasFilledAllColumns'] . '<br>';
         }
     ?>
 

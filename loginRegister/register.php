@@ -28,21 +28,21 @@
             <form action="backend/registerBack.php" method="post">
                 <div class="typeOfUser">
                     <label class="typeOfUser_label" for="typeOfUser_company">Bedrift</label>
-                    <input class="typeOfUser_input" type="radio" id="typeOfUser_company" name="typeOfUser" value="1" checked required>
+                    <input class="typeOfUser_input" type="radio" id="typeOfUser_company" name="typeOfUser" value="1" checked required />
                     <label class="typeOfUser_label" for="typeOfUser_consultant">Konsulent</label>
-                    <input class="typeOfUser_input" type="radio" id="typeOfUser_consultant" name="typeOfUser" value="2">
+                    <input class="typeOfUser_input" type="radio" id="typeOfUser_consultant" name="typeOfUser" value="2" />
                     <label class="typeOfUser_label" for="typeOfUser_user">Bruker</label>
-                    <input class="typeOfUser_input" type="radio" id="typeOfUser_user" name="typeOfUser" value="3">
+                    <input class="typeOfUser_input" type="radio" id="typeOfUser_user" name="typeOfUser" value="3" />
                 </div>
 
                 <label for="emailRegister">Epost</label>
-                <input type="email" id="emailRegister" name="email" placeholder="Epost" required>
+                <input type="email" id="emailRegister" name="email" placeholder="Epost" required />
                 <label for="nameRegister">Navn</label>
-                <input type="text" id="nameRegister" name="name" placeholder="Navn" required>
+                <input type="text" id="nameRegister" name="name" placeholder="Navn" required />
                 <label for="passwordRegister">Passord</label>
-                <input type="password" id="passwordRegister" name="password" placeholder="Passord" required>
+                <input type="password" id="passwordRegister" name="password" placeholder="Passord" required />
                 <label for="repeatPasswordRegister">Gjenta passord</label>
-                <input type="password" id="repeatPasswordRegister" name="repeatPassword" placeholder="Gjenta passord" required>
+                <input type="password" id="repeatPasswordRegister" name="repeatPassword" placeholder="Gjenta passord" required />
 
                 <button>Registrer</button>
             </form>

@@ -28,6 +28,7 @@
         $_SESSION['name'] = $name;
         $_SESSION['password'] = $password;
         $_SESSION['typeOfUser'] = $typeOfUser;
+        $_SESSION['hasFilledAllColumns'] = 0;
         setIDSession();
     }
 
@@ -36,19 +37,20 @@
 
         $connen = new mysqli(getHostToDatabase(), getDbUsernameToDatabase(), getDbPasswordToDatabase(), getDbNameToDatabase());
 
-        $stmtGetUserInfo = "SELECT id_user, name FROM users
+        $stmtGetUserInfo = "SELECT id_user, name, requiredColumnsFilled FROM users
                                     WHERE email = ?
                                         AND typeOfUser = ?";
         $stmtGetUserInfo = $connen->prepare($stmtGetUserInfo);
         $stmtGetUserInfo->bind_param('ss', $_SESSION['email'], $_SESSION['typeOfUser']);
         $stmtGetUserInfo->execute();
-        $stmtGetUserInfo->bind_result($idFromSQL, $nameFromSQL);
+        $stmtGetUserInfo->bind_result($idFromSQL, $nameFromSQL, $hasFilledAllColumns);
         $stmtGetUserInfo->store_result();
 
         if ($stmtGetUserInfo->num_rows === 1) {
             $stmtGetUserInfo->fetch();
             $_SESSION['idUser'] = $idFromSQL;
             $_SESSION['name'] = $nameFromSQL;
+            $_SESSION['hasFilledAllColumns'] = $hasFilledAllColumns;
         }
     }
 
@@ -59,23 +61,35 @@
         setFullSession();
     }
 
+    //TODO: check if session is valid and if all required columns in DB is filled (can be one method)
+
     function validSession() {
         include_once 'db.php';
 
         $connen = new mysqli(getHostToDatabase(), getDbUsernameToDatabase(), getDbPasswordToDatabase(), getDbNameToDatabase());
 
-        $stmtCheckIfValidSESSION = "SELECT id FROM users
-                                            WHERE id = ?
+        $stmtCheckIfValidSESSION = "SELECT requiredColumnsFilled FROM users
+                                            WHERE id_user = ?
                                                 AND email = ?
-                                                AND password = md5(?);";
+                                                AND typeOfUser = ?;";
         $stmtCheckIfValidSESSION = $connen->prepare($stmtCheckIfValidSESSION);
-        $stmtCheckIfValidSESSION->bind_param('sss', $_SESSION['idUser'], $_SESSION['email'], $_SESSION['password']);
+        $stmtCheckIfValidSESSION->bind_param('sss', $_SESSION['idUser'], $_SESSION['email'], $_SESSION['typeOfUser']);
         $stmtCheckIfValidSESSION->execute();
-        $stmtCheckIfValidSESSION->bind_result($idUser_fromSQL_SESSION);
+        $stmtCheckIfValidSESSION->bind_result($hasFilledAllColumns);
         $stmtCheckIfValidSESSION->store_result();
         $stmtCheckIfValidSESSION->fetch();
 
         if ($stmtCheckIfValidSESSION->num_rows !== 1) {
-            header('LOCATION: ../../backend/logoutUser.php');
+            header('LOCATION: /skole/leap-glocal/backend/logout.php');
+        }
+    }
+    if (sizeof($_SESSION) > 0) {
+        validSession();
+    }
+
+    function getDataFromSessionColumn($column) {
+        if (sizeof($_SESSION) > 0) {
+            if (isset($_SESSION[''.$column.'']) && !empty($_SESSION[''.$column.'']))
+                return $_SESSION[''.$column.''];
         }
     }

@@ -15,11 +15,11 @@
     $password_post = $_POST["password"];
 
     // Checking if email and user type is in the DB
-    $stmtCheckIfUserExist = "SELECT name, password FROM users WHERE email = ? AND typeOfUser = ?";
+    $stmtCheckIfUserExist = "SELECT name, password, requiredColumnsFilled FROM users WHERE email = ? AND typeOfUser = ?";
     $stmtCheckIfUserExist = $conn->prepare($stmtCheckIfUserExist);
     $stmtCheckIfUserExist->bind_param('ss', $email_post, $typeUser_post);
     $stmtCheckIfUserExist->execute();
-    $stmtCheckIfUserExist->bind_result($name_checkInSQL, $password_checkInSQL);
+    $stmtCheckIfUserExist->bind_result($name_checkInSQL, $password_checkInSQL, $hasRequiredColumnsFilled);
     $stmtCheckIfUserExist->store_result();
 
     // Checks if query is true
@@ -33,21 +33,24 @@
 
     // Setting session
     include_once '../../backend/session.php';
-
-    //TODO: check if user have filled in all info for user type
-        //If not: send to page to fill out form
-
     setSession_login($email_post, $password_checkInSQL, $typeUser_post);
 
-    // Going back to main
-    header('LOCATION: ../../index.php');
+    //TODO: en sjekk for å se om medlemskap har gått ut
+
+    // Check if user have filled in all info for user type
+        //If not: send to page to fill out form
+    if ($hasRequiredColumnsFilled == 1)
+        header('LOCATION: ../../index.php');
+    else
+        header('LOCATION: ../registerUser.php');
 
 
 
 
 
 
-
+/*
 echo 'TYPE OF USER: '.$typeUser_post.'<br>';
 echo 'EMAIL: '.$email_post.'<br>';
 echo 'PASSORD: '.$password_post.'<br>';
+*/

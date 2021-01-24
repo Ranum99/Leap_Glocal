@@ -11,6 +11,7 @@
         goback();
     }
 
+
     /*TODO: Sjekke mail og passord med regex
         også sjekke med js før innsendelse*/
 
@@ -58,7 +59,7 @@
         //TODO: meanwhile go to new site where user can fill out rest of info
 
     // Going back to main
-    header('LOCATION: ../../index.php');
+    header('LOCATION: ../registerUser.php');
 
 
 
