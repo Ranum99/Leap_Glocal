@@ -37,19 +37,38 @@
 
         $connen = new mysqli(getHostToDatabase(), getDbUsernameToDatabase(), getDbPasswordToDatabase(), getDbNameToDatabase());
 
-        $stmtGetUserInfo = "SELECT id_user, name, requiredColumnsFilled FROM users
+        $stmtGetUserInfo = "SELECT id_user, name, phoneNumber, postalCode, place, address, orgNumber, rating1to5, rating_numberOfVoters, specification, levelOfExperience, websiteURL, description, userHasPaid, userLastPayment, durationOfLastPayment, age, requiredColumnsFilled FROM users
                                     WHERE email = ?
                                         AND typeOfUser = ?";
         $stmtGetUserInfo = $connen->prepare($stmtGetUserInfo);
         $stmtGetUserInfo->bind_param('ss', $_SESSION['email'], $_SESSION['typeOfUser']);
         $stmtGetUserInfo->execute();
-        $stmtGetUserInfo->bind_result($idFromSQL, $nameFromSQL, $hasFilledAllColumns);
+        $stmtGetUserInfo->bind_result($idFromSQL, $nameFromSQL, $phoneNumberFromSQL, $postalCodeFromSQL, $placeFromSQL, $addressFromSQL, $orgNumberFromSQL, $rating1to5FromSQL, $rating_numberOfVotersFromSQL, $specificationFromSQL, $levelOfExperienceFromSQL, $websiteURLFromSQL, $descriptionFromSQL, $userHasPaidFromSQL, $userLastPaymentFromSQL, $durationOfLastPaymentFromSQL, $ageFromSQL, $hasFilledAllColumns);
         $stmtGetUserInfo->store_result();
 
         if ($stmtGetUserInfo->num_rows === 1) {
             $stmtGetUserInfo->fetch();
             $_SESSION['idUser'] = $idFromSQL;
             $_SESSION['name'] = $nameFromSQL;
+
+            $_SESSION['phoneNumber'] = $phoneNumberFromSQL;
+            $_SESSION['postalCode'] = $postalCodeFromSQL;
+            $_SESSION['place'] = $placeFromSQL;
+            $_SESSION['address'] = $addressFromSQL;
+            $_SESSION['orgNumber'] = $orgNumberFromSQL;
+            $_SESSION['rating1to5'] = $rating1to5FromSQL;
+            $_SESSION['ratingNumberOfVoters'] = $rating_numberOfVotersFromSQL;
+            $_SESSION['specification'] = $specificationFromSQL;
+            $_SESSION['levelOfXp'] = $levelOfExperienceFromSQL;
+            $_SESSION['webURL'] = $websiteURLFromSQL;
+            $_SESSION['description'] = $descriptionFromSQL;
+
+            $_SESSION['userHasPaid'] = $userHasPaidFromSQL;
+            $_SESSION['userLastPayment'] = $userLastPaymentFromSQL;
+            $_SESSION['lastPaymentDuration'] = $durationOfLastPaymentFromSQL;
+
+            $_SESSION['age'] = $ageFromSQL;
+
             $_SESSION['hasFilledAllColumns'] = $hasFilledAllColumns;
         }
     }
@@ -59,6 +78,23 @@
         $_SESSION['password'] = $password;
         $_SESSION['typeOfUser'] = $typeOfUser;
         setFullSession();
+    }
+
+    function setRestOfSession_registerFull($telephone, $postalCode, $place, $address, $orgnumber, $rating1to5, $ratingNumberOfVoters, $specification, $levelOfXp, $webURL, $description, $age, $requiredColumnsFilled) {
+        $_SESSION['phoneNumber'] = $telephone;
+        $_SESSION['postalCode'] = $postalCode;
+        $_SESSION['place'] = $place;
+        $_SESSION['address'] = $address;
+        $_SESSION['orgNumber'] = $orgnumber;
+        $_SESSION['rating1to5'] = $rating1to5;
+        $_SESSION['ratingNumberOfVoters'] = $ratingNumberOfVoters;
+        $_SESSION['specification'] = $specification;
+        $_SESSION['levelOfXp'] = $levelOfXp;
+        $_SESSION['webURL'] = $webURL;
+        $_SESSION['description'] = $description;
+        $_SESSION['age'] = $age;
+        $_SESSION['hasFilledAllColumns'] = $requiredColumnsFilled;
+        setIDSession();
     }
 
     //TODO: check if session is valid and if all required columns in DB is filled (can be one method)

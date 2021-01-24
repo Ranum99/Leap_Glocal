@@ -30,7 +30,7 @@
             </div>
 
             <label for="emailLogin">Epost</label>
-            <input type="email" id="emailLogin" name="email" placeholder="Epost" required />
+            <input type="email" id="emailLogin" name="email" placeholder="Epost" required autofocus />
             <label for="passwordLogin">Passord</label>
             <input type="password" id="passwordLogin" name="password" placeholder="Passord" required />
 

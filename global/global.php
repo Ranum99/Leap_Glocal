@@ -11,3 +11,12 @@
         }
         return false;
     }
+
+    function existAndNotEmpty_post_array($array) {
+        $allIsValid = true;
+        for ($i = 0; $i < sizeof($array); $i++){
+            if (!isset($_POST[''.$array[$i].'']) || empty($_POST[''.$array[$i].'']))
+                $allIsValid = false;
+        }
+        return $allIsValid;
+    }

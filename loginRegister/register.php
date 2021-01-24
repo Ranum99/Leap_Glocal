@@ -36,7 +36,7 @@
                 </div>
 
                 <label for="emailRegister">Epost</label>
-                <input type="email" id="emailRegister" name="email" placeholder="Epost" required />
+                <input type="email" id="emailRegister" name="email" placeholder="Epost" required autofocus />
                 <label for="nameRegister">Navn</label>
                 <input type="text" id="nameRegister" name="name" placeholder="Navn" required />
                 <label for="passwordRegister">Passord</label>

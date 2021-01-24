@@ -8,7 +8,7 @@
 
     if ($_SESSION['typeOfUser'] == 1) {
         $formOutput = '
-            <form action="" method="post">
+            <form action="backend/registerUserBack.php" method="post">
                 <label for="telefon_register">Telefon *</label>
                 <input type="tel" id="telefon_register" name="telephone" required placeholder="123 45 678" />
     
@@ -42,7 +42,7 @@
         ';
     } else if ($_SESSION['typeOfUser'] == 2) {
         $formOutput = '
-            <form action="" method="post">
+            <form action="backend/registerUserBack.php" method="post">
                 <label for="telefon_register">Telefon *</label>
                 <input type="tel" id="telefon_register" name="telephone" required placeholder="123 45 678" />
     
@@ -74,7 +74,7 @@
         ';
     } else if ($_SESSION['typeOfUser'] == 3) {
         $formOutput = '
-            <form action="" method="post">
+            <form action="backend/registerUserBack.php" method="post">
                 <label for="telefon_register">Telefon</label>
                 <input type="tel" id="telefon_register" name="telephone" required placeholder="123 45 678" />
     

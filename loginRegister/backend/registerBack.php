@@ -58,7 +58,7 @@
     //TODO: go to new site where user can pay
         //TODO: meanwhile go to new site where user can fill out rest of info
 
-    // Going back to main
+    // Going to register rest of userdata
     header('LOCATION: ../registerUser.php');
 
 
