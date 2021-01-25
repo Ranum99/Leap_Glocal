@@ -2,7 +2,7 @@
     include_once 'backend/session.php';
 
     $fillInRestOfDataBtn = "";
-    if (getDataFromSessionColumn("hasFilledAllColumns") == false)
+    if (getDataFromSessionColumn("requiredColumnsFilled") == 0)
         $fillInRestOfDataBtn = '<a class="asButton" href="loginRegister/registerUser.php">Fyll inn manglende data</a>';
 ?>
 

@@ -21,7 +21,7 @@
     //TODO: Sjekke forskjellige ting med regex og escape html-kode med mer fra beskrivelse og andre input
 
     // Setting rigyht values to variables
-    switch ($_SESSION['typeOfUser']) {
+    switch ($_SESSION['userdata']->__get('typeOfUser')) {
         case 1: //COMPANY
             // Checking if required values for company form is filled
             $postNameArray = array("telephone", "specification", "description", "postalCode", "place", "address", "orgnumber");
@@ -74,6 +74,8 @@
             break;
     }
 
+    $userId = $_SESSION['userdata']->__get('idUser');
+
     // Updating userdata in DB for user
     $stmtUpdateUserdataToDB = "UPDATE users SET
                                phoneNumber = ?,
@@ -91,7 +93,7 @@
                                    requiredColumnsFilled = ?
                                WHERE id_user = ?";
     $stmtUpdateUserdataToDB = $conn->prepare($stmtUpdateUserdataToDB);
-    $stmtUpdateUserdataToDB->bind_param('ssssssssssssss', $telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled, $_SESSION['idUser']);
+    $stmtUpdateUserdataToDB->bind_param('ssssssssssssss', $telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled, $userId);
     $stmtUpdateUserdataToDB->execute();
     $stmtUpdateUserdataToDB->close();
 
@@ -100,28 +102,3 @@
 
     // Going back to main
     header('LOCATION: ../../index.php');
-
-
-    /*
-    echo 'TYPE BRUKER: '.$_SESSION['typeOfUser'].'<br>';
-    echo 'EMAIL: '.$_SESSION['email'].'<br>';
-    echo 'NAVN: '.$_SESSION['name'].'<br>';
-    echo 'PASSORD: '.$_SESSION['password'].'<br>';
-
-
-    echo '<br><br>Fylt inn nå:<br><br>';
-
-    echo 'TELEFON NUMMER: '.$telephone_post.'<br>';
-    echo 'SPESIFIKASJON: '.$specification_post.'<br>';
-    echo 'BESKRIVELSE: '.$description_post.'<br>';
-    echo 'WEB-URL: '.$webURL_post.'<br>';
-    echo 'POSTNUMMER: '.$postalCode_post.'<br>';
-    echo 'STED: '.$place_post.'<br>';
-    echo 'ADRESSE: '.$address_post.'<br>';
-    echo 'ORGNUMMER: '.$orgnumber_post.'<br>';
-    echo 'ALDER: '.$age_post.'<br>';
-    echo 'ERFARINGSNIVÅ: '.$levelOfXp_post.'<br>';
-    echo 'FYLT INN ALLE FELTER: '.$requiredColumnsFilled.'<br>';
-    echo 'RATING (1-5): '.$rating1to5.'<br>';
-    echo 'ANTALL RATINGVOTERS: '.$ratingNumberOfVoters.'<br>';
-    */

@@ -5,7 +5,7 @@
             <a href="/skole/leap-glocal"><img alt="Leap Glocal logo" src="/skole/leap-glocal/img/leap_logo_full.png"></a>
             <section>NAV ELEMENTER</section>
             <section>
-                <a class="asButton" href="/skole/leap-glocal/profile.php">'.$_SESSION['name'].'</a>
+                <a class="asButton" href="/skole/leap-glocal/profile.php">'.$_SESSION['userdata']->__get('name').'</a>
             </section>
         </nav>
         ';

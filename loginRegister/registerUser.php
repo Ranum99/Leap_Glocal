@@ -1,12 +1,12 @@
 <?php
     include_once '../backend/session.php';
 
-    if ($_SESSION['hasFilledAllColumns'] == 1) {
+    if (getDataFromSessionColumn("requiredColumnsFilled") == 1) {
         include_once '../global/global.php';
         goback();
     }
 
-    if ($_SESSION['typeOfUser'] == 1) {
+    if ($_SESSION['userdata']->__get('typeOfUser') == 1) {
         $formOutput = '
             <form action="backend/registerUserBack.php" method="post">
                 <label for="telefon_register">Telefon *</label>
@@ -40,7 +40,7 @@
                 <button>Legg til info</button>
             </form>
         ';
-    } else if ($_SESSION['typeOfUser'] == 2) {
+    } else if ($_SESSION['userdata']->__get('typeOfUser') == 2) {
         $formOutput = '
             <form action="backend/registerUserBack.php" method="post">
                 <label for="telefon_register">Telefon *</label>
@@ -72,7 +72,7 @@
                 <button>Legg til info</button>
             </form>
         ';
-    } else if ($_SESSION['typeOfUser'] == 3) {
+    } else if ($_SESSION['userdata']->__get('typeOfUser') == 3) {
         $formOutput = '
             <form action="backend/registerUserBack.php" method="post">
                 <label for="telefon_register">Telefon</label>
