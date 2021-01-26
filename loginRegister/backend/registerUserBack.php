@@ -21,12 +21,13 @@
     //TODO: Sjekke forskjellige ting med regex og escape html-kode med mer fra beskrivelse og andre input
 
     // Setting rigyht values to variables
+
     switch ($_SESSION['userdata']->__get('typeOfUser')) {
         case 1: //COMPANY
             // Checking if required values for company form is filled
-            $postNameArray = array("telephone", "specification", "description", "postalCode", "place", "address", "orgnumber");
-            //if (!existAndNotEmpty_post_array($postNameArray))
-                //goback();
+            $postNameArray = array("telephone", "specification", "description", "postalCode", "address", "orgnumber");
+            if (!existAndNotEmpty_post_array($postNameArray))
+                goback();
 
             // Setting website url if filled
             if (existAndNotEmpty_post('webURL'))
@@ -37,16 +38,31 @@
             $specification_post = $_POST['specification'];
             $description_post = $_POST['description'];
             $postalCode_post = $_POST['postalCode'];
-            $place_post = $_POST['place'];
+            $place_post = null;
             $address_post = $_POST['address'];
             $orgnumber_post = $_POST['orgnumber'];
             $requiredColumnsFilled = 1;
+
+            // CHECKING IG POSTAL CODE IS VALID
+            $stmtCheckPostalInDB = "SELECT postalAddress FROM postal
+                                    WHERE postalCode = ?";
+            $stmtCheckPostalInDB = $conn->prepare($stmtCheckPostalInDB);
+            $stmtCheckPostalInDB->bind_param('s', $postalCode_post);
+            $stmtCheckPostalInDB->execute();
+            $stmtCheckPostalInDB->bind_result($postalAddress_fromSQL);
+            $stmtCheckPostalInDB->store_result();
+            if ($stmtCheckPostalInDB->num_rows === 1) {
+                $stmtCheckPostalInDB->fetch();
+                $place_post = $postalAddress_fromSQL;
+            } else {
+                //goback();
+            }
             break;
         case 2: // CONSULTANT
             // Checking if required values for consultant form is filled
             $postNameArray = array("telephone", "specification", "description", "age", "levelOfXp");
-            //if (!existAndNotEmpty_post_array($postNameArray))
-                //goback();
+            if (!existAndNotEmpty_post_array($postNameArray))
+                goback();
 
             // Setting website url if filled
             if (existAndNotEmpty_post('webURL'))
@@ -63,8 +79,8 @@
         case 3: // Normal user
             // Checking if required values for consultant form is filled
             $postNameArray = array("telephone", "specification", "age");
-            //if (!existAndNotEmpty_post_array($postNameArray))
-                //goback();
+            if (!existAndNotEmpty_post_array($postNameArray))
+                goback();
 
             // Setting variables
             $telephone_post = $_POST['telephone'];
@@ -74,7 +90,7 @@
             break;
     }
 
-    $userId = $_SESSION['userdata']->__get('idUser');
+    $userId = $_SESSION['userdata']->__get('id_user');
 
     // Updating userdata in DB for user
     $stmtUpdateUserdataToDB = "UPDATE users SET

@@ -28,9 +28,6 @@
                 <label for="postalCode_register">Postnummer *</label>
                 <input type="number" maxlength="4" id="postalCode_register" name="postalCode" required placeholder="9999" />
     
-                <label for="place_register">Sted *</label>
-                <input type="text" id="place_register" name="place" required placeholder="Oslo" />
-    
                 <label for="address_register">Adresse *</label>
                 <input type="text" id="address_register" name="address" required placeholder="Osloveien 1" />
     
