@@ -36,13 +36,13 @@
                 </div>
 
                 <label for="emailRegister">Epost</label>
-                <input type="email" id="emailRegister" name="email" placeholder="Epost" required autofocus />
+                <input type="email" id="emailRegister" name="email" placeholder="Epost" required autofocus pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
                 <label for="nameRegister">Navn</label>
                 <input type="text" id="nameRegister" name="name" placeholder="Navn" required />
                 <label for="passwordRegister">Passord</label>
-                <input type="password" id="passwordRegister" name="password" placeholder="Passord" required />
+                <input type="password" id="passwordRegister" name="password" placeholder="Passord" required title="Passord må inneholde minst en stor bokstav, en liten bokstav, ett tall, ett spesialtegn og være minst 8 tegn lang" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" />
                 <label for="repeatPasswordRegister">Gjenta passord</label>
-                <input type="password" id="repeatPasswordRegister" name="repeatPassword" placeholder="Gjenta passord" required />
+                <input type="password" id="repeatPasswordRegister" name="repeatPassword" placeholder="Gjenta passord" required title="Passord må inneholde minst en stor bokstav, en liten bokstav, ett tall, ett spesialtegn og være minst 8 tegn lang" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" />
 
                 <button>Registrer</button>
             </form>

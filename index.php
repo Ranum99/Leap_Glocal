@@ -8,17 +8,49 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="global/common.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
     <!-- HERE COMES <NAV/> FROM PHP FILE -->
     <?php include_once "partsOfWebsite/nav.php"?>
+    <?php echo _EMAIL?>
 
-    <label for="search">Søk</label>
-    <input type="text" autofocus id="search">
+    <main>
+        <section>
+            <article id="search">
+                <h2>Søk her:</h2>
+                <div>
+                    <input type="text" title="Søk" placeholder="Søk..." autofocus id="search">
+                    <button>Søk</button>
+                </div>
+            </article>
+        </section>
+
+        <section>
+            <div id="functions">
+                <a href="">
+                    <h3>Finn andre gründere</h3>
+                    <p>Her kan du søke på andre gründere nært of fjernt med samme ideer for å muligens få noe hjelp.</p>
+                </a>
+                <a href="">
+                    <h3>Gründerhuber og akseleratorer</h3>
+                    <p>Meld deg på forskjellige gründerhubber og akseleratorer nært og fjernt for å finne gode ideer til din startup.</p>
+                </a>
+                <a href="">
+                    <h3>Støtteordninger</h3>
+                    <p>Nettop start opp eller langt ut i prosessen, men ikke er helt sikker på hvilken rettigheter på støtte du har?</p>
+                </a>
+                <a href="">
+                    <h3>Kontakt en konsulent</h3>
+                    <p>Har du et spørsmål du ikke finner svaret på, eller noe som trenger spesialkompetanse, kotakt en kompetent konsulent her.</p>
+                </a>
+            </div>
+        </section>
+    </main>
 
 
     <?php
-        if (sizeof($_SESSION) > 0) {
+        if (isset($_SESSION['userdata']) && sizeof($_SESSION) > 0) {
             // USER CLASS
             echo '<br><br><br>BRUKERINFO:<br><br>';
             echo 'ID: ' . $_SESSION['userdata']->__get('id_user') . '<br>';

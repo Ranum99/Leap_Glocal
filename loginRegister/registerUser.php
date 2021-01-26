@@ -1,7 +1,7 @@
 <?php
     include_once '../backend/session.php';
 
-    if (getDataFromSessionColumn("requiredColumnsFilled") == 1) {
+    if (getDataFromSessionColumn_userdata("requiredColumnsFilled") == 1) {
         include_once '../global/global.php';
         goback();
     }

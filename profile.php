@@ -2,7 +2,7 @@
     include_once 'backend/session.php';
 
     $fillInRestOfDataBtn = "";
-    if (getDataFromSessionColumn("requiredColumnsFilled") == 0)
+    if (getDataFromSessionColumn_userdata("requiredColumnsFilled") == 0)
         $fillInRestOfDataBtn = '<a class="asButton" href="loginRegister/registerUser.php">Fyll inn manglende data</a>';
 ?>
 
@@ -17,8 +17,10 @@
     <!-- HERE COMES <NAV/> FROM PHP FILE -->
     <?php include_once "partsOfWebsite/nav.php"?>
 
-    <a class="asButton" href="backend/logout.php">Logg ut</a>
-    <?php echo $fillInRestOfDataBtn; ?>
+    <main>
+        <a class="asButton" href="backend/logout.php">Logg ut</a>
+        <?php echo $fillInRestOfDataBtn; ?>
+    </main>
 
 
     <!-- HERE COMES <FOOTER/> FROM PHP FILE -->

@@ -2,10 +2,10 @@
     include 'C:\xampp\htdocs\skole\leap-glocal\User.php';
     session_start();
 
+
     // loginUserSession("contact@ranum.com","test123");
 
     function setRestOfSession_registerFull($telephone, $postalCode, $place, $address, $orgnumber, $rating1to5, $ratingNumberOfVoters, $specification, $levelOfXp, $webURL, $description, $age, $requiredColumnsFilled) {
-        //$user = new User();
         $_SESSION['userdata']->__set('phoneNumber', $telephone);
         $_SESSION['userdata']->__set('postalCode', $postalCode);
         $_SESSION['userdata']->__set('place', $place);
@@ -19,10 +19,6 @@
         $_SESSION['userdata']->__set('description', $description);
         $_SESSION['userdata']->__set('age', $age);
         $_SESSION['userdata']->__set('requiredColumnsFilled', $requiredColumnsFilled);
-
-        //$_SESSION['userdata'] = $user;
-
-
     }
 
     function setIDSession($user) {
@@ -130,13 +126,31 @@
             header('LOCATION: /skole/leap-glocal/backend/logout.php');
         }
     }
-    if (sizeof($_SESSION) > 0) {
+    if (isset($_SESSION['userdata']) && sizeof($_SESSION) > 0) {
         validSession();
     }
 
-    function getDataFromSessionColumn($column) {
-        if (sizeof($_SESSION) > 0) {
+    function getDataFromSessionColumn_userdata($column) {
+        if (isset($_SESSION['userdata']) && sizeof($_SESSION) > 0) {
             if (isset($_SESSION['userdata']) && !empty($_SESSION['userdata']->__get(''.$column.'')))
                 return $_SESSION['userdata']->__get(''.$column.'');
         }
+        return null;
     }
+
+    /*
+    $_SESSION['lang'] = "eng";
+
+    if (isset($_GET['lang']) && $_GET['lang'] == "nor") {
+        $_SESSION['lang'] == "nor";
+    }
+
+    if (isset($_SESSION['lang'])) {
+        if ($_SESSION['lang'] == "nor")
+            include 'C:\xampp\htdocs\skole\leap-glocal\backend\languages\lang_nor.php';
+        if ($_SESSION['lang'] == "eng")
+            include 'C:\xampp\htdocs\skole\leap-glocal\backend\languages\lang_eng.php';
+    } else {
+        include 'C:\xampp\htdocs\skole\leap-glocal\backend\languages\lang_eng.php';
+    }
+    */

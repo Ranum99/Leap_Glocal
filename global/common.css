@@ -10,7 +10,11 @@
 
 body {
     margin: 0;
-    padding: 0;
+}
+
+main {
+    width: 75%;
+    margin: 0 auto;
 }
 
 a.asButton {
