@@ -24,6 +24,7 @@
                     <button>Søk</button>
                 </div>
             </article>
+            <!-- Kalender -->
         </section>
 
         <section>

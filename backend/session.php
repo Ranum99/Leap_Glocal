@@ -1,5 +1,5 @@
 <?php
-    include 'C:\xampp\htdocs\skole\leap-glocal\User.php';
+    include '\xampp\htdocs\skole\leap-glocal\User.php';
     session_start();
 
 

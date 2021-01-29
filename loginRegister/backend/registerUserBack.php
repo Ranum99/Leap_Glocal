@@ -43,6 +43,18 @@
             $orgnumber_post = $_POST['orgnumber'];
             $requiredColumnsFilled = 1;
 
+            // Checking if telephoneNumber is 8
+            if (sizeof($telephone_post) != 8)
+                goback();
+            // Checking if postalCode is 4
+            if (sizeof($postalCode_post) != 4)
+                goback();
+            // Checking if orgNumber is 9
+            if (sizeof($orgnumber_post) != 9)
+                goback();
+
+            //TODO: kanskje sjekke om addresse faktisk finnes????? (ikke prioritert)
+
             // CHECKING IG POSTAL CODE IS VALID
             $stmtCheckPostalInDB = "SELECT postalAddress FROM postal
                                     WHERE postalCode = ?";
@@ -51,11 +63,12 @@
             $stmtCheckPostalInDB->execute();
             $stmtCheckPostalInDB->bind_result($postalAddress_fromSQL);
             $stmtCheckPostalInDB->store_result();
+
             if ($stmtCheckPostalInDB->num_rows === 1) {
                 $stmtCheckPostalInDB->fetch();
                 $place_post = $postalAddress_fromSQL;
             } else {
-                //goback();
+                goback();
             }
             break;
         case 2: // CONSULTANT
@@ -113,7 +126,7 @@
     $stmtUpdateUserdataToDB->execute();
     $stmtUpdateUserdataToDB->close();
 
-    //TODO: add to session
+    // ADDING TO SESSION
     setRestOfSession_registerFull($telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled);
 
     // Going back to main
