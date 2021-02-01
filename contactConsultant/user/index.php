@@ -14,6 +14,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../../global/common.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
 <!-- HERE COMES <NAV/> FROM PHP FILE -->
@@ -21,7 +22,12 @@
 
 <main>
     <a href="?question=true" class="asButton">Ny</a>
-    <section>
+    <section id="questionsFromUser">
+        <article>
+            <p><strong>Tittel</strong></p>
+            <p><strong>Spørsmål</strong></p>
+            <p><strong>Svar</strong></p>
+        </article>
         <?php include_once 'backend/getAllQuestion.php'; ?>
     </section>
 </main>

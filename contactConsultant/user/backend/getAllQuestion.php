@@ -29,6 +29,8 @@
                 $output .= '
                     <a href="" class="asButton">Se tilbud</a>
                 ';
+            else
+                $output .= '<p>Ingen svar enda</p>';
             $output .= '</article>';
         }
     } else
