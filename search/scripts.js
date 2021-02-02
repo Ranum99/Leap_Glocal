@@ -22,7 +22,7 @@ $(document).ready(function() {
                 //AJAX type is "Post".
                 type: "POST",
                 //Data will be sent to "ajax.php".
-                url: "ajax.php",
+                url: "search/ajax.php",
                 //Data, that will be sent to "ajax.php".
                 data: {
                     //Assigning value of "name" into "search" variable.

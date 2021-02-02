@@ -9,6 +9,11 @@ if (isset($_POST['search'])) {
     $Query = "SELECT Name FROM search WHERE Name LIKE '%$Name%' LIMIT 5";
 //Query execution
     $ExecQuery = MySQLi_query($con, $Query);
+
+    if (!$ExecQuery) {
+        printf("Error: %s\n", mysqli_error($con));
+        exit();
+    }
 //Creating unordered list to display result.
     echo '
 <ul>
