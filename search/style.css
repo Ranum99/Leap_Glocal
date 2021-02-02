@@ -7,6 +7,10 @@ input {
     border-radius: 10px;
 }
 
+input:focus {
+    outline: none;
+}
+
 body {
     margin: 0;
 }
@@ -45,5 +49,21 @@ ul {
     color: white;
     border: none;
     font-size: 18px;
+}
+
+#searchBox {
+    width: 65%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#sporsmalOverskrift {
+    width: 65%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 

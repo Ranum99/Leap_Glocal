@@ -24,8 +24,8 @@
 
     <main>
         <section>
-            <article>
-                <h2>Her finner du svar på alle dine spørsmål</h2>
+            <h2 id="sporsmalOverskrift">Her finner du svar på alle dine spørsmål</h2>
+            <article id="searchBox">
                 <div>
                     <!-- Search box. -->
                     <input type="text" id="search" placeholder="Hva lurer du på?" />
