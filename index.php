@@ -6,22 +6,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Hovedside</title>
     <link rel="stylesheet" type="text/css" href="global/common.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <!-- Including jQuery is required. -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <!-- Including our scripting file. -->
+    <script type="text/javascript" src="search/scripts.js"></script>
+    <!-- Including CSS file. -->
+    <link rel="stylesheet" type="text/css" href="search/style.css">
 </head>
 <body>
     <!-- HERE COMES <NAV/> FROM PHP FILE -->
-    <?php include_once "partsOfWebsite/nav.php"?>
+    <?php include_once "partsOfWebsite/nav.php" ?>
     <?php echo _EMAIL?>
 
     <main>
         <section>
-            <article id="search">
+            <article>
                 <h2>Søk her:</h2>
                 <div>
-                    <input type="text" title="Søk" placeholder="Søk..." autofocus id="search">
+                    <!-- Search box. -->
+                    <input type="text" id="search" placeholder="Search" />
+
                     <button>Søk</button>
+                    <br />
+                    <!-- Suggestions will be displayed in below div. -->
+                    <div id="display"></div>
                 </div>
             </article>
         </section>
@@ -47,7 +59,6 @@
             </div>
         </section>
     </main>
-
 
     <?php
         if (isset($_SESSION['userdata']) && sizeof($_SESSION) > 0) {
@@ -82,6 +93,6 @@
     ?>
 
     <!-- HERE COMES <FOOTER/> FROM PHP FILE -->
-    <?php include_once "partsOfWebsite/footer.php"?>
+    <?php include_once "partsOfWebsite/footer.php" ?>
 </body>
 </html>

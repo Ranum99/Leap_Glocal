@@ -15,7 +15,7 @@
 </head>
 <body>
     <!-- HERE COMES <NAV/> FROM PHP FILE -->
-    <?php include_once "partsOfWebsite/nav.php"?>
+    <?php include_once "partsOfWebsite/nav.php" ?>
 
     <main>
         <a class="asButton" href="backend/logout.php">Logg ut</a>
@@ -24,6 +24,6 @@
 
 
     <!-- HERE COMES <FOOTER/> FROM PHP FILE -->
-    <?php include_once "partsOfWebsite/footer.php"?>
+    <?php include_once "partsOfWebsite/footer.php" ?>
 </body>
 </html>

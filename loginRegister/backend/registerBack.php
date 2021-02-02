@@ -21,13 +21,12 @@
     $name_post = $_POST["name"];
     $password_post = $_POST["password"];
     $repeatPassword_post = $_POST["repeatPassword"];
+    $globals["msg"] = "Your page has been updated";
     $hashPassword = password_hash($password_post, PASSWORD_DEFAULT);
-
 
     // Checking if password are same
     if ($password_post != $repeatPassword_post)
         goback();
-
 
     // Checking if email and user type is already in the DB
     $stmtCheckIfUserExist = "SELECT password FROM users WHERE email = ? AND typeOfUser = ?";

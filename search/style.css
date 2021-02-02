@@ -1,0 +1,27 @@
+
+
+input {
+    border: 1px solid black;
+    height: 50px;
+    width: 500px;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    width: 75%;
+    margin: 0 auto;
+}
+
+button {
+    padding: 5px;
+    width: 100px;
+    height: 55px;
+    margin-left: 10px;
+    background: #42a7f5;
+    color: white;
+    border: none;
+    font-size: 20px;
+}
