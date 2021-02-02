@@ -1,6 +1,8 @@
 <?php
     function goback()
     {
+        //TODO: dette må endres på
+        // har tenkt på å bruke session
         header("Location: {$_SERVER['HTTP_REFERER']}");
         exit;
     }

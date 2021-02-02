@@ -8,13 +8,13 @@
     }
 
     if (isset($_SESSION['lang']) && $_SESSION["lang"] == "nor") {
-        include 'E:\xampp\htdocs\skole\leap-glocal\backend\languages\lang_nor.php';
+        include '\xampp\htdocs\skole\leap-glocal\backend\languages\lang_nor.php';
         $options = '
             <option value="nor" selected>Norsk</option>
             <option value="eng">English</option>
         ';
     } else {
-        include 'E:\xampp\htdocs\skole\leap-glocal\backend\languages\lang_eng.php';
+        include '\xampp\htdocs\skole\leap-glocal\backend\languages\lang_eng.php';
         $options = '
         <option value="nor">Norsk</option>
         <option value="eng" selected>English</option>
@@ -22,10 +22,17 @@
     }
 
     if (isset($_SESSION['userdata']) && sizeof($_SESSION) > 0) {
+        $linkForConsultant = '';
+
+        if ($_SESSION['userdata']->__get('typeOfUser') == 2) {
+            $linkForConsultant = '<a href="\skole\leap-glocal\contactConsultant\consultant\index.php">Mulige spørsmål</a>';
+        }
         echo '
         <nav>
             <a href="/skole/leap-glocal"><img alt="Leap Glocal logo" src="/skole/leap-glocal/img/leap_logo_full.png"></a>
-            <section>NAV ELEMENTER</section>
+            <section>
+                '.$linkForConsultant.'
+            </section>
             <section>
                 <a class="asButton" href="/skole/leap-glocal/profile.php">'.$_SESSION['userdata']->__get('name').'</a>
             </section>

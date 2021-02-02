@@ -1,0 +1,10 @@
+#questionsFromUsers {
+    display: flex;
+    flex-direction: column;
+}
+
+#questionsFromUsers > article > article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

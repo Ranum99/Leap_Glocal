@@ -36,6 +36,7 @@
                     <div id="display"></div>
                 </div>
             </article>
+            <!-- Kalender -->
         </section>
 
         <section>
@@ -52,7 +53,7 @@
                     <h3>Støtteordninger</h3>
                     <p>Nettop start opp eller langt ut i prosessen, men ikke er helt sikker på hvilken rettigheter på støtte du har?</p>
                 </a>
-                <a href="">
+                <a href="contactConsultant/user/">
                     <h3>Kontakt en konsulent</h3>
                     <p>Har du et spørsmål du ikke finner svaret på, eller noe som trenger spesialkompetanse, kotakt en kompetent konsulent her.</p>
                 </a>
