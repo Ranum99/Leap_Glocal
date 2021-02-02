@@ -25,12 +25,12 @@
     <main>
         <section>
             <article>
-                <h2>Søk her:</h2>
+                <h2>Her finner du svar på alle dine spørsmål</h2>
                 <div>
                     <!-- Search box. -->
-                    <input type="text" id="search" placeholder="Search" />
+                    <input type="text" id="search" placeholder="Hva lurer du på?" />
 
-                    <button>Søk</button>
+                    <button id="mainSearchButton">Søk</button>
                     <br />
                     <!-- Suggestions will be displayed in below div. -->
                     <div id="display"></div>

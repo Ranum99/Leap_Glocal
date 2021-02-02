@@ -1,9 +1,10 @@
-
-
 input {
     border: 1px solid black;
     height: 50px;
-    width: 500px;
+    width: 450px;
+    font-size: 22px;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 body {
@@ -15,13 +16,34 @@ main {
     margin: 0 auto;
 }
 
-button {
-    padding: 5px;
+#display {
+    background: white;
+    width: 450px;
+    font-size: 22px;
+}
+
+li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: #ECECEC;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#mainSearchButton {
     width: 100px;
     height: 55px;
     margin-left: 10px;
     background: #42a7f5;
     color: white;
     border: none;
-    font-size: 20px;
+    font-size: 18px;
 }
+
