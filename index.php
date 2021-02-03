@@ -28,7 +28,7 @@
             <article id="searchBox">
                 <div>
                     <!-- Search box. -->
-                    <input type="text" id="search" placeholder="Hva lurer du på?" />
+                    <input type="text" id="search" placeholder="Hva lurer du på?" autocomplete="off" />
 
                     <button id="mainSearchButton">Søk</button>
                     <br />
