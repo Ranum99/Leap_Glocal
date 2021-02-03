@@ -17,16 +17,17 @@ main {
     margin: 0 auto;
 }
 
-a.asButton {
+.asButton {
     border: 2px solid black;
     border-radius: 5px;
     padding: 5px;
     color: black;
     background-color: white;
     text-decoration: none;
+    cursor: pointer;
 }
 
-a.asButton:hover {
+.asButton:hover {
     background-color: black;
     color: white;
 }
