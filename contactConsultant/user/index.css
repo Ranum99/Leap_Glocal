@@ -8,3 +8,27 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+#questionsFromUser > article:nth-of-type(n + 2) {
+    margin: 1px 0;
+    border: 1px solid black;
+}
+
+#questionsFromUser > article > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#questionsFromUser > article > ul {
+    padding-left: 0;
+}
+
+#questionsFromUser > article > ul > li {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 3px;
+    margin: 2px 0;
+}

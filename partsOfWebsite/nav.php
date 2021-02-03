@@ -22,6 +22,7 @@
     }
 
     if (isset($_SESSION['userdata']) && sizeof($_SESSION) > 0) {
+        $hassedUserId = urlencode(password_hash($_SESSION['userdata']->__get('id_user'), PASSWORD_DEFAULT));
         $linkForConsultant = '';
 
         if ($_SESSION['userdata']->__get('typeOfUser') == 2) {
@@ -34,7 +35,7 @@
                 '.$linkForConsultant.'
             </section>
             <section>
-                <a class="asButton" href="/skole/leap-glocal/profile.php">'.$_SESSION['userdata']->__get('name').'</a>
+                <a class="asButton" href="/skole/leap-glocal/profile.php?user='.$hassedUserId.'">'.$_SESSION['userdata']->__get('name').'</a>
             </section>
         </nav>
         <script>function changeLang(){document.getElementById("form_lang").submit();}</script>
