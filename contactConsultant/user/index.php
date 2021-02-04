@@ -1,11 +1,25 @@
 <?php
     include_once '../../backend/session.php';
+    include_once 'backend/getAllQuestion.php';
 
     $display = "none";
 
     if (isset($_GET['question']) && $_GET['question'])
         $display = "block";
 
+    questions();
+
+    $answeredOuput = '';
+    for ($i=0; $i<sizeof($answered); $i++)
+        $answeredOuput .= $answered[$i];
+
+    $unAnsweredOuput = '';
+    for ($i=0; $i<sizeof($unAnswered); $i++)
+        $unAnsweredOuput .= $unAnswered[$i];
+
+    $hasOffersOutput = '';
+    for ($i=0; $i<sizeof($hasOffers); $i++)
+        $hasOffersOutput .= $hasOffers[$i];
 ?>
 
 <!DOCTYPE html>
@@ -23,12 +37,18 @@
 <main>
     <a href="?question=true" class="asButton">Ny</a>
     <section id="questionsFromUser">
-        <article>
-            <p><strong>Tittel</strong></p>
-            <p><strong>Spørsmål</strong></p>
-            <p><strong>Svar</strong></p>
-        </article>
-        <?php include_once 'backend/getAllQuestion.php'; ?>
+        <div>
+            <h2>Ingen svar:</h2>
+            <?php echo $unAnsweredOuput; ?>
+        </div>
+        <div>
+            <h2>Tilbud</h2>
+            <?php echo $hasOffersOutput; ?>
+        </div>
+        <div id="unOffered">
+            <h2>Valgt</h2>
+            <?php echo $answeredOuput; ?>
+        </div>
     </section>
 </main>
 

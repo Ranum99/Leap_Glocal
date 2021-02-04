@@ -23,4 +23,6 @@
     $stmtGetAllQuestionForUser->bind_param('ss', $answerId, $questionId);
     $stmtGetAllQuestionForUser->execute();
 
+    //TODO: opprette en samtale med konsulenten man valgte, og bli sendt til samtalen
+
     header('Location: ../index.php');
