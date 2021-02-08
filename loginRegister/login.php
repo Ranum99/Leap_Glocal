@@ -10,7 +10,7 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../global/common.css">
     <link rel="stylesheet" type="text/css" href="css/registerAndLogin.css">
-    <script src="js/typeOfUser.js"></script>
+
 </head>
 <body>
 <!-- HERE COMES <NAV/> FROM PHP FILE -->
@@ -22,12 +22,12 @@
     <section class="registerAndLoginForm">
         <form action="" method="post">
             <div class="typeOfUser">
-                <label class="typeOfUser_label" for="typeOfUser_company">Bedrift</label>
                 <input class="typeOfUser_input" type="radio" id="typeOfUser_company" name="typeOfUser" value="1" <?php if ($typeUser == 1 || $typeUser == "") echo 'checked' ?> required />
-                <label class="typeOfUser_label" for="typeOfUser_consultant">Konsulent</label>
+                <label class="typeOfUser_label" for="typeOfUser_company">Bedrift</label>
                 <input class="typeOfUser_input" type="radio" id="typeOfUser_consultant" name="typeOfUser" value="2" <?php if ($typeUser == 2) echo 'checked' ?> />
-                <label class="typeOfUser_label" for="typeOfUser_user">Bruker</label>
+                <label class="typeOfUser_label" for="typeOfUser_consultant">Konsulent</label>
                 <input class="typeOfUser_input" type="radio" id="typeOfUser_user" name="typeOfUser" value="3" <?php if ($typeUser == 3) echo 'checked' ?> />
+                <label class="typeOfUser_label" for="typeOfUser_user">Bruker</label>
             </div>
 
             <label for="emailLogin">Epost</label>
