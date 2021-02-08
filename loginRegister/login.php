@@ -23,11 +23,11 @@
         <form action="" method="post">
             <div class="typeOfUser">
                 <label class="typeOfUser_label" for="typeOfUser_company">Bedrift</label>
-                <input class="typeOfUser_input" type="radio" id="typeOfUser_company" name="typeOfUser" value="1" checked required />
+                <input class="typeOfUser_input" type="radio" id="typeOfUser_company" name="typeOfUser" value="1" <?php if ($typeUser == 1 || $typeUser == "") echo 'checked' ?> required />
                 <label class="typeOfUser_label" for="typeOfUser_consultant">Konsulent</label>
-                <input class="typeOfUser_input" type="radio" id="typeOfUser_consultant" name="typeOfUser" value="2" />
+                <input class="typeOfUser_input" type="radio" id="typeOfUser_consultant" name="typeOfUser" value="2" <?php if ($typeUser == 2) echo 'checked' ?> />
                 <label class="typeOfUser_label" for="typeOfUser_user">Bruker</label>
-                <input class="typeOfUser_input" type="radio" id="typeOfUser_user" name="typeOfUser" value="3" />
+                <input class="typeOfUser_input" type="radio" id="typeOfUser_user" name="typeOfUser" value="3" <?php if ($typeUser == 3) echo 'checked' ?> />
             </div>
 
             <label for="emailLogin">Epost</label>

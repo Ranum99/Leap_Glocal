@@ -2,7 +2,7 @@
     $error = "";
     $email = "";
     $password = "";
-    $typeUser = "";
+    $typeUser = "1";
 
     if (sizeof($_POST) == 0) {
         $email = "";
@@ -22,8 +22,16 @@
         return;
     }
 
+    if ( !isset($_POST['typeOfUser']) || empty($_POST['typeOfUser']) ) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $error = "Venligst velg en brukertype";
+        return;
+    }
+
     // Saving post as variables
     $typeUser_post = $_POST["typeOfUser"];
+    $typeUser = $typeUser_post;
     $email_post = $_POST["email"];
     $email = $email_post;
     $password_post = $_POST["password"];
