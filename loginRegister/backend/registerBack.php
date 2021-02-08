@@ -1,64 +1,116 @@
 <?php
-    include_once '../../backend/db.php';
-    include_once '../../global/global.php';
+    $error = "";
+    $email = "";
+    $name = "";
+    $typeUser = "";
 
-    // Checking if every post is not empty and existing
-    if (!existAndNotEmpty_post("typeOfUser") ||
-    !existAndNotEmpty_post("email") ||
-    !existAndNotEmpty_post("name") ||
-    !existAndNotEmpty_post("password") ||
-    !existAndNotEmpty_post("repeatPassword")) {
-        goback();
+    if (sizeof($_POST) == 0) {
+        return;
     }
 
+    if ( !isset($_POST['email']) || empty($_POST['email']) ) {
+        $error = "Venligst fyll inn epost";
+        return;
+    }
+
+    if ( !isset($_POST['name']) || empty($_POST['name']) ) {
+        $email = $_POST['email'];
+        $error = "Venligst fyll inn navn";
+        return;
+    }
+
+    if ( !isset($_POST['password']) || empty($_POST['password']) ) {
+        $email = $_POST['email'];
+        $name = $_POST['name'];
+        $error = "Venligst fyll inn passord";
+        return;
+    }
+
+    if ( !isset($_POST['repeatPassword']) || empty($_POST['repeatPassword']) ) {
+        $email = $_POST['email'];
+        $name = $_POST['name'];
+        $error = "Venligst fyll inn gjenta passord";
+        return;
+    }
+
+    if ( !isset($_POST['typeOfUser']) || empty($_POST['typeOfUser']) ) {
+        $email = $_POST['email'];
+        $name = $_POST['name'];
+        $error = "Venligst velg en brukertype";
+        return;
+    }
 
     /*TODO: Sjekke mail og passord med regex
         også sjekke med js før innsendelse*/
 
     // Saving post as variables
     $typeUser_post = $_POST["typeOfUser"];
+    $typeUser = $typeUser_post;
     $email_post = $_POST["email"];
+    $email = $email_post;
     $name_post = $_POST["name"];
+    $name = $name_post;
     $password_post = $_POST["password"];
     $repeatPassword_post = $_POST["repeatPassword"];
-    $globals["msg"] = "Your page has been updated";
     $hashPassword = password_hash($password_post, PASSWORD_DEFAULT);
 
-    // Checking if password are same
-    if ($password_post != $repeatPassword_post)
-        goback();
+    if ($password_post != $repeatPassword_post) {
+        $error = "Passordene må være like";
+        return;
+    }
 
-    // Checking if email and user type is already in the DB
-    $stmtCheckIfUserExist = "SELECT password FROM users WHERE email = ? AND typeOfUser = ?";
-    $stmtCheckIfUserExist = $conn->prepare($stmtCheckIfUserExist);
-    $stmtCheckIfUserExist->bind_param('ss', $email_post, $typeUser_post);
-    $stmtCheckIfUserExist->execute();
-    $stmtCheckIfUserExist->bind_result($password_checkInSQL);
-    $stmtCheckIfUserExist->store_result();
+    $userAlreadyExists = checkIfUsersAlreadyExists($email_post, $typeUser_post);
+    if ($userAlreadyExists) {
+        $error = "Det er allerede registrert en bruker med samme epost og brukertype";
+        return;
+    }
 
-    if ($stmtCheckIfUserExist->num_rows > 0)
-        goback();
+    insertUserInDb($email_post, $hashPassword, $name_post, $typeUser_post);
 
-    $stmtCheckIfUserExist->close();
+    function checkIfUsersAlreadyExists($email, $typeUser) {
+        include_once 'C:\xampp\htdocs\skole\leap-glocal\backend\db.php';
+        $userAlreadyExists = true;
 
-    // Inserting userdata into DB
-    $stmtInsertUserdataToDB = "INSERT INTO users (email, password, name, typeOfUser)
-                             VALUES (?, ?, ?, ?)";
-    $stmtInsertUserdataToDB = $conn->prepare($stmtInsertUserdataToDB);
-    $stmtInsertUserdataToDB->bind_param('ssss', $email_post, $hashPassword, $name_post, $typeUser_post);
-    $stmtInsertUserdataToDB->execute();
-    $stmtInsertUserdataToDB->close();
+        $conn = getDb();
 
-    // Setting session
-    include_once '../../backend/session.php';
+        // Checking if email and user type is already in the DB
+        $stmtCheckIfUserExist = "SELECT id_user FROM users 
+                                 WHERE email = ? AND typeOfUser = ?";
+        $stmtCheckIfUserExist = $conn->prepare($stmtCheckIfUserExist);
+        $stmtCheckIfUserExist->bind_param('ss', $email, $typeUser);
+        $stmtCheckIfUserExist->execute();
+        $stmtCheckIfUserExist->bind_result($idUser_fromSQL);
+        $stmtCheckIfUserExist->store_result();
 
-    setSession_register($email_post, $name_post, $hashPassword, $typeUser_post);
+        if ($stmtCheckIfUserExist->num_rows === 0)
+            return false;
 
-    //TODO: go to new site where user can pay
-        //TODO: meanwhile go to new site where user can fill out rest of info
+        return $userAlreadyExists;
+    }
 
-    // Going to register rest of userdata
-    header('LOCATION: ../registerUser.php');
+    function insertUserInDb($email, $password, $name, $typeUser) {
+        include_once 'C:\xampp\htdocs\skole\leap-glocal\backend\db.php';
+
+        $conn = getDb();
+
+        // Inserting userdata into DB
+        $stmtInsertUserdataToDB = "INSERT INTO users (email, password, name, typeOfUser)
+                                   VALUES (?, ?, ?, ?)";
+        $stmtInsertUserdataToDB = $conn->prepare($stmtInsertUserdataToDB);
+        $stmtInsertUserdataToDB->bind_param('ssss', $email, $password, $name, $typeUser);
+        $stmtInsertUserdataToDB->execute();
+        $stmtInsertUserdataToDB->close();
+
+        // Setting session
+        include_once 'C:\xampp\htdocs\skole\leap-glocal\backend\session.php';
+        setSession_register($email, $name, $password, $typeUser);
+
+        //TODO: go to new site where user can pay
+            //TODO: meanwhile go to new site where user can fill out rest of info
+
+        // Going to register rest of userdata
+        header('LOCATION: registerUser.php');
+    }
 
 
 

@@ -1,17 +1,13 @@
 <?php
     $error = "";
     $email = "";
-    $password = "";
     $typeUser = "1";
 
     if (sizeof($_POST) == 0) {
-        $email = "";
-        $password = "";
         return;
     }
 
     if ( !isset($_POST['email']) || empty($_POST['email']) ) {
-        $email = "";
         $error = "Venligst fyll inn epost";
         return;
     }
@@ -24,7 +20,6 @@
 
     if ( !isset($_POST['typeOfUser']) || empty($_POST['typeOfUser']) ) {
         $email = $_POST['email'];
-        $password = $_POST['password'];
         $error = "Venligst velg en brukertype";
         return;
     }

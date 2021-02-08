@@ -33,7 +33,7 @@
             <label for="emailLogin">Epost</label>
             <input value="<?php echo $email; ?>" type="email" id="emailLogin" name="email" placeholder="Epost" required autofocus />
             <label for="passwordLogin">Passord</label>
-            <input value="<?php echo $password; ?>" type="password" id="passwordLogin" name="password" placeholder="Passord" required />
+            <input type="password" id="passwordLogin" name="password" placeholder="Passord" required />
 
             <p id="errorMessage"><?php echo $error; ?></p>
 
