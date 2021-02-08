@@ -1,5 +1,6 @@
 <?php
     include_once '../backend/session.php';
+    include_once 'C:\xampp\htdocs\skole\leap-glocal\loginRegister\backend\loginBack.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@
     <!-- LOGIN -->
     <h1>Logg inn</h1>
     <section class="registerAndLoginForm">
-        <form action="backend/loginBack.php" method="post">
+        <form action="" method="post">
             <div class="typeOfUser">
                 <label class="typeOfUser_label" for="typeOfUser_company">Bedrift</label>
                 <input class="typeOfUser_input" type="radio" id="typeOfUser_company" name="typeOfUser" value="1" checked required />
@@ -30,9 +31,11 @@
             </div>
 
             <label for="emailLogin">Epost</label>
-            <input type="email" id="emailLogin" name="email" placeholder="Epost" required autofocus />
+            <input value="<?php echo $email; ?>" type="email" id="emailLogin" name="email" placeholder="Epost" required autofocus />
             <label for="passwordLogin">Passord</label>
-            <input type="password" id="passwordLogin" name="password" placeholder="Passord" required />
+            <input value="<?php echo $password; ?>" type="password" id="passwordLogin" name="password" placeholder="Passord" required />
+
+            <p id="errorMessage"><?php echo $error; ?></p>
 
             <button>Logg inn</button>
         </form>
