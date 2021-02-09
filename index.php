@@ -89,6 +89,18 @@
             echo 'ALDER: ' . $_SESSION['userdata']->__get('age') . '<br>';
 
             echo 'BRUKER HAR FYLT ALLE FELTER?: ' . $_SESSION['userdata']->__get('requiredColumnsFilled') . '<br>';
+
+
+            echo 'BILDE: ' . $_SESSION['userdata']->__get('image') . '<br>';
+            echo 'LAND: ' . $_SESSION['userdata']->__get('country') . '<br>';
+            echo 'FORDELER: ' . $_SESSION['userdata']->__get('benefits') . '<br>';
+            echo 'ANTALL ANSATTE: ' . $_SESSION['userdata']->__get('numOfEmp') . '<br>';
+            echo 'KJØNN: ' . $_SESSION['userdata']->__get('gender') . '<br>';
+            echo 'INDUSTRI: ' . $_SESSION['userdata']->__get('industry') . '<br>';
+            echo 'STARTUP FASE: ' . $_SESSION['userdata']->__get('startupPhase') . '<br>';
+            echo 'SER ETTER: ' . $_SESSION['userdata']->__get('lookingFor') . '<br>';
+            echo 'BUSINESSMODELL: ' . $_SESSION['userdata']->__get('businessModel') . '<br>';
+            echo 'TITTEL: ' . $_SESSION['userdata']->__get('title') . '<br>';
             
         }
     ?>

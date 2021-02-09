@@ -232,15 +232,16 @@
                                    startupPhase = ?,
                                    lookingFor = ?,
                                    businessModel = ?,
-                                   title = ?
+                                   title = ?,
+                                   numOfEmp
                                WHERE id_user = ?";
     $stmtUpdateUserdataToDB = $conn->prepare($stmtUpdateUserdataToDB);
-    $stmtUpdateUserdataToDB->bind_param('sssssssssssssssssssssss', $telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled, $image_post, $country_post, $benefits_post, $gender_post, $industry_post, $startupPhase_post, $lookingFor_post, $businessModel_post, $title_post, $userId);
+    $stmtUpdateUserdataToDB->bind_param('sssssssssssssssssssssss', $telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled, $image_post, $country_post, $benefits_post, $gender_post, $industry_post, $startupPhase_post, $lookingFor_post, $businessModel_post, $title_post, $numOfEmp_post, $userId);
     $stmtUpdateUserdataToDB->execute();
     $stmtUpdateUserdataToDB->close();
 
     // ADDING TO SESSION
-    setRestOfSession_registerFull($telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled);
+    setRestOfSession_registerFull($telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled, $image_post, $country_post, $benefits_post, $gender_post, $industry_post, $startupPhase_post, $lookingFor_post, $businessModel_post, $title_post, $numOfEmp_post);
 
     // Going back to main
     header('LOCATION: ../index.php');

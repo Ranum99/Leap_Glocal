@@ -5,7 +5,7 @@
 
     // loginUserSession("contact@ranum.com","test123");
 
-    function setRestOfSession_registerFull($telephone, $postalCode, $place, $address, $orgnumber, $rating1to5, $ratingNumberOfVoters, $specification, $levelOfXp, $webURL, $description, $age, $requiredColumnsFilled) {
+    function setRestOfSession_registerFull($telephone, $postalCode, $place, $address, $orgnumber, $rating1to5, $ratingNumberOfVoters, $specification, $levelOfXp, $webURL, $description, $age, $requiredColumnsFilled, $image, $country, $benefits, $gender, $industry, $startupPhase, $lookingFor, $businessModel, $title, $numOfEmp) {
         $_SESSION['userdata']->__set('phoneNumber', $telephone);
         $_SESSION['userdata']->__set('postalCode', $postalCode);
         $_SESSION['userdata']->__set('place', $place);
@@ -19,6 +19,17 @@
         $_SESSION['userdata']->__set('description', $description);
         $_SESSION['userdata']->__set('age', $age);
         $_SESSION['userdata']->__set('requiredColumnsFilled', $requiredColumnsFilled);
+
+        $_SESSION['userdata']->__set('image', $image);
+        $_SESSION['userdata']->__set('country', $country);
+        $_SESSION['userdata']->__set('benefits', $benefits);
+        $_SESSION['userdata']->__set('numOfEmp', $numOfEmp);
+        $_SESSION['userdata']->__set('gender', $gender);
+        $_SESSION['userdata']->__set('industry', $industry);
+        $_SESSION['userdata']->__set('startupPhase', $startupPhase);
+        $_SESSION['userdata']->__set('lookingFor', $lookingFor);
+        $_SESSION['userdata']->__set('businessModel', $businessModel);
+        $_SESSION['userdata']->__set('title', $title);
     }
 
     function setIDSession($user) {
@@ -58,13 +69,13 @@
 
         $connen = new mysqli(getHostToDatabase(), getDbUsernameToDatabase(), getDbPasswordToDatabase(), getDbNameToDatabase());
 
-        $stmtGetUserInfo = "SELECT id_user, name, phoneNumber, postalCode, place, address, orgNumber, rating1to5, rating_numberOfVoters, specification, levelOfExperience, websiteURL, description, userHasPaid, userLastPayment, durationOfLastPayment, age, requiredColumnsFilled FROM users
+        $stmtGetUserInfo = "SELECT id_user, name, phoneNumber, postalCode, place, address, orgNumber, rating1to5, rating_numberOfVoters, specification, levelOfExperience, websiteURL, description, userHasPaid, userLastPayment, durationOfLastPayment, age, requiredColumnsFilled, image, country, benefits, gender, industry, startupPhase, lookingFor, businessModel, title, numOfEmp FROM users
                                     WHERE email = ?
                                         AND typeOfUser = ?";
         $stmtGetUserInfo = $connen->prepare($stmtGetUserInfo);
         $stmtGetUserInfo->bind_param('ss', $user->__get('email'), $user->__get('typeOfUser'));
         $stmtGetUserInfo->execute();
-        $stmtGetUserInfo->bind_result($idFromSQL, $nameFromSQL, $phoneNumberFromSQL, $postalCodeFromSQL, $placeFromSQL, $addressFromSQL, $orgNumberFromSQL, $rating1to5FromSQL, $rating_numberOfVotersFromSQL, $specificationFromSQL, $levelOfExperienceFromSQL, $websiteURLFromSQL, $descriptionFromSQL, $userHasPaidFromSQL, $userLastPaymentFromSQL, $durationOfLastPaymentFromSQL, $ageFromSQL, $requiredColumnsFilled);
+        $stmtGetUserInfo->bind_result($idFromSQL, $nameFromSQL, $phoneNumberFromSQL, $postalCodeFromSQL, $placeFromSQL, $addressFromSQL, $orgNumberFromSQL, $rating1to5FromSQL, $rating_numberOfVotersFromSQL, $specificationFromSQL, $levelOfExperienceFromSQL, $websiteURLFromSQL, $descriptionFromSQL, $userHasPaidFromSQL, $userLastPaymentFromSQL, $durationOfLastPaymentFromSQL, $ageFromSQL, $requiredColumnsFilled, $imageFromSQL, $countryFromSQL, $benefitsFromSQL, $genderFromSQL, $industryFromSQL, $startupPhaseFromSQL, $lookingForFromSQL, $businessModelFromSQL, $titleFromSQL, $numOfEmpFromSQL);
         $stmtGetUserInfo->store_result();
 
         if ($stmtGetUserInfo->num_rows === 1) {
@@ -87,6 +98,18 @@
             $user->__set('durationOfLastPayment', $durationOfLastPaymentFromSQL);
             $user->__set('age', $ageFromSQL);
             $user->__set('requiredColumnsFilled', $requiredColumnsFilled);
+
+            $user->__set('image', $imageFromSQL);
+            $user->__set('country', $countryFromSQL);
+            $user->__set('benefits', $benefitsFromSQL);
+            $user->__set('numOfEmp', $numOfEmpFromSQL);
+            $user->__set('gender', $genderFromSQL);
+            $user->__set('industry', $industryFromSQL);
+            $user->__set('startupPhase', $startupPhaseFromSQL);
+            $user->__set('lookingFor', $lookingForFromSQL);
+            $user->__set('businessModel', $businessModelFromSQL);
+            $user->__set('title', $titleFromSQL);
+
             $_SESSION['userdata'] = $user;
         }
     }
