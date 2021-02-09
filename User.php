@@ -26,6 +26,17 @@ class User
     private $age = null;
     private $requiredColumnsFilled = null;
 
+    private $image = null;
+    private $country = null;
+    private $benefits = null;
+    private $numOfEmp = null;
+    private $gender = null;
+    private $industry = null;
+    private $startupPhase = null;
+    private $lookingFor = null;
+    private $businessModel = null;
+    private $title = null;
+
     private function addAllUserdataFromSessionObject($object) {
         $id_user = $object[0];
         for ($i = 0; $i < sizeof($object) ; $i++) {
