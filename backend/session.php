@@ -126,7 +126,7 @@
             header('LOCATION: /skole/leap-glocal/backend/logout.php');
         }
     }
-    if (isset($_SESSION['userdata']) && sizeof($_SESSION) > 0) {
+    if (isset($_SESSION['userdata']) || sizeof($_SESSION) > 0) {
         validSession();
     }
 
