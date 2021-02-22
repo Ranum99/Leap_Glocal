@@ -1,6 +1,6 @@
 <?php
     include_once '../backend/session.php';
-    include_once 'C:\xampp\htdocs\skole\leap-glocal\loginRegister\backend\loginBack.php';
+    include_once '\xampp\htdocs\skole\leap-glocal\loginRegister\backend\loginBack.php';
 ?>
 
 <!DOCTYPE html>

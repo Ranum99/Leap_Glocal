@@ -62,8 +62,7 @@
         return;
     }
 
-    /*TODO: Sjekke mail og passord med regex
-        også sjekke med js før innsendelse*/
+    /*TODO: sjekke med js før innsendelse*/
 
     // Saving post as variables
     $typeUser_post = $_POST["typeOfUser"];

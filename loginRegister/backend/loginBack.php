@@ -38,7 +38,7 @@
 
 
     function checkLogin($email, $typeUser, $password) {
-        include_once 'C:\xampp\htdocs\skole\leap-glocal\backend\db.php';
+        include_once '\xampp\htdocs\skole\leap-glocal\backend\db.php';
         $isValidUser = false;
 
         $conn = getDb();
@@ -59,7 +59,7 @@
             return false;
 
         // Setting session
-        include_once 'C:\xampp\htdocs\skole\leap-glocal\backend\session.php';
+        include_once '\xampp\htdocs\skole\leap-glocal\backend\session.php';
         setSession_login($email, $password_checkInSQL, $typeUser);
 
         //TODO: en sjekk for å se om medlemskap har gått ut
