@@ -1,12 +1,16 @@
-nav {
+div.navDiv {
     width: 100%;
-    margin: 0 auto 10px auto;
+    border-bottom: 1px solid black;
+    background-color: #FFFFFF;
+}
+
+nav {
+    width: 75%;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 5fr .5fr;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid black;
-    background-color: #FFFFFF;
 }
 
 nav > a > img {
