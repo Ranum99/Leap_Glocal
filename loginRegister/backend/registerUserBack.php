@@ -51,6 +51,14 @@
                 ["orgnumber", "Venligst fyll ut et organisasjonsnummer"]
             );
 
+            for ($i=0; $i < sizeof($postNameArray); $i++) {
+                $error = checkPost($postNameArray[$i]);
+                if (!$error) {
+                    $error = $postNameArray[$i][1];
+                    return;
+                }
+            }
+
 
             // Setting website url if filled
             if (isset($_POST['webURL']) && !empty($_POST['webURL']))
@@ -127,9 +135,6 @@
                 if (!$error) {
                     $error = $postNameArray[$i][1];
                     return;
-                } else {
-                    $error = null;
-                    ${$postNameArray[$i][0].'_post'} = $_POST[''.$postNameArray[$i][0].''];
                 }
             }
 
@@ -175,9 +180,6 @@
                 if (!$error) {
                     $error = $postNameArray[$i][1];
                     return;
-                } else {
-                    $error = null;
-                    ${$postNameArray[$i][0].'_post'} = $_POST[''.$postNameArray[$i][0].''];
                 }
             }
 
