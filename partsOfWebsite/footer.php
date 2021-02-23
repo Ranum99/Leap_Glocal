@@ -24,7 +24,8 @@
     echo '
     <footer class="container">
         <div class="flex-child">
-            <h1 class="h1-footer">Leap Glocal</h1>
+            <h1 class="h1-footer-logo">Leap Glocal</h1>
+            <p class="p-footer">Hjelper deg gjennom prosessen fra ide til bedrift</p>
              <script>
                 function updateGetParameter(newValue) {
                     let url = new URL(location);

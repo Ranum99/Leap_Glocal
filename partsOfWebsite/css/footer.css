@@ -31,3 +31,14 @@ footer {
 .h1-footer {
     color: #FFFFFF;
 }
+
+.h1-footer-logo {
+    color: #FFFFFF;
+    text-align: left;
+    margin-left: 20%;
+}
+
+.p-footer {
+    color: #FFFFFF;
+    font-size: 22px;
+}
