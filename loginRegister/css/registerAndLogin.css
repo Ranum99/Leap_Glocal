@@ -1,3 +1,60 @@
+#wrapper {
+    background-color: #f4f7f8;
+    padding: 10px;
+    margin: auto;
+    width: 25%;
+    border-radius: 8px;
+}
+
+select {
+    padding: 10px;
+    background-color: #e8eeef;
+    border: none;
+    color: #8a97a0;
+    margin-bottom: 10px;
+}
+
+input {
+    padding: 10px;
+    background-color: #e8eeef;
+    border: none;
+    color: #8a97a0;
+    margin-bottom: 10px;
+}
+
+input:focus {
+    outline: none;
+}
+
+select:focus {
+    border: none;
+}
+
+label {
+    display: block;
+    padding-bottom: 8px;
+}
+
+#wrapper2 {
+    margin: auto;
+    width: 95%;
+}
+
+#button {
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    background-color: #4bc970;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid #3ac162;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    margin-bottom: 10px;
+}
+
 main {
     display: flex;
     justify-content: center;

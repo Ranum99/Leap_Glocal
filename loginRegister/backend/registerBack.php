@@ -3,6 +3,7 @@
     $email = "";
     $name = "";
     $typeUser = "";
+    $msg = "";
 
     if (sizeof($_POST) == 0) {
         return;
@@ -47,8 +48,11 @@
     $password = $password_post;
 
     if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $success = "Gyldig epost";
+        // Return success - Valid Email
+        $msg = 'Din bruker har blitt opprettet, <br /> venligst bekreft brukeren ved å trykke på aktivasjonslenken som har blitt sendt til din email.';
+
     } else{
+        // Return Error - Invalid Email
         $error = "Ugyldig epost";
         return;
     }
