@@ -19,6 +19,13 @@
     <main>
         <!-- REGISTER -->
         <h1>Registrer bruker</h1>
+
+        <?php
+        if(isset($msg)){  // Check if $msg is not empty
+            echo '<div class="statusmsg">'.$msg.'</div>'; // Display our message and wrap it with a div with the class "statusmsg".
+        }
+        ?>
+
         <section class="registerAndLoginForm">
             <div class="toLoginOrRegister">
                 <h2>Allerede medlem?</h2>

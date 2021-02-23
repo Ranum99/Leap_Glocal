@@ -1,9 +1,6 @@
 <?php
     include_once '../backend/session.php';
-
-
     include_once '\xampp\htdocs\skole\leap-glocal\loginRegister\backend\registerUserBack.php';
-
 
     if ($_SESSION['userdata']->__get('typeOfUser') == 1) {
         $formOutput = '
@@ -146,20 +143,23 @@
 
     <main>
         <!-- Fill in remaining info -->
+        <div id="wrapper">
         <h1>Fyll inn resterende info</h1>
-        <form action="" method="post">
-            <label for="image_register">Bilde *</label>
-            <input type="file" accept="image/png, image/jpeg" id="image_register" name="image" required />
-            <label for="country_register">Land *</label>
-            <select id="country_register" name="country" required >
-                <option value="NOR" selected>Norge</option>
-            </select>
-            <?php echo $formOutput; ?>
 
-            <p id="errorMessage"><?php echo $error; ?></p>
+            <form action="" method="post" id="wrapper2">
+                    <label for="image_register">Bilde *</label>
+                    <input type="file" accept="image/png, image/jpeg" id="image_register" name="image" required />
+                    <label for="country_register">Land *</label>
+                    <select id="country_register" name="country" required >
+                        <option value="NOR" selected>Norge</option>
+                    </select>
+                    <?php echo $formOutput; ?>
 
-            <button>Legg til info</button>
-        </form>
+                    <p id="errorMessage"><?php echo $error; ?></p>
+
+                    <button id="button">Legg til info</button>
+            </form>
+        </div>
     </main>
 
     <!-- HERE COMES <FOOTER/> FROM PHP FILE -->
