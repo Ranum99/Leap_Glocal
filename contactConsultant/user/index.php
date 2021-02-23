@@ -29,13 +29,14 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../../global/common.css">
     <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="showMessageTemplate.js"></script>
 </head>
 <body>
 <!-- HERE COMES <NAV/> FROM PHP FILE -->
 <?php include_once "../../partsOfWebsite/nav.php"?>
 
 <main>
-    <a href="?question=true" class="asButton">Ny</a>
+    <p class="asButton" id="newQuestionBtn">Nytt spørsmål</p>
     <section id="questionsFromUser">
         <div>
             <h2>Ingen svar:</h2>
@@ -52,19 +53,20 @@
     </section>
 </main>
 
-<section>
-    <form action="backend/addQuestion.php" method="post" style="display: <?php echo $display?>">
-        <label for="typeOfSpecification"></label>
-        <select name="specification" id="typeOfSpecification">
+<section id="newQuestionSection">
+    <div></div>
+    <form action="backend/addQuestion.php" id="questionForm" method="post">
+        <label for="typeOfSpecification">Type</label>
+        <select name="specification" id="typeOfSpecification" required>
             <option value="1">IT</option>
             <option value="2">Økonomi</option>
         </select>
 
         <label for="heading">Tittel</label>
-        <input type="text" id="heading" name="heading">
+        <input type="text" id="heading" name="heading" required>
 
-        <label for="question">Tittel</label>
-        <textarea id="question" name="question"></textarea>
+        <label for="question">Spørsmål</label>
+        <textarea id="question" name="question" required></textarea>
 
         <button>Send spørsmål</button>
     </form>
