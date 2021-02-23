@@ -64,6 +64,9 @@
             $country_post = $_POST['country'];
             $telephone_post = $_POST['telephone'];
             $specification_post = $_POST['specification'];
+                $specification_post = explode(' ', $specification_post);
+                $specification_post = array_unique($specification_post);
+                $specification_post = implode('.', $specification_post);
             $numOfEmp_post = $_POST['numbOfEmp'];
             $description_post = $_POST['description'];
             $postalCode_post = $_POST['postalCode'];
@@ -143,6 +146,9 @@
             $country_post = $_POST['country'];
             $telephone_post = $_POST['telephone'];
             $specification_post = $_POST['specification'];
+            $specification_post = explode(' ', $specification_post);
+            $specification_post = array_unique($specification_post);
+            $specification_post = implode('.', $specification_post);
             $age_post = $_POST['age'];
             $levelOfXp_post = $_POST['levelOfXp'];
             $requiredColumnsFilled = 1;
@@ -188,6 +194,9 @@
             $businessModel_post = $_POST['businessModel'];
             $title_post = $_POST['title'];
             $specification_post = $_POST['specification'];
+            $specification_post = explode(' ', $specification_post);
+            $specification_post = array_unique($specification_post);
+            $specification_post = implode('.', $specification_post);
             $age_post = $_POST['age'];
             $requiredColumnsFilled = 1;
             break;

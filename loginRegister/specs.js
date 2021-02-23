@@ -1,7 +1,7 @@
 window.onload = start;
 
 function start() {
-    let specInput = document.getElementById('testSpec');
+    let specInput = document.getElementById('specification_register');
     let specOutput = document.getElementById('specOutput');
 
 
