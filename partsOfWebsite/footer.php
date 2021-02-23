@@ -22,22 +22,32 @@
     }
 
     echo '
-    <footer>
-        DETTE ER EN FOOTER        
-        <script>
-            function updateGetParameter(newValue) {
-                let url = new URL(location);
-                let url_GET_params = url.searchParams;
-            
-                url_GET_params.set("lang", newValue);
-                url.search = url_GET_params.toString();
-            
-                window.location.href = url.toString();
-            }
-        </script>
+    <footer class="container">
+        <div class="flex-child">
+            <h1 class="h1-footer">Leap Glocal</h1>
+             <script>
+                function updateGetParameter(newValue) {
+                    let url = new URL(location);
+                    let url_GET_params = url.searchParams;
+                
+                    url_GET_params.set("lang", newValue);
+                    url.search = url_GET_params.toString();
+                
+                    window.location.href = url.toString();
+                }
+             </script>
+        </div>
         
-        <form method="get" action="" id="form_lang">
-            <select name="lang" onchange="updateGetParameter(this.value)">'.$options.'</select>
-        </form>
+        <div class="flex-child">
+            <h1 class="h1-footer">Lorem Ipsum</h1>
+        </div>
+       
+        <div class="flex-child">
+            <h1 class="h1-footer">Bytt Språk</h1>
+            
+            <form method="get" action="" id="form_lang">
+                <select name="lang" onchange="updateGetParameter(this.value)">'.$options.'</select>
+            </form>
+        </div>
     </footer>
     ';
