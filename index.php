@@ -27,9 +27,8 @@
             <button>Test knapp</button>
         </div>
     </div>
-
-
     <?php echo _EMAIL?>
+
 
     <main>
         <section>
@@ -71,6 +70,7 @@
     </main>
 
     <?php
+        /*
         if (isset($_SESSION['userdata']) && sizeof($_SESSION) > 0) {
             // USER CLASS
             echo '<br><br><br>BRUKERINFO:<br><br>';
@@ -112,6 +112,7 @@
             echo 'TITTEL: ' . $_SESSION['userdata']->__get('title') . '<br>';
             
         }
+        */
     ?>
 
     <!-- HERE COMES <FOOTER/> FROM PHP FILE -->
