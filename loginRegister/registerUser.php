@@ -2,7 +2,7 @@
     include_once '../backend/session.php';
 
 
-    include_once 'C:\xampp\htdocs\skole\leap-glocal\loginRegister\backend\registerUserBack.php';
+    include_once '\xampp\htdocs\skole\leap-glocal\loginRegister\backend\registerUserBack.php';
 
 
     if ($_SESSION['userdata']->__get('typeOfUser') == 1) {

@@ -40,17 +40,35 @@
         return;
     }
 
-    /*TODO: Sjekke mail og passord med regex
-        også sjekke med js før innsendelse*/
+    // Saving post as variables
+    $email_post = $_POST["email"];
+    $email = $email_post;
+    $password_post = $_POST["password"];
+    $password = $password_post;
+
+    if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $success = "Gyldig epost";
+    } else{
+        $error = "Ugyldig epost";
+        return;
+    }
+
+    $uppercase = preg_match('@[A-Z]@', $password);
+    $lowercase = preg_match('@[a-z]@', $password);
+    $number    = preg_match('@[0-9]@', $password);
+
+    if(!$uppercase || !$lowercase || !$number || strlen($password) < 8) {
+        $error = "Ugyldig passord";
+        return;
+    }
+
+    /*TODO: sjekke med js før innsendelse*/
 
     // Saving post as variables
     $typeUser_post = $_POST["typeOfUser"];
     $typeUser = $typeUser_post;
-    $email_post = $_POST["email"];
-    $email = $email_post;
     $name_post = $_POST["name"];
     $name = $name_post;
-    $password_post = $_POST["password"];
     $repeatPassword_post = $_POST["repeatPassword"];
     $hashPassword = password_hash($password_post, PASSWORD_DEFAULT);
 
@@ -68,7 +86,7 @@
     insertUserInDb($email_post, $hashPassword, $name_post, $typeUser_post);
 
     function checkIfUsersAlreadyExists($email, $typeUser) {
-        include_once 'C:\xampp\htdocs\skole\leap-glocal\backend\db.php';
+        include_once '\xampp\htdocs\skole\leap-glocal\backend\db.php';
         $userAlreadyExists = true;
 
         $conn = getDb();
@@ -89,7 +107,7 @@
     }
 
     function insertUserInDb($email, $password, $name, $typeUser) {
-        include_once 'C:\xampp\htdocs\skole\leap-glocal\backend\db.php';
+        include_once '\xampp\htdocs\skole\leap-glocal\backend\db.php';
 
         $conn = getDb();
 
@@ -102,7 +120,7 @@
         $stmtInsertUserdataToDB->close();
 
         // Setting session
-        include_once 'C:\xampp\htdocs\skole\leap-glocal\backend\session.php';
+        include_once '\xampp\htdocs\skole\leap-glocal\backend\session.php';
         setSession_register($email, $name, $password, $typeUser);
 
         //TODO: go to new site where user can pay
