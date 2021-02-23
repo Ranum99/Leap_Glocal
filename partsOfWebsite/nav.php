@@ -17,8 +17,8 @@
                     <a href="">Støtteordninger</a>
                     <a href="\skole\leap-glocal\contactConsultant\user\">Kontakt en konsulent</a>
                 </section>
-                <section>
-                    <a class="asButton" href="/skole/leap-glocal/profile.php?user='.$hassedUserId.'">'.$_SESSION['userdata']->__get('name').'</a>
+                <section style="font-size: 0.5rem;">
+                    <a class="profileButton" href="/skole/leap-glocal/profile.php?user='.$hassedUserId.'"> <i class="fas fa-user-circle fa-7x"></i></a>
                 </section>
             </nav>
         </div>

@@ -17,6 +17,11 @@ main {
     margin: 0 auto;
 }
 
+.profileButton {
+    border: none;
+    color: black;
+}
+
 .asButton {
     border: 2px solid black !important;
     border-radius: 5px;

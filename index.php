@@ -16,6 +16,8 @@
     <script type="text/javascript" src="search/scripts.js"></script>
     <!-- Including CSS file. -->
     <link rel="stylesheet" type="text/css" href="search/style.css">
+
+    <script src="https://kit.fontawesome.com/397d207bea.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="banner-bilde">

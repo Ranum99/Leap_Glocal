@@ -55,6 +55,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="global/common.css">
+    <script src="https://kit.fontawesome.com/397d207bea.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- HERE COMES <NAV/> FROM PHP FILE -->
