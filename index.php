@@ -27,8 +27,6 @@
             <button>Test knapp</button>
         </div>
     </div>
-    <?php echo _EMAIL?>
-
 
     <main>
         <section>
