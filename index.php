@@ -18,8 +18,17 @@
     <link rel="stylesheet" type="text/css" href="search/style.css">
 </head>
 <body>
-    <!-- HERE COMES <NAV/> FROM PHP FILE -->
-    <?php include_once "partsOfWebsite/nav.php" ?>
+    <div class="banner-bilde">
+        <!-- HERE COMES <NAV/> FROM PHP FILE -->
+        <?php include_once "partsOfWebsite/nav.php" ?>
+        <div class="banner-tekst">
+            <h1>Dette er en test</h1>
+            <p>Dette er en test</p>
+            <button>Test knapp</button>
+        </div>
+    </div>
+
+
     <?php echo _EMAIL?>
 
     <main>
