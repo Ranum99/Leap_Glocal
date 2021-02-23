@@ -1,13 +1,36 @@
 nav {
     width: 75%;
     margin: 0 auto 10px auto;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 5fr .5fr;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid black;
 }
 
 nav > a > img {
-    width: 50%;
+    width: 75%;
+}
+
+nav > section.mainNavigation {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+nav > section.mainNavigation > a {
+    margin: auto;
+    text-decoration: none;
+    color: black;
+    font-variant: all-petite-caps;
+    font-weight: 900;
+    font-size: 25px;
+}
+
+nav > section.mainNavigation > a:hover {
+    text-decoration: underline;
+    color: gray;
+}
+
+nav > section.mainNavigation > a:active {
+    color: lightgray;
 }
