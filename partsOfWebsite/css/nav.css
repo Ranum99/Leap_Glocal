@@ -38,3 +38,5 @@ nav > section.mainNavigation > a:hover {
 nav > section.mainNavigation > a:active {
     color: lightgray;
 }
+
+.asButton {}
