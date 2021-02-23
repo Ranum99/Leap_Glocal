@@ -22,7 +22,7 @@
     }
 
     if (isset($_SESSION['userdata']) && sizeof($_SESSION) > 0) {
-        $hassedUserId = urlencode(password_hash($_SESSION['userdata']->__get('id_user'), PASSWORD_DEFAULT));
+        $hassedUserId = md5($_SESSION['userdata']->__get('id_user'));
         $linkForConsultant = '';
 
         if ($_SESSION['userdata']->__get('typeOfUser') == 2) {

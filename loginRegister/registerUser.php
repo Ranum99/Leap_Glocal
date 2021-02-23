@@ -5,14 +5,11 @@
     if ($_SESSION['userdata']->__get('typeOfUser') == 1) {
         $formOutput = '
             <label for="telefon_register">Telefon *</label>
-            <input type="tel" id="telefon_register" name="telephone" required placeholder="123 45 678" />
+            <input type="tel" id="telefon_register" name="telephone" required placeholder="123 45 678" />      
 
-            <label for="specification_register">Spesifikasjon *</label>
-            <select id="specification_register" name="specification" required>
-                <option value="1" selected>Litt</option>
-                <option value="2">Mer</option>
-                <option value="3">Mest</option>
-            </select>
+            <label for="specification_register">Spesifikasjoner:</label>
+            <input type="text" id="specification_register" name="specification" required>
+            <div id="specOutput"></div>
             
             <label for="numbOfEmp_register">Antall ansatte *</label>
             <select id="numbOfEmp_register" name="numbOfEmp" required>
@@ -44,14 +41,11 @@
     } else if ($_SESSION['userdata']->__get('typeOfUser') == 2) {
         $formOutput = '
             <label for="telefon_register">Telefon *</label>
-            <input type="tel" id="telefon_register" name="telephone" required placeholder="123 45 678" />
+            <input type="tel" id="telefon_register" name="telephone" required placeholder="123 45 678" />      
 
-            <label for="specification_register">Spesifikasjon *</label>
-            <select id="specification_register" name="specification" required>
-                <option value="1" selected>Litt</option>
-                <option value="2">Mer</option>
-                <option value="3">Mest</option>
-            </select>
+            <label for="specification_register">Spesifikasjoner:</label>
+            <input type="text" id="specification_register" name="specification" required>
+            <div id="specOutput"></div>
 
             <label for="description_register">Beskrivelse</label>
             <textarea id="description_register" name="description" required placeholder="En beskrivelse av bedriften"></textarea>
@@ -124,12 +118,9 @@
             <label for="title_register">Tittel *</label>
             <input type="text" id="title_register" name="title"  placeholder="CEO" required />      
 
-            <label for="specification_register">Spesifikasjon *</label>
-            <select id="specification_register" name="specification" required >
-                <option value="1" selected>Litt</option>
-                <option value="2">Mer</option>
-                <option value="3">Mest</option>
-            </select>
+            <label for="specification_register">Spesifikasjoner:</label>
+            <input type="text" id="specification_register" name="specification" required>
+            <div id="specOutput"></div>
 
             <label for="age_register">Alder *</label>
             <input type="number" id="age_register" name="age"  placeholder="18" required />
@@ -156,10 +147,6 @@
         <h1>Fyll inn resterende info</h1>
 
             <form action="" method="post" id="wrapper2">
-                    <label for="testSpec">Spesifikasjoner:</label>
-                    <input type="text" id="testSpec" name="testSpec">
-                    <div id="specOutput"></div>
-
                     <label for="image_register">Bilde *</label>
                     <input type="file" accept="image/png, image/jpeg" id="image_register" name="image" required />
                     <label for="country_register">Land *</label>

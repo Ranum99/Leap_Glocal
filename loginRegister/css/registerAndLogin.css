@@ -66,6 +66,24 @@ main {
     color: red;
 }
 
+
+#specOutput {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#specOutput > p {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #42a7f5;
+    padding: 2.5px;
+}
+
+#specOutput > p:nth-of-type(n + 2) {
+    margin-left: 5px;
+}
+
 h1 {
     text-align: center;
     margin: 0;
