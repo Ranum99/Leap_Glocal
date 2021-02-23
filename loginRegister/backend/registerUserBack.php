@@ -73,23 +73,24 @@
             $requiredColumnsFilled = 1;
 
             // Checking if telephoneNumber is 8
-            if (sizeof($telephone_post) != 8) {
+            if (strlen($telephone_post) != 8) {
                 $error = "Telefonnummer må være 8 siffre";
                 return;
             }
             // Checking if postalCode is 4
-            if (sizeof($postalCode_post) != 4) {
+            if (strlen($postalCode_post) != 4) {
                 $error = "Postnummer må være 4 siffre";
                 return;
             }
             // Checking if orgNumber is 9
-            if (sizeof($orgnumber_post) != 9) {
+            if (strlen($orgnumber_post) != 9) {
                 $error = "Organisasjonsnummer må være 9 siffre";
                 return;
             }
 
             //TODO: kanskje sjekke om addresse faktisk finnes????? (ikke prioritert)
 
+            $conn = getDb();
             // CHECKING IG POSTAL CODE IS VALID
             $stmtCheckPostalInDB = "SELECT postalAddress FROM postal
                                     WHERE postalCode = ?";
@@ -233,10 +234,10 @@
                                    lookingFor = ?,
                                    businessModel = ?,
                                    title = ?,
-                                   numOfEmp
+                                   numOfEmp = ?
                                WHERE id_user = ?";
     $stmtUpdateUserdataToDB = $conn->prepare($stmtUpdateUserdataToDB);
-    $stmtUpdateUserdataToDB->bind_param('sssssssssssssssssssssss', $telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled, $image_post, $country_post, $benefits_post, $gender_post, $industry_post, $startupPhase_post, $lookingFor_post, $businessModel_post, $title_post, $numOfEmp_post, $userId);
+    $stmtUpdateUserdataToDB->bind_param('ssssssssssssssssssssssss', $telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled, $image_post, $country_post, $benefits_post, $gender_post, $industry_post, $startupPhase_post, $lookingFor_post, $businessModel_post, $title_post, $numOfEmp_post, $userId);
     $stmtUpdateUserdataToDB->execute();
     $stmtUpdateUserdataToDB->close();
 

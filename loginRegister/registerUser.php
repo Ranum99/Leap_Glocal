@@ -147,6 +147,7 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../global/common.css">
     <link rel="stylesheet" type="text/css" href="css/registerAndLogin.css">
+    <script src="specs.js"></script>
 </head>
 <body>
     <!-- HERE COMES <NAV/> FROM PHP FILE -->
@@ -156,6 +157,11 @@
         <!-- Fill in remaining info -->
         <h1>Fyll inn resterende info</h1>
         <form action="" method="post">
+
+            <label for="testSpec">Spesifikasjoner:</label>
+            <input type="text" id="testSpec" name="testSpec">
+            <div id="specOutput"></div>
+
             <label for="image_register">Bilde *</label>
             <input type="file" accept="image/png, image/jpeg" id="image_register" name="image" required />
             <label for="country_register">Land *</label>
