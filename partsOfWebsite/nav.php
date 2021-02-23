@@ -18,7 +18,7 @@
                     <a href="\skole\leap-glocal\contactConsultant\user\">Kontakt en konsulent</a>
                 </section>
                 <section>
-                    <a class="asButton" href="/skole/leap-glocal/profile.php?user='.$hassedUserId.'">'.$_SESSION['userdata']->__get('name').'</a>
+                    <a class="asButton" href="/skole/leap-glocal/profile.php?user='.$hassedUserId.'">Min profil</a>
                 </section>
             </nav>
         </div>
