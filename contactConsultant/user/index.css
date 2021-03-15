@@ -1,23 +1,40 @@
 #questionsFromUser {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
 }
 
-#questionsFromUser > div {
-    width: calc(100% / 3);
-    margin: 0 10px;
+
+#questionsFromUser > div:not(:first-of-type) {
+    border-left: 2px dotted black;
+    padding-left: 10px;
 }
 
 #questionsFromUser > div > article {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
 }
 
-#questionsFromUser > div > article:nth-of-type(n) {
-    margin: 1px 0;
-    border: 1px solid black;
+#questionsFromUser > div > article:not(:last-of-type) {
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+#questionsFromUser > div > article:not(:last-of-type) {
+    margin-bottom: 10px;
+}
+
+#questionsFromUser > div:not(:nth-of-type(2)) > article > div:last-of-type,
+#questionsFromUser > div:not(:nth-of-type(2)) > article > div:last-of-type {
+    border-left: 2px dotted black;
+    margin: 0;
+    padding: 10px 0 10px 10px;
+}
+
+#questionsFromUser > div > article > div:last-of-type > p,
+#questionsFromUser > div > article > div:last-of-type > a {
+    margin: 0;
+    color: black;
 }
 
 #questionsFromUser > div > article > div {
@@ -26,17 +43,44 @@
     justify-content: center;
 }
 
+#questionsFromUser > div > article > div > h2 {
+    margin: 0;
+    padding: 10px 0;
+    text-decoration: underline;
+}
+
+#questionsFromUser > div > article > div > p {
+    margin: 0;
+    padding: 0 10px 10px 0;
+}
+
 #questionsFromUser > div > article > ul {
-    padding-left: 0;
+    padding: 10px;
+    margin: 0;
+    border-left: 2px dotted black;
 }
 
 #questionsFromUser > div > article > ul > li {
     list-style: none;
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
-    padding: 3px;
-    margin: 2px 0;
+    padding: 10px 0;
+}
+
+#questionsFromUser > div > article > ul > li:first-of-type {
+    padding: 0 0 10px 0;
+}
+
+#questionsFromUser > div > article > ul > li:last-of-type {
+    padding: 10px 0 0 0;
+}
+
+#questionsFromUser > div > article > ul > li:not(:last-of-type) {
+    border-bottom: 2px dotted black;
+}
+
+#questionsFromUser > div > article > ul > li > div > a {
+    color: black;
 }
 
 
