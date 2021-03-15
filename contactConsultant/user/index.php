@@ -30,6 +30,8 @@
     <link rel="stylesheet" type="text/css" href="../../global/common.css">
     <link rel="stylesheet" type="text/css" href="index.css">
     <script src="showMessageTemplate.js"></script>
+
+    <script src="https://kit.fontawesome.com/397d207bea.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <!-- HERE COMES <NAV/> FROM PHP FILE -->

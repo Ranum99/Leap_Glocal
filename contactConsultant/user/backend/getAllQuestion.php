@@ -42,7 +42,7 @@
                 ';
 
                 if ($isAnswered != null)
-                    $output .= "<p>Svart</p>";
+                    $output .= getIsAnswered($id_questionFromSQL);
                 else {
                     $isOffer = getAllOffers($id_questionFromSQL)[0];
                     $output .= getAllOffers($id_questionFromSQL)[1];
@@ -58,6 +58,25 @@
                     array_push($hasOffers, $output);
             }
         }
+    }
+
+    function getIsAnswered ($id_question) {
+        include_once '\xampp\htdocs\skole\leap-glocal\backend\db.php';
+
+        $connen = new mysqli(getHostToDatabase(), getDbUsernameToDatabase(), getDbPasswordToDatabase(), getDbNameToDatabase());
+        // Getting all offers for question/help
+        $stmtGetAllQuestionForUser = "SELECT name, id_user FROM question_to_consultant
+                                      INNER JOIN consultant_answer_job ON isAnswered = id_consultant_answer_job
+                                          INNER JOIN users ON id_user = id_consultant
+                                      WHERE question_to_consultant.id_question_to_consultant = ?";
+        $stmtGetAllQuestionForUser = $connen->prepare($stmtGetAllQuestionForUser);
+        $stmtGetAllQuestionForUser->bind_param('s', $id_question);
+        $stmtGetAllQuestionForUser->execute();
+        $stmtGetAllQuestionForUser->bind_result($nameUserFromSQL, $userIdFromSQL);
+        $stmtGetAllQuestionForUser->store_result();
+        $stmtGetAllQuestionForUser->fetch();
+
+        return '<div><a href="">Samtale med: '.$nameUserFromSQL.'</a></div>';
     }
 
     function getAllOffers($id_question) {
@@ -81,12 +100,12 @@
         if ($stmtGetAllQuestionForUser->num_rows > 0) {
             $return .= '<ul>';
             while ($stmtGetAllQuestionForUser->fetch()) {
-                $hassedUserId = urlencode(password_hash($idConsultantFromSQL, PASSWORD_DEFAULT));
+                $hassedUserId = md5($idConsultantFromSQL);
                 $return .= '<li value="'.$id_offerFromSQL.'"><div>'.$priceFromSQL.' kr from <a href="../../profile.php?user='.$hassedUserId.'">'.$nameUserFromSQL.'</a></div><a href="backend/userChooseAnswer.php?question='.$id_question.'&answer='.$id_offerFromSQL.'" class="asButton">Velg denne</a></li>';
             }
             $return .= '</ul>';
         } else {
-            $return = '<p>Ingen svar enda</p>';
+            $return = '<div><p>Ingen svar enda</p></div>';
             $isOffer = false;
         }
 
