@@ -20,33 +20,26 @@
     <script src="https://kit.fontawesome.com/397d207bea.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="banner-bilde">
+    <div id="banner-bilde-forside">
         <!-- HERE COMES <NAV/> FROM PHP FILE -->
         <?php include_once "partsOfWebsite/nav.php" ?>
         <div class="banner-tekst">
-            <h1>Dette er en test</h1>
-            <p>Dette er en test</p>
-            <button>Test knapp</button>
-        </div>
-    </div>
+            <h1 id="sporsmalOverskrift">Her finner du svar på alle dine spørsmål</h1>
 
-    <main>
-        <section>
-            <h2 id="sporsmalOverskrift">Her finner du svar på alle dine spørsmål</h2>
             <article id="searchBox">
                 <div>
                     <!-- Search box. -->
-                    <input type="text" id="search" placeholder="Hva lurer du på?" autocomplete="off" />
-
+                    <input type="search" id="search" placeholder="Hva lurer du på?" autocomplete="off" />
                     <button id="mainSearchButton">Søk</button>
                     <br />
                     <!-- Suggestions will be displayed in below div. -->
                     <div id="display"></div>
                 </div>
             </article>
-            <!-- Kalender -->
-        </section>
+        </div>
+    </div>
 
+    <main>
         <section>
             <div id="functions">
                 <a href="">

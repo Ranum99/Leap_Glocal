@@ -1,5 +1,5 @@
 input {
-    border: 1px solid black;
+    border: none;
     height: 50px;
     width: 450px;
     font-size: 22px;
@@ -24,6 +24,7 @@ main {
     background: white;
     width: 450px;
     font-size: 22px;
+    text-align: left;
 }
 
 li {
@@ -43,12 +44,12 @@ ul {
 
 #mainSearchButton {
     width: 100px;
-    height: 55px;
-    margin-left: 10px;
+    height: 50px;
+    margin-left: -15px;
     background: #42a7f5;
     color: white;
     border: none;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 #searchBox {
