@@ -26,8 +26,8 @@
         <div class="banner-tekst">
             <h1 id="sporsmalOverskrift">Her finner du svar på alle dine spørsmål</h1>
 
-            <article id="searchBox">
-                <div>
+            <article>
+                <div class="searchBox">
                     <!-- Search box. -->
                     <input type="search" id="search" placeholder="Hva lurer du på?" autocomplete="off" />
                     <button id="mainSearchButton">Søk</button>
@@ -40,6 +40,59 @@
     </div>
 
     <main>
+        <section>
+            <div class="flex-container">
+                <div class="flex-child">
+                    <br><br>
+                    <h3>Finn andre gründere</h3>
+                    <p>Her kan du søke på andre gründere nært og fjernt med samme ideer for å muligens få noe hjelp.</p>
+                    <a href="/"><button class="bn632-hover bn26">Les mer</button></a>
+                </div>
+                <div class="fill">
+                    <img src="img/gründere.jpg" alt="Bilde av gründere">
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="flex-container">
+                <div class="fill">
+                    <img src="img/akselerator.jpg" alt="Bilde av akselerator">
+                </div>
+                <div class="flex-child">
+                    <br><br>
+                    <h3>Gründerhuber og akseleratorer</h3>
+                    <p>Meld deg på forskjellige gründerhubber og akseleratorer nært og fjernt for å finne gode ideer til din startup.</p>
+                    <a href="/"><button class="bn632-hover bn26">Les mer</button></a>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="flex-container">
+                <div class="flex-child">
+                    <br><br>
+                    <h3>Støtteordninger</h3>
+                    <p>Nettopp startet opp eller langt ut i prosessen, men ikke er helt sikker på hvilken rettigheter på støtte du har?</p>
+                    <a href="/"><button class="bn632-hover bn26">Les mer</button></a>
+                </div>
+                <div class="fill">
+                    <img src="img/penger.jpg" alt="Bilde av penger">
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="flex-container">
+                <div class="fill">
+                    <img src="img/konsulent.jpg" alt="Bilde av penger">
+                </div>
+                <div class="flex-child">
+                    <br><br>
+                    <h3>Kontakt en konsulent</h3>
+                    <p>Har du et spørsmål du ikke finner svaret på, eller noe som trenger spesialkompetanse, kontakt en kompetent konsulent her.</p>
+                    <a href="/"><button class="bn632-hover bn26">Les mer</button></a>
+                </div>
+            </div>
+        </section>
+        <!--
         <section>
             <div id="functions">
                 <a href="">
@@ -59,7 +112,9 @@
                     <p>Har du et spørsmål du ikke finner svaret på, eller noe som trenger spesialkompetanse, kotakt en kompetent konsulent her.</p>
                 </a>
             </div>
-        </section>
+        </section> -->
+
+
     </main>
 
     <?php

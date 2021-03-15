@@ -1,10 +1,12 @@
 input {
     border: none;
     height: 50px;
-    width: 450px;
+    min-width: 150px;
     font-size: 22px;
     padding: 10px;
-    border-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    flex-grow: 1;
 }
 
 input:focus {
@@ -16,7 +18,7 @@ body {
 }
 
 main {
-    width: 75%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -45,17 +47,16 @@ ul {
 #mainSearchButton {
     width: 100px;
     height: 50px;
-    margin-left: -15px;
     background: #42a7f5;
     color: white;
     border: none;
     font-size: 22px;
 }
 
-#searchBox {
+.searchBox {
+    display: flex;
     width: 65%;
     margin: 10px auto;
-    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
@@ -66,5 +67,22 @@ ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 1150px) {
+    #mainSearchButton {
+        display: none;
+    }
+
+    input {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    #sporsmalOverskrift {
+        font-size: 35px;
+    }
 }
 

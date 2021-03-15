@@ -29,9 +29,9 @@
             <nav>
                 <a href="/skole/leap-glocal"><img alt="Leap Glocal logo" src="/skole/leap-glocal/img/leap_logo_full.png"></a>
                 <section>NAV ELEMENTER</section>
-                <section>
-                    <a class="asButton" href="/skole/leap-glocal/loginRegister/login.php">Logg inn</a>
-                    <a class="asButton" href="/skole/leap-glocal/loginRegister/register.php">Bli medlem</a>
+                <section class="buttonWrapper">
+                    <a class="loginBtn" href="/skole/leap-glocal/loginRegister/login.php">Logg inn</a>
+                    <a class="registerBtn" href="/skole/leap-glocal/loginRegister/register.php">Bli medlem</a>
                 </section>
             </nav>
         </div>

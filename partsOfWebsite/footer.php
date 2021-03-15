@@ -24,8 +24,8 @@
     echo '
     <footer class="container">
         <div class="flex-child">
-            <h1 class="h1-footer-logo">Leap Glocal</h1>
-            <p class="p-footer">Hjelper deg gjennom prosessen fra ide til bedrift</p>
+            <h1 class="h1-footer-logo">LEAP GLOCAL</h1>
+            <p class="p-footer">Vi hjelper deg gjennom prosessen fra ide til bedrift</p>
              <script>
                 function updateGetParameter(newValue) {
                     let url = new URL(location);
@@ -40,11 +40,15 @@
         </div>
         
         <div class="flex-child">
-            <h1 class="h1-footer">Lorem Ipsum</h1>
+            <h1 class="h1-footer">Meny</h1>
+            <ul>
+                <li>TODO</li>
+                <li>TODO</li>
+            </ul>
         </div>
        
         <div class="flex-child">
-            <h1 class="h1-footer">Bytt Språk</h1>
+            <h1 class="h1-footer">Bytt språk</h1>
             
             <form method="get" action="" id="form_lang">
                 <select name="lang" onchange="updateGetParameter(this.value)">'.$options.'</select>

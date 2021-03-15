@@ -1,6 +1,6 @@
 div.navDiv {
     width: 100%;
-    background-color: #FFFFFF;
+    background-color: #2A2C2F;
 }
 
 nav {
@@ -24,10 +24,14 @@ nav > section.mainNavigation {
 nav > section.mainNavigation > a {
     margin: auto;
     text-decoration: none;
-    color: black;
+    color: #FFFFFF;
     font-variant: all-petite-caps;
     font-weight: 900;
     font-size: 25px;
+}
+
+section {
+    color: #FFFFFF;
 }
 
 nav > section.mainNavigation > a:hover {
@@ -38,5 +42,3 @@ nav > section.mainNavigation > a:hover {
 nav > section.mainNavigation > a:active {
     color: lightgray;
 }
-
-.asButton {}
