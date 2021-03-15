@@ -2,10 +2,10 @@
 
     if (isset($_SESSION['userdata']) && sizeof($_SESSION) > 0) {
         $hassedUserId = md5($_SESSION['userdata']->__get('id_user'));
-        $linkForConsultant = '';
+        $linkForConsultant = '<a href="\skole\leap-glocal\contactConsultant\user\">Kontakt en konsulent</a>';
 
         if ($_SESSION['userdata']->__get('typeOfUser') == 2) {
-            $linkForConsultant = '<a href="\skole\leap-glocal\contactConsultant\consultant\index.php">Mulige spørsmål</a>';
+            $linkForConsultant = '<a href="\skole\leap-glocal\contactConsultant\consultant\">Mulige spørsmål</a>';
         }
         echo '
         <div class="navDiv">
@@ -15,7 +15,7 @@
                     <a href="">Finn andre gründere</a>
                     <a href="">Gründerhubber/akseleratorer</a>
                     <a href="">Støtteordninger</a>
-                    <a href="\skole\leap-glocal\contactConsultant\user\">Kontakt en konsulent</a>
+                    '.$linkForConsultant.'
                 </section>
                 <section style="font-size: 0.5rem;">
                     <a class="profileButton" href="/skole/leap-glocal/profile.php?user='.$hassedUserId.'"> <i class="fas fa-user-circle fa-7x"></i></a>
