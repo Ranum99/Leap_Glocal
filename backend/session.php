@@ -135,9 +135,9 @@
         $connen = new mysqli(getHostToDatabase(), getDbUsernameToDatabase(), getDbPasswordToDatabase(), getDbNameToDatabase());
 
         $stmtCheckIfValidSESSION = "SELECT requiredColumnsFilled FROM users
-                                            WHERE id_user = ?
-                                                AND email = ?
-                                                AND typeOfUser = ?;";
+                                    WHERE id_user = ?
+                                        AND email = ?
+                                        AND typeOfUser = ?;";
         $stmtCheckIfValidSESSION = $connen->prepare($stmtCheckIfValidSESSION);
         $stmtCheckIfValidSESSION->bind_param('sss', $id_user, $email, $typeOfUser);
         $stmtCheckIfValidSESSION->execute();
@@ -149,7 +149,7 @@
             header('LOCATION: /skole/leap-glocal/backend/logout.php');
         }
     }
-    if (isset($_SESSION['userdata']) || sizeof($_SESSION) > 0) {
+    if (isset($_SESSION['userdata']) && sizeof($_SESSION) > 0) {
         validSession();
     }
 

@@ -3,8 +3,37 @@
     flex-direction: column;
 }
 
-#questionsFromUsers > article > article {
+#questionsFromUsers > article > div {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+#questionsFromUsers > article > div > article {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr;
+    border: 1px solid black;
+}
+
+#questionsFromUsers > article > div > article > div > h2 {
+    padding: 10px;
+    margin: 0;
+}
+
+#questionsFromUsers > article > div > article > div > p {
+    margin: 0;
+    padding: 0 10px 10px 10px;
+}
+
+#questionsFromUsers > article:nth-of-type(-n + 2) > div > article > div:last-of-type {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+}
+
+#questionsFromUsers > article:last-of-type > div > article > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
