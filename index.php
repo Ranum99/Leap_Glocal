@@ -9,14 +9,10 @@
     <title>Hovedside</title>
     <link rel="stylesheet" type="text/css" href="global/common.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-
-    <!-- Including jQuery is required. -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <!-- Including our scripting file. -->
-    <script type="text/javascript" src="search/scripts.js"></script>
-    <!-- Including CSS file. -->
     <link rel="stylesheet" type="text/css" href="search/style.css">
 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="search/scripts.js"></script>
     <script src="https://kit.fontawesome.com/397d207bea.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -62,7 +58,7 @@
                     <br><br>
                     <h3>Gründerhuber og akseleratorer</h3>
                     <p>Meld deg på forskjellige gründerhubber og akseleratorer nært og fjernt for å finne gode ideer til din startup.</p>
-                    <a href="/"><button class="bn632-hover bn26">Les mer</button></a>
+                    <a href="partsOfWebsite/calender.php"><button class="bn632-hover bn26">Les mer</button></a>
                 </div>
             </div>
         </section>

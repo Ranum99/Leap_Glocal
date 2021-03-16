@@ -17,6 +17,8 @@
 <?php include_once "../partsOfWebsite/nav.php"?>
 
 <main>
+    <div class="spacer"></div>
+
     <!-- LOGIN -->
     <h1>Logg inn</h1>
     <section class="registerAndLoginForm">
@@ -38,11 +40,12 @@
             <p id="errorMessage"><?php echo $error; ?></p>
 
             <button>Logg inn</button>
+
         </form>
         <div class="toLoginOrRegister">
             <h2>Enda ikke medlem?</h2>
             <p>For å starte reisen med oss, venligst registrer deg ved å trykke på knappen under.</p>
-            <a class="asButton" href="register.php">Bli medlem</a>
+            <a href="register.php" class="bn1">Bli medlem</a>
         </div>
     </section>
 </main>

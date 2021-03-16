@@ -17,6 +17,8 @@
     <?php include_once "../partsOfWebsite/nav.php"?>
 
     <main>
+        <div class="spacer"></div>
+
         <!-- REGISTER -->
         <h1>Registrer bruker</h1>
 
@@ -30,7 +32,7 @@
             <div class="toLoginOrRegister">
                 <h2>Allerede medlem?</h2>
                 <p>For å fortsette reisen med oss, venligst logg inn ved å trykke på knappen under.</p>
-                <a class="asButton" href="login.php">Logg inn</a>
+                <a href="login.php" class="bn1">Logg inn</a>
             </div>
             <form action="" method="post">
                 <div class="typeOfUser">
@@ -56,6 +58,9 @@
                 <button>Registrer</button>
             </form>
         </section>
+
+
+        <div class="spacer"></div>
     </main>
 
     <!-- HERE COMES <FOOTER/> FROM PHP FILE -->
