@@ -38,7 +38,7 @@ footer {
     margin: 0 0 0 5%;
 }
 
-li {
+footer > div > ul > li {
     list-style: none;
     color: #878787;
     font-size: 22px;
