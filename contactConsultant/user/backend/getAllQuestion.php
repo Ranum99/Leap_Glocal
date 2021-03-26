@@ -76,7 +76,7 @@
         $stmtGetAllQuestionForUser->store_result();
         $stmtGetAllQuestionForUser->fetch();
 
-        return '<div><a href="">Samtale med: '.$nameUserFromSQL.'</a></div>';
+        return '<div><a href="http://localhost/skole/leap-glocal/messenger/?message=1">Samtale med: '.$nameUserFromSQL.'</a></div>';
     }
 
     function getAllOffers($id_question) {

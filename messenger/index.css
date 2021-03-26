@@ -1,0 +1,73 @@
+main {
+    width: 75%;
+    margin: 10px auto;
+}
+
+main > section:last-of-type {
+    width: 50%;
+    margin: 0 auto;
+    border: 2.5px solid black;
+}
+
+main > section > div {
+    padding: 10px;
+}
+
+main > section > div:not(:last-of-type) {
+    border-bottom: 2.5px solid black;
+}
+
+main > section > div.messengerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main > section > div.task > p {
+    margin: 0;
+    padding: 0;
+    font-style: italic;
+}
+
+main > section > div.task > p > span {
+    font-style: normal;
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+main > section > div.messages {
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+
+main > section > div.messages > p {
+    padding: 5px;
+    margin: 0;
+    width: fit-content;
+    max-width: 70%;
+    border-radius: 10px;
+}
+
+main > section > div.messages > p:not(:last-of-type) {
+    margin: 0 0 10px 0;
+}
+
+main > section > div.messages > p.sent {
+    background-color: #3f86ed;
+    margin-left: auto;
+}
+
+main > section > div.messages > p.received {
+    background-color: crimson;
+    margin-right: auto;
+}
+
+main > section > div.sendingMessage > form {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-gap: 10px;
+}
+
+main > section > div.sendingMessage > form > label > input {
+    width: 100%;
+}
