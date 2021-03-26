@@ -95,6 +95,9 @@
     <link rel="stylesheet" type="text/css" href="../global/common.css">
     <link rel="stylesheet" type="text/css" href="index.css">
 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="getMessages.js"></script>
+
     <script src="https://kit.fontawesome.com/397d207bea.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -111,7 +114,7 @@
                 <p><span class="thickBoi">Oppdrag:</span> <?php echo $question; ?></p>
             </div>
 
-            <div class="messages">
+            <div class="messages" id="messagesHere">
                 <?php echo $messageOutput; ?>
             </div>
 
