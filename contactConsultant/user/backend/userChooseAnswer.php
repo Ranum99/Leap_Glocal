@@ -9,8 +9,12 @@
     if (!isset($_GET['answer']) || empty($_GET['answer']))
         return;
 
+    if (!isset($_GET['consultant']) || empty($_GET['consultant']))
+        return;
+
     $questionId = $_GET['question'];
     $answerId = $_GET['answer'];
+    $consultantId = $_GET['consultant'];
 
     echo 'Update question '.$questionId.' isAnswered to '.$answerId;
 
@@ -23,6 +27,16 @@
     $stmtGetAllQuestionForUser->bind_param('ss', $answerId, $questionId);
     $stmtGetAllQuestionForUser->execute();
 
+    $userMeId = $_SESSION['userdata']->__get('id_user');
+
     //TODO: opprette en samtale med konsulenten man valgte, og bli sendt til samtalen
+
+    $conn = getDb();
+    $stmtMakeConversation = "INSERT INTO conversation (userId, consultantId, questionId)
+                             VALUES (?, ?, ?)";
+    $stmtMakeConversation = $conn->prepare($stmtMakeConversation);
+    $stmtMakeConversation->bind_param('sss', $userMeId, $consultantId, $questionId);
+    $stmtMakeConversation->execute();
+
 
     header('Location: ../index.php');
