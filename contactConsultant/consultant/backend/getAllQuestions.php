@@ -29,7 +29,7 @@
                         </div>
                         <div>
                             <p>'.$price.' kr</p>
-                            <a href="">Samtale med: '.$userAskedName.'</a>
+                            <a href="http://localhost/skole/leap-glocal/messenger/?message=1">Samtale med: '.$userAskedName.'</a>
                         </div>
                     </article>
                 ';

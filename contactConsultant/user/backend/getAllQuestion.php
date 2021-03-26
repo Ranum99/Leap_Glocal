@@ -65,18 +65,19 @@
 
         $connen = new mysqli(getHostToDatabase(), getDbUsernameToDatabase(), getDbPasswordToDatabase(), getDbNameToDatabase());
         // Getting all offers for question/help
-        $stmtGetAllQuestionForUser = "SELECT name, id_user FROM question_to_consultant
+        $stmtGetAllQuestionForUser = "SELECT name, id_user, conversation.id FROM question_to_consultant
                                       INNER JOIN consultant_answer_job ON isAnswered = id_consultant_answer_job
                                           INNER JOIN users ON id_user = id_consultant
+                                          INNER JOIN conversation ON conversation.questionId = question_to_consultant.id_question_to_consultant
                                       WHERE question_to_consultant.id_question_to_consultant = ?";
         $stmtGetAllQuestionForUser = $connen->prepare($stmtGetAllQuestionForUser);
         $stmtGetAllQuestionForUser->bind_param('s', $id_question);
         $stmtGetAllQuestionForUser->execute();
-        $stmtGetAllQuestionForUser->bind_result($nameUserFromSQL, $userIdFromSQL);
+        $stmtGetAllQuestionForUser->bind_result($nameUserFromSQL, $userIdFromSQL, $conversationId);
         $stmtGetAllQuestionForUser->store_result();
         $stmtGetAllQuestionForUser->fetch();
 
-        return '<div><a href="">Samtale med: '.$nameUserFromSQL.'</a></div>';
+        return '<div><a href="http://localhost/skole/leap-glocal/messenger/?message='.$conversationId.'">Samtale med: '.$nameUserFromSQL.'</a></div>';
     }
 
     function getAllOffers($id_question) {
@@ -101,7 +102,7 @@
             $return .= '<ul>';
             while ($stmtGetAllQuestionForUser->fetch()) {
                 $hassedUserId = md5($idConsultantFromSQL);
-                $return .= '<li value="'.$id_offerFromSQL.'"><div>'.$priceFromSQL.' kr from <a href="../../profile.php?user='.$hassedUserId.'">'.$nameUserFromSQL.'</a></div><a href="backend/userChooseAnswer.php?question='.$id_question.'&answer='.$id_offerFromSQL.'" class="asButton">Velg denne</a></li>';
+                $return .= '<li value="'.$id_offerFromSQL.'"><div>'.$priceFromSQL.' kr from <a href="../../profile.php?user='.$hassedUserId.'">'.$nameUserFromSQL.'</a></div><a href="backend/userChooseAnswer.php?question='.$id_question.'&answer='.$id_offerFromSQL.'&consultant='.$idConsultantFromSQL.'" class="asButton">Velg denne</a></li>';
             }
             $return .= '</ul>';
         } else {
