@@ -164,7 +164,7 @@ h6 {
     border: 0.1em solid #007Bff;
 }
 
-.logOutBtn {
+.logOutBtn, .editProfileBtn {
     display: inline-block;
     padding: 0.6em 1.7em;
     border: 0.1em solid #007Bff;
@@ -179,7 +179,7 @@ h6 {
     transition: all 0.2s;
 }
 
-.logOutBtn:hover {
+.logOutBtn:hover, .editProfileBtn:hover {
     color: white;
     background-color: #007Bff;
 }

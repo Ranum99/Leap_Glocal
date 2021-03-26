@@ -18,7 +18,7 @@
                     '.$linkForConsultant.'
                 </section>
                 <section style="font-size: 0.5rem;">
-                    <a class="profileButton" href="/skole/leap-glocal/profile.php?user='.$hassedUserId.'"> <i class="fas fa-user-circle fa-7x"></i></a>
+                    <a class="profileButton" href="/skole/leap-glocal/profile.php?user='.$hassedUserId.'"> <i class="fas fa-user-circle fa-7x" style="color: white"></i></a>
                 </section>
             </nav>
         </div>

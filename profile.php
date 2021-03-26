@@ -77,6 +77,7 @@
                     <?php echo $fillInRestOfDataBtn; ?>
                     <?php if ($user == $_SESSION['userdata']) echo '<a href="backend/logout.php" class="logOutBtn">Log Out</a>' ?>
                     <a href="/" class="messageBtn">Message</a>
+                    <a href="/" class="editProfileBtn">Edit Profile</a>
                 </div>
                 <div class="links">
                     <div class="firstMargin">
