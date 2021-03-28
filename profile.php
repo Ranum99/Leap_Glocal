@@ -102,17 +102,17 @@
                     <div class="Margins">
                         <i class="fab fa-twitter fa-lg" style="color: deepskyblue;"></i>
                         <h6>Twitter</h6>
-                        <p class="alignToRight2"><?php echo $user->__get('twitter')?></p>
+                        <p class="alignToRight2"><?php echo $user->__get('twitterHandle')?></p>
                     </div>
                     <div class="Margins">
                         <i class="fab fa-instagram fa-lg" style="color: hotpink;"></i>
                         <h6>Instagram</h6>
-                        <p class="alignToRight3"><?php echo $user->__get('todo')?></p>
+                        <p class="alignToRight3"><?php echo $user->__get('instagramHandle')?></p>
                     </div>
                     <div class="Margins">
                         <i class="fab fa-facebook-f fa-lg" style="color: dodgerblue"></i>
                         <h6>Facebook</h6>
-                        <p class="alignToRight4"><?php echo $user->__get('facebook')?></p>
+                        <p class="alignToRight4"><?php echo $user->__get('facebookHandle')?></p>
                     </div>
                 </div>
             </div>

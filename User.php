@@ -25,7 +25,6 @@ class User
     private $durationOfLastPayment = null;
     private $age = null;
     private $requiredColumnsFilled = null;
-
     private $image = null;
     private $country = null;
     private $benefits = null;
@@ -36,10 +35,9 @@ class User
     private $lookingFor = null;
     private $businessModel = null;
     private $title = null;
-
-    private $twitter = null;
-    private $instagram = null;
-    private $facebook = null;
+    private $twitterHandle = null;
+    private $instagramHandle = null;
+    private $facebookHandle = null;
 
     private function addAllUserdataFromSessionObject($object) {
         $id_user = $object[0];
