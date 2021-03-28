@@ -37,6 +37,10 @@ class User
     private $businessModel = null;
     private $title = null;
 
+    private $twitter = null;
+    private $instagram = null;
+    private $facebook = null;
+
     private function addAllUserdataFromSessionObject($object) {
         $id_user = $object[0];
         for ($i = 0; $i < sizeof($object) ; $i++) {

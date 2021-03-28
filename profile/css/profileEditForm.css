@@ -1,0 +1,209 @@
+#wrapper {
+    background: #FFFFFF;
+    padding: 10px;
+    margin: 20px auto 20px;
+    width: 25%;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+body {
+    background-color: #e2e8f0;
+}
+
+select, input {
+    padding: 10px;
+    background-color: #e8eeef;
+    border: none;
+    color: #8a97a0;
+    margin-bottom: 10px;
+    height: 50px;
+    font-size: 20px;
+}
+
+textarea {
+    padding: 10px;
+    background-color: #e8eeef;
+    border: none;
+    color: #8a97a0;
+    margin-bottom: 10px;
+    height: 100px;
+    font-size: 20px;
+}
+
+input:focus {
+    outline: none;
+}
+
+select:focus {
+    border: none;
+}
+
+label {
+    display: block;
+    padding-bottom: 8px;
+}
+
+#wrapper2 {
+    margin: auto;
+    width: 95%;
+}
+
+#button {
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    background-color: #4bc970;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid #3ac162;
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    margin-bottom: 10px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#errorMessage {
+    margin: 10px 0 0 0;
+    color: red;
+}
+
+
+#specOutput {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#specOutput > p {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #42a7f5;
+    padding: 2.5px;
+}
+
+#specOutput > p:nth-of-type(n + 2) {
+    margin-left: 5px;
+}
+
+h1 {
+    text-align: center;
+    margin: 0 0 50px 0;
+    font-size: 50px;
+}
+
+section.registerAndLoginForm {
+    width: 55%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+    0 10px 10px rgba(0,0,0,0.22);
+    display: flex;
+    flex-direction: row;
+    background-color: #FFFFFF;
+}
+
+form {
+    width: 50%;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+form > label, button {
+    margin: 10px 0 0 0;
+}
+
+div.toLoginOrRegister {
+    width: 50%;
+    padding: 10px;
+    background-color: #FFAF24;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    color: white;
+}
+
+div.toLoginOrRegister > h2 {
+    margin: 0;
+    font-size: 35px;
+}
+
+div.toLoginOrRegister > p {
+    width: 75%;
+    font-size: 22px;
+}
+
+
+/*TYPE OF USER*/
+form > div.typeOfUser {
+    width: 100%;
+    display: flex;
+    color: black;
+    font-size: 20px;
+}
+
+form > div.typeOfUser > label.typeOfUser_label {
+    padding: 5px 0;
+    display: block;
+    width: calc(100%/3);
+    text-align: center;
+    cursor: pointer;
+}
+
+form > div.typeOfUser > label.typeOfUser_label:nth-of-type(n+2) {
+    border-left: 1px solid black;
+}
+
+form > div.typeOfUser > input[type=radio] {
+    display: none;
+}
+
+form > div.typeOfUser > input[type=radio]:checked + label {
+    background-color: red;
+    color: #FFFFFF;
+}
+
+form > div.typeOfUser > label.typeOfUser_label:first-of-type {
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+form > div.typeOfUser > label.typeOfUser_label:last-of-type {
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.spacer {
+    height: 50px;
+}
+
+.bn1 {
+    display: inline-block;
+    padding: 0.6em 1.7em;
+    border: 0.1em solid #ffffff;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.bn1:hover {
+    color: #000000;
+    background-color: #ffffff;
+}

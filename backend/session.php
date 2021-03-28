@@ -32,6 +32,38 @@
         $_SESSION['userdata']->__set('title', $title);
     }
 
+    function setRestOfSession_updateFull($email, $password, $name, $telephone, $postalCode, $place, $address, $orgnumber, $rating1to5, $ratingNumberOfVoters, $specification, $levelOfXp, $webURL, $description, $age, $requiredColumnsFilled, $image, $country, $benefits, $gender, $industry, $startupPhase, $lookingFor, $businessModel, $title, $numOfEmp, $twitterHandle, $instagramHandle, $facebookHandle) {
+        $_SESSION['userdata']->__set('email', $email);
+        $_SESSION['userdata']->__set('password', $password);
+        $_SESSION['userdata']->__set('name', $name);
+        $_SESSION['userdata']->__set('phoneNumber', $telephone);
+        $_SESSION['userdata']->__set('postalCode', $postalCode);
+        $_SESSION['userdata']->__set('place', $place);
+        $_SESSION['userdata']->__set('address', $address);
+        $_SESSION['userdata']->__set('orgNumber', $orgnumber);
+        $_SESSION['userdata']->__set('rating1to5', $rating1to5);
+        $_SESSION['userdata']->__set('rating_numberOfVoters', $ratingNumberOfVoters);
+        $_SESSION['userdata']->__set('specification', $specification);
+        $_SESSION['userdata']->__set('levelOfExperience', $levelOfXp);
+        $_SESSION['userdata']->__set('websiteURL', $webURL);
+        $_SESSION['userdata']->__set('description', $description);
+        $_SESSION['userdata']->__set('age', $age);
+        $_SESSION['userdata']->__set('requiredColumnsFilled', $requiredColumnsFilled);
+        $_SESSION['userdata']->__set('image', $image);
+        $_SESSION['userdata']->__set('country', $country);
+        $_SESSION['userdata']->__set('benefits', $benefits);
+        $_SESSION['userdata']->__set('numOfEmp', $numOfEmp);
+        $_SESSION['userdata']->__set('gender', $gender);
+        $_SESSION['userdata']->__set('industry', $industry);
+        $_SESSION['userdata']->__set('startupPhase', $startupPhase);
+        $_SESSION['userdata']->__set('lookingFor', $lookingFor);
+        $_SESSION['userdata']->__set('businessModel', $businessModel);
+        $_SESSION['userdata']->__set('title', $title);
+        $_SESSION['userdata']->__set('twitterHandle', $twitterHandle);
+        $_SESSION['userdata']->__set('instagramHandle', $instagramHandle);
+        $_SESSION['userdata']->__set('facebookHandle', $facebookHandle);
+    }
+
     function setIDSession($user) {
         include_once 'db.php';
 

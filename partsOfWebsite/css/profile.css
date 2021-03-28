@@ -143,28 +143,7 @@ h6 {
     margin-left: 50px;
 }
 
-.messageBtn {
-    display: inline-block;
-    padding: 0.6em 1.7em;
-    margin: 0 0.3em 0.3em 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    color: white;
-    background-color: #007Bff;
-    text-align: center;
-    transition: all 0.2s;
-    border-radius: 5px;
-}
-
-.messageBtn:hover {
-    color: #007Bff;
-    background-color: white;
-    border: 0.1em solid #007Bff;
-}
-
-.logOutBtn, .editProfileBtn {
+.logOutBtn, .editProfileBtn, .messageBtn {
     display: inline-block;
     padding: 0.6em 1.7em;
     border: 0.1em solid #007Bff;
@@ -179,7 +158,7 @@ h6 {
     transition: all 0.2s;
 }
 
-.logOutBtn:hover, .editProfileBtn:hover {
+.logOutBtn:hover, .editProfileBtn:hover, .messageBtn:hover {
     color: white;
     background-color: #007Bff;
 }

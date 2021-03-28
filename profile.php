@@ -47,6 +47,20 @@
         $user->__set('email', $emailFromSQL);
     }
 
+    if ($_SESSION['userdata']->__get('typeOfUser') == 1) {
+        $formOutput = '
+        
+        ';
+    } else if ($_SESSION['userdata']->__get('typeOfUser') == 2) {
+        $formOutput = '
+        
+        ';
+    } else if ($_SESSION['userdata']->__get('typeOfUser') == 3) {
+        $formOutput = '
+        
+        ';
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +75,7 @@
 </head>
 <body>
     <!-- HERE COMES <NAV/> FROM PHP FILE -->
-    <?php include_once "partsOfWebsite/nav.php" ?>
+    <?php include_once "partsOfWebsite/nav.php"; ?>
 
     <main>
         <div class="pageWrapper">
@@ -77,7 +91,7 @@
                     <?php echo $fillInRestOfDataBtn; ?>
                     <?php if ($user == $_SESSION['userdata']) echo '<a href="backend/logout.php" class="logOutBtn">Log Out</a>' ?>
                     <a href="/" class="messageBtn">Message</a>
-                    <a href="/" class="editProfileBtn">Edit Profile</a>
+                    <a href="profile/profileEditForm.php" class="editProfileBtn">Edit Profile</a>
                 </div>
                 <div class="links">
                     <div class="firstMargin">
