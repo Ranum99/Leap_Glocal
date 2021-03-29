@@ -3,6 +3,8 @@
     if ( !isset($_GET['conversation']) || empty($_GET['conversation']) )
         return;
 
+    $conversationId = $_GET['conversation'];
+
     $timeNowTo = new DateTime('NOW');
     $timeNowFrom = $timeNowTo;
 
@@ -15,13 +17,14 @@
     $stmt = "
         SELECT message, userIdFrom FROM `message`
         WHERE timeSent BETWEEN ? AND ?
+            AND conversationId = ?
     ";
 
     $theTimeTo = $timeNowTo->format('Y-m-d H:i:s');
     $theTimeFrom = $timeNowFrom->modify('-1 second')->format('Y-m-d H:i:s');
 
     $stmt = $conn->prepare($stmt);
-    $stmt->bind_param('ss', $theTimeFrom, $theTimeTo);
+    $stmt->bind_param('sss', $theTimeFrom, $theTimeTo, $conversationId);
     $stmt->execute();
     $stmt->bind_result($message, $userIdFrom);
     $stmt->store_result();

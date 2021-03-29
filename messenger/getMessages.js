@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var intervalId = window.setInterval(function(){
-        let newMessage = getMessages();
-    }, 999);
+        getMessages();
+    }, 1001);
 });
 
 function getMessages() {

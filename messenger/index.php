@@ -97,6 +97,7 @@
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript" src="getMessages.js"></script>
+    <script type="text/javascript" src="sendMessage.js"></script>
 
     <script src="https://kit.fontawesome.com/397d207bea.js" crossorigin="anonymous"></script>
 </head>
@@ -119,11 +120,11 @@
             </div>
 
             <div class="sendingMessage">
-                <form action="" method="post">
+                <form action="javascript:void(0);" method="get">
                     <label>
                         <input type="text" id="message">
                     </label>
-                    <button>Send</button>
+                    <button id="sendMessage">Send</button>
                 </form>
             </div>
         </section>
