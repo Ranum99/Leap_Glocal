@@ -19,9 +19,6 @@
     <main>
         <div class="spacer"></div>
 
-        <!-- REGISTER -->
-        <h1>Registrer bruker</h1>
-
         <?php
         if(isset($msg)){  // Check if $msg is not empty
             echo '<div class="statusmsg">'.$msg.'</div>'; // Display our message and wrap it with a div with the class "statusmsg".
@@ -29,12 +26,14 @@
         ?>
 
         <section class="registerAndLoginForm">
-            <div class="toLoginOrRegister">
+            <div class="toLogin">
                 <h2>Allerede medlem?</h2>
                 <p>For å fortsette reisen med oss, venligst logg inn ved å trykke på knappen under.</p>
-                <a href="login.php" class="bn1">Logg inn</a>
+                <a href="login.php" class="regOrLoginBtn">Logg inn</a>
             </div>
             <form action="" method="post">
+                <h1 class="marginTop">Registrer bruker</h1>
+
                 <div class="typeOfUser">
                     <input class="typeOfUser_input" type="radio" id="typeOfUser_company" name="typeOfUser" value="1" <?php if ($typeUser == 1 || $typeUser == "") echo 'checked' ?> required />
                     <label class="typeOfUser_label" for="typeOfUser_company">Bedrift</label>
@@ -44,18 +43,25 @@
                     <label class="typeOfUser_label" for="typeOfUser_user">Bruker</label>
                 </div>
 
-                <label for="emailRegister">Epost</label>
-                <input value="<?php echo $email; ?>" type="email" id="emailRegister" name="email" placeholder="Epost" required autofocus pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
-                <label for="nameRegister">Navn</label>
-                <input value="<?php echo $name; ?>" type="text" id="nameRegister" name="name" placeholder="Navn" required />
-                <label for="passwordRegister">Passord</label>
-                <input type="password" id="passwordRegister" name="password" placeholder="Passord" required title="Passord må inneholde minst en stor bokstav, en liten bokstav, ett tall, ett spesialtegn og være minst 8 tegn lang" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" />
-                <label for="repeatPasswordRegister">Gjenta passord</label>
-                <input type="password" id="repeatPasswordRegister" name="repeatPassword" placeholder="Gjenta passord" required title="Passord må inneholde minst en stor bokstav, en liten bokstav, ett tall, ett spesialtegn og være minst 8 tegn lang" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" />
-
                 <p id="errorMessage"><?php echo $error; ?></p>
 
-                <button>Registrer</button>
+                <div class="inputs">
+                    <label for="emailRegister" class="hide">Epost</label>
+                    <input value="<?php echo $email; ?>" type="email" id="emailRegister" name="email" placeholder="Epost" required autofocus pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
+
+                    <label for="nameRegister" class="hide">Navn</label>
+                    <input value="<?php echo $name; ?>" type="text" id="nameRegister" name="name" placeholder="Navn" required />
+
+                    <label for="passwordRegister" class="hide">Passord</label>
+                    <input type="password" id="passwordRegister" name="password" placeholder="Passord" required title="Passord må inneholde minst en stor bokstav, en liten bokstav, ett tall, ett spesialtegn og være minst 8 tegn lang" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" />
+
+                    <label for="repeatPasswordRegister" class="hide">Gjenta passord</label>
+                    <input type="password" id="repeatPasswordRegister" name="repeatPassword" placeholder="Gjenta passord" required title="Passord må inneholde minst en stor bokstav, en liten bokstav, ett tall, ett spesialtegn og være minst 8 tegn lang" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" />
+                </div>
+
+                <div class="loginRegisterBtnWrapper">
+                    <button>Registrer</button>
+                </div>
             </form>
         </section>
 

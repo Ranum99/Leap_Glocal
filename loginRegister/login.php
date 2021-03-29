@@ -10,7 +10,8 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../global/common.css">
     <link rel="stylesheet" type="text/css" href="css/registerAndLogin.css">
-
+    <link rel="stylesheet" type="text/css" href="../partsOfWebsite/css/footer.css">
+    <script src="https://kit.fontawesome.com/84fdcc201f.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <!-- HERE COMES <NAV/> FROM PHP FILE -->
@@ -20,9 +21,10 @@
     <div class="spacer"></div>
 
     <!-- LOGIN -->
-    <h1>Logg inn</h1>
     <section class="registerAndLoginForm">
         <form action="" method="post">
+            <h1 class="marginTop">Logg inn</h1>
+
             <div class="typeOfUser">
                 <input class="typeOfUser_input" type="radio" id="typeOfUser_company" name="typeOfUser" value="1" <?php if ($typeUser == 1 || $typeUser == "") echo 'checked' ?> required />
                 <label class="typeOfUser_label" for="typeOfUser_company">Bedrift</label>
@@ -32,20 +34,27 @@
                 <label class="typeOfUser_label" for="typeOfUser_user">Bruker</label>
             </div>
 
-            <label for="emailLogin">Epost</label>
-            <input value="<?php echo $email; ?>" type="email" id="emailLogin" name="email" placeholder="Epost" required autofocus />
-            <label for="passwordLogin">Passord</label>
-            <input type="password" id="passwordLogin" name="password" placeholder="Passord" required />
-
             <p id="errorMessage"><?php echo $error; ?></p>
 
-            <button>Logg inn</button>
+            <div class="inputs">
+                <label for="emailLogin" class="hide">Email</label>
+                <input value="<?php echo $email; ?>" type="email" id="emailLogin" name="email" placeholder="Epost" required autofocus />
+
+                <label for="passwordLogin" class="hide">Passord</label>
+                <input type="password" id="passwordLogin" name="password" placeholder="Passord" required />
+            </div>
+
+            <a href="#" class="forgot-password">Glemt passord?</a>
+
+            <div class="loginRegisterBtnWrapper">
+                <button>Logg inn</button>
+            </div>
 
         </form>
-        <div class="toLoginOrRegister">
+        <div class="toRegister">
             <h2>Enda ikke medlem?</h2>
             <p>For å starte reisen med oss, venligst registrer deg ved å trykke på knappen under.</p>
-            <a href="register.php" class="bn1">Bli medlem</a>
+            <a href="register.php" class="regOrLoginBtn">Bli medlem</a>
         </div>
     </section>
 </main>
