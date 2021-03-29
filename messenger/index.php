@@ -109,7 +109,7 @@
         <section>
             <div class="messengerHeader">
                 <h1><?php echo $header; ?></h1>
-                <a href="http://localhost/skole/leap-glocal/profile.php?user=<?php echo md5($conversationPartner); ?>"><?php echo $userName; ?></a>
+                <a href="http://localhost/skole/leap-glocal/profile.php?user=<?php echo md5($conversationPartner); ?>" class="blueUnderlineBtn">Chat med <?php echo $userName; ?></a>
             </div>
             <div class="task">
                 <p><span class="thickBoi">Oppdrag:</span> <?php echo $question; ?></p>
@@ -122,9 +122,9 @@
             <div class="sendingMessage">
                 <form action="javascript:void(0);" method="get">
                     <label>
-                        <input type="text" id="message">
+                        <input type="text" class="message">
                     </label>
-                    <button id="sendMessage">Send</button>
+                    <button class="sendMessage"><i class="fas fa-paper-plane fa-2x"></i></button>
                 </form>
             </div>
         </section>

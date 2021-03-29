@@ -173,7 +173,7 @@
             <label for="password">Passord</label>
             <input type="password" id="password" name="password" />
 
-            <label for="confirm_password">Facebook brukernavn</label>
+            <label for="confirm_password">Gjenta passord</label>
             <input type="password" id="confirm_password" name="confirm_password" />
 
             <?php echo $formOutput; ?>

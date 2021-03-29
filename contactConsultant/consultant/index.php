@@ -30,7 +30,7 @@
 
 <main>
     <section id="questionsFromUsers">
-        <article>
+        <article class="tasks">
             <h2>Dine oppdrag:</h2>
             <div>
                 <?php echo $get_myJobs; ?>

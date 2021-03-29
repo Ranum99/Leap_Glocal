@@ -27,9 +27,9 @@
                             <h2>'.$title.'</h2>
                             <p>'.$question.'</p>
                         </div>
-                        <div>
-                            <p>'.$price.' kr</p>
-                            <a href="http://localhost/skole/leap-glocal/messenger/?message=1">Samtale med: '.$userAskedName.'</a>
+                        <div class="blueUnderlineDiv">
+                            <p class="p-price">'.$price.' kr</p>
+                            <a href="http://localhost/skole/leap-glocal/messenger/?message=1" class="blueUnderlineBtn">Samtale med: '.$userAskedName.'</a>
                         </div>
                     </article>
                 ';
@@ -66,9 +66,9 @@
                             <h2>'.$title.'</h2>
                             <p>'.$question.'</p>
                         </div>
-                        <div>
-                            <p>'.$price.' kr</p>
-                            <a href="backend/pullOutOffer.php?job='.$idAnswerJob.'">Trekk tilbud</a>
+                        <div class="blueUnderlineDiv">
+                            <p class="p-price">'.$price.' kr</p>
+                            <a href="backend/pullOutOffer.php?job='.$idAnswerJob.'" class="blueUnderlineBtn">Trekk tilbud</a>
                         </div>
                     </article>
                 ';
@@ -115,7 +115,7 @@
                             <input style="display:none" value="'.$questionID.'" name="questionId">
                             <label for="pricefor'.$counter.'"></label>
                             <input type="number" placeholder="Pris" name="price" id="pricefor'.$counter.'">
-                            <button class="asButton">Tilby pris</button>
+                            <button class="offerPriceBtn">Tilby pris</button>
                         </form>
                     </article>
                 ';
