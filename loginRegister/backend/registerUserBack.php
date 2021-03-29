@@ -40,7 +40,6 @@
         case 1: //COMPANY
             // Checking if required values for company form is filled
             $postNameArray = array(
-                ["image", "Venligst legg til et bilde"],
                 ["country", "Venligst velg et land"],
                 ["telephone", "Venligst fyll inn telefonnummer"],
                 ["specification", "Venligst velg en spesifikasjon"],
@@ -61,6 +60,10 @@
 
 
             // Setting website url if filled
+            if (isset($_POST['image']) && !empty($_POST['image']))
+                $image_post = $_POST['image'];
+
+            // Setting website url if filled
             if (isset($_POST['webURL']) && !empty($_POST['webURL']))
                 $webURL_post = $_POST['webURL'];
 
@@ -68,7 +71,6 @@
                 $benefits = $_POST['benefits'];
 
             // Setting variables
-            $image_post = $_POST['image'];
             $country_post = $_POST['country'];
             $telephone_post = $_POST['telephone'];
             $specification_post = $_POST['specification'];
@@ -122,7 +124,6 @@
         case 2: // CONSULTANT
             // Checking if required values for consultant form is filled
             $postNameArray = array(
-                ["image", "Venligst legg til et bilde"],
                 ["country", "Venligst velg et land"],
                 ["telephone", "Venligst fyll inn telefonnummer"],
                 ["specification", "Venligst velg en spesifikasjon"],
@@ -138,6 +139,10 @@
                 }
             }
 
+            // Setting website url if filled
+            if (isset($_POST['image']) && !empty($_POST['image']))
+                $image_post = $_POST['image'];
+
             // Setting description if filled
             if (isset($_POST['description']) && !empty($_POST['description']))
                 $description_post = $_POST['description'];
@@ -147,7 +152,6 @@
                 $webURL_post = $_POST['webURL'];
 
             // Setting variables
-            $image_post = $_POST['image'];
             $country_post = $_POST['country'];
             $telephone_post = $_POST['telephone'];
             $specification_post = $_POST['specification'];
@@ -161,7 +165,6 @@
         case 3: // Normal user
             // Checking if required values for consultant form is filled
             $postNameArray = array(
-                ["image", "Venligst legg til et bilde"],
                 ["country", "Venligst velg et land"],
                 ["telephone", "Venligst fyll inn telefonnummer"],
                 ["numbOfEmp", "Venligst velg antall ansatte"],
@@ -183,8 +186,11 @@
                 }
             }
 
+            // Setting website url if filled
+            if (isset($_POST['image']) && !empty($_POST['image']))
+                $image_post = $_POST['image'];
+
             // Setting variables
-            $image_post = $_POST['image'];
             $country_post = $_POST['country'];
             $telephone_post = $_POST['telephone'];
             $numOfEmp_post = $_POST['numbOfEmp'];

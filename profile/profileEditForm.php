@@ -5,125 +5,125 @@
     if ($_SESSION['userdata']->__get('typeOfUser') == 1) {
         $formOutput = '
                 <label for="telefon_register">Telefon</label>
-                <input type="tel" id="telefon_register" name="telephone" />      
+                <input type="tel" id="telefon_register" name="telephone" value="'.$_SESSION['userdata']->__get('phoneNumber').'" />      
     
                 <label for="specification_register">Spesifikasjoner</label>
-                <input type="text" id="specification_register" name="specification">
+                <input type="text" id="specification_register" name="specification" value="'.$_SESSION['userdata']->__get('specification').'">
                 <div id="specOutput"></div>
                 
                 <label for="numbOfEmp_register">Antall ansatte</label>
                 <select id="numbOfEmp_register" name="numbOfEmp">
-                    <option value="1" selected>1-10</option>
-                    <option value="2">11-50</option>
-                    <option value="3">51-100</option>
-                    <option value="4">101-200</option>
-                    <option value="5">200+</option>
+                    <option '.($_SESSION['userdata']->__get('numOfEmp') == 1 ? "selected" : "").' value="1" selected>1-10</option>
+                    <option '.($_SESSION['userdata']->__get('numOfEmp') == 2 ? "selected" : "").' value="2">11-50</option>
+                    <option '.($_SESSION['userdata']->__get('numOfEmp') == 3 ? "selected" : "").' value="3">51-100</option>
+                    <option '.($_SESSION['userdata']->__get('numOfEmp') == 4 ? "selected" : "").' value="4">101-200</option>
+                    <option '.($_SESSION['userdata']->__get('numOfEmp') == 5 ? "selected" : "").' value="5">200+</option>
                 </select>
                 
                 <label for="benefits_register">Fordeler ved å knytte seg til oss</label>
-                <textarea id="benefits_register" name="benefits"></textarea>
+                <textarea id="benefits_register" name="benefits">'.$_SESSION['userdata']->__get('benefits').'</textarea>
     
                 <label for="description_register">En beskrivelse av bedriften</label>
-                <textarea id="description_register" name="description"></textarea>
+                <textarea id="description_register" name="description">'.$_SESSION['userdata']->__get('description').'</textarea>
     
                 <label for="webURL_register">Nettside url</label>
-                <input type="url" id="webURL_register" name="webURL" />
+                <input type="url" id="webURL_register" name="webURL" value="'.$_SESSION['userdata']->__get('websiteURL').'"/>
     
                 <label for="postalCode_register">Postnummer</label>
-                <input type="number" maxlength="4" id="postalCode_register" name="postalCode" />
+                <input type="number" maxlength="4" id="postalCode_register" name="postalCode" value="'.$_SESSION['userdata']->__get('postalCode').'" />
     
                 <label for="address_register">Adresse</label>
-                <input type="text" id="address_register" name="address" />
+                <input type="text" id="address_register" name="address" value="'.$_SESSION['userdata']->__get('address').'"/>
     
                 <label for="orgnumber_register">Organisasjonsnummer</label>
-                <input type="number" maxlength="9" id="orgnumber_register" name="orgnumber" />
+                <input type="number" maxlength="9" id="orgnumber_register" name="orgnumber" value="'.$_SESSION['userdata']->__get('orgNumber').'"/>
             ';
     } else if ($_SESSION['userdata']->__get('typeOfUser') == 2) {
         $formOutput = '
                 <label for="telefon_register">Telefon</label>
-                <input type="tel" id="telefon_register" name="telephone" />      
+                <input type="tel" id="telefon_register" name="telephone" value="'.$_SESSION['userdata']->__get('phoneNumber').'"/>      
     
                 <label for="specification_register">Spesifikasjoner</label>
-                <input type="text" id="specification_register" name="specification">
+                <input type="text" id="specification_register" name="specification" value="'.$_SESSION['userdata']->__get('specification').'">
                 <div id="specOutput"></div>
     
                 <label for="description_register">En beskrivelse av bedriften</label>
-                <textarea id="description_register" name="description"></textarea>
+                <textarea id="description_register" name="description">'.$_SESSION['userdata']->__get('description').'</textarea>
     
                 <label for="webURL_register">Nettside url</label>
-                <input type="url" id="webURL_register" name="webURL" />
+                <input type="url" id="webURL_register" name="webURL" value="'.$_SESSION['userdata']->__get('websiteURL').'"/>
     
                 <label for="age_register">Alder *</label>
-                <input type="number" id="age_register" name="age" />
+                <input type="number" id="age_register" name="age" value="'.$_SESSION['userdata']->__get('age').'"/>
     
                 <label for="levelOfXp_register">Erfargingsnivå</label>
                 <select id="levelOfXp_register" name="levelOfXp">
-                    <option value="1" selected>Flink</option>
-                    <option value="2">Flinkere</option>
-                    <option value="3">Flinkest</option>
+                    <option '.($_SESSION['userdata']->__get('levelOfExperience') == 1 ? "selected" : "").' value="1" selected>Flink</option>
+                    <option '.($_SESSION['userdata']->__get('levelOfExperience') == 2 ? "selected" : "").' value="2">Flinkere</option>
+                    <option '.($_SESSION['userdata']->__get('levelOfExperience') == 3 ? "selected" : "").' value="3">Flinkest</option>
                 </select>
             ';
     } else if ($_SESSION['userdata']->__get('typeOfUser') == 3) {
         $formOutput = '
                 <label for="telefon_register">Telefon</label>
-                <input type="tel" id="telefon_register" name="telephone" value="'.$telephone_post.'" />
+                <input type="tel" id="telefon_register" name="telephone" value="'.$_SESSION['userdata']->__get('phoneNumber').'" />
                 
                 <label for="numbOfEmp_register">Antall ansatte</label>
                 <select id="numbOfEmp_register" name="numbOfEmp">
-                    <option value="1">1-10</option>
-                    <option value="2">11-50</option>
-                    <option value="3">51-100</option>
-                    <option value="4">101-200</option>
-                    <option value="5">200+</option>
+                    <option '.($_SESSION['userdata']->__get('numOfEmp') == 1 ? "selected" : "").' value="1" selected>1-10</option>
+                    <option '.($_SESSION['userdata']->__get('numOfEmp') == 2 ? "selected" : "").' value="2">11-50</option>
+                    <option '.($_SESSION['userdata']->__get('numOfEmp') == 3 ? "selected" : "").' value="3">51-100</option>
+                    <option '.($_SESSION['userdata']->__get('numOfEmp') == 4 ? "selected" : "").' value="4">101-200</option>
+                    <option '.($_SESSION['userdata']->__get('numOfEmp') == 5 ? "selected" : "").' value="5">200+</option>
                 </select>
                 
                 <label for="gender_register">Kjønn</label>
                 <select id="gender_register" name="gender" >
-                    <option value="man" selected>Mann</option>
-                    <option value="woman">Kvinne</option>
-                    <option value="null">Ønsker ikke å oppgi</option>
+                    <option '.($_SESSION['userdata']->__get('gender') == "man" ? "selected" : "").' value="man" selected>Mann</option>
+                    <option '.($_SESSION['userdata']->__get('gender') == "woman" ? "selected" : "").' value="woman">Kvinne</option>
+                    <option '.($_SESSION['userdata']->__get('gender') == "null" ? "selected" : "").' value="null">Ønsker ikke å oppgi</option>
                 </select>
                 
                 <label for="industry_register">Industri</label>
                 <select id="industry_register" name="industry" >
-                    <option value="1" selected>IT</option>
-                    <option value="2">Økonomi</option>
+                    <option '.($_SESSION['userdata']->__get('industry') == 1 ? "selected" : "").' value="1" selected>IT</option>
+                    <option '.($_SESSION['userdata']->__get('industry') == 2 ? "selected" : "").' value="2">Økonomi</option>
                 </select>
                 
                 <label for="startupPhase_register">Oppstartsfase</label>
                 <select id="startupPhase_register" name="startupPhase" >
-                    <option value="1" selected>Ide fase</option>
-                    <option value="2">Produkt eller prototype</option>
-                    <option value="3">Gå til marked</option>
-                    <option value="4">Vekst og ekspansjon</option>
+                    <option '.($_SESSION['userdata']->__get('startupPhase') == 1 ? "selected" : "").' value="1" selected>Ide fase</option>
+                    <option '.($_SESSION['userdata']->__get('startupPhase') == 2 ? "selected" : "").' value="2">Produkt eller prototype</option>
+                    <option '.($_SESSION['userdata']->__get('startupPhase') == 3 ? "selected" : "").' value="3">Gå til marked</option>
+                    <option '.($_SESSION['userdata']->__get('startupPhase') == 4 ? "selected" : "").' value="4">Vekst og ekspansjon</option>
                 </select>
                 
                 <label for="lookingFor_register">Hva du leter etter</label>
                 <select id="lookingFor_register" name="lookingFor" >
-                    <option value="1" selected>Ingen</option>
-                    <option value="2">Støtte</option>
-                    <option value="3">Mentor</option>
-                    <option value="4">Medgründer</option>
-                    <option value="5">Annet</option>
+                    <option '.($_SESSION['userdata']->__get('lookingFor') == 1 ? "selected" : "").' value="1" selected>Ingen</option>
+                    <option '.($_SESSION['userdata']->__get('lookingFor') == 2 ? "selected" : "").' value="2">Støtte</option>
+                    <option '.($_SESSION['userdata']->__get('lookingFor') == 3 ? "selected" : "").' value="3">Mentor</option>
+                    <option '.($_SESSION['userdata']->__get('lookingFor') == 4 ? "selected" : "").' value="4">Medgründer</option>
+                    <option '.($_SESSION['userdata']->__get('lookingFor') == 5 ? "selected" : "").' value="5">Annet</option>
                 </select>            
                 
                 <label for="businessModel_register">Primær businessmodell</label>
                 <select id="businessModel_register" name="businessModel" >
-                    <option value="1" selected>B2C</option>
-                    <option value="2">B2B</option>
-                    <option value="3">Markedsplass</option>
-                    <option value="4">B2G</option>
+                    <option '.($_SESSION['userdata']->__get('businessModel') == 1 ? "selected" : "").' value="1" selected>B2C</option>
+                    <option '.($_SESSION['userdata']->__get('businessModel') == 2 ? "selected" : "").' value="2">B2B</option>
+                    <option '.($_SESSION['userdata']->__get('businessModel') == 3 ? "selected" : "").' value="3">Markedsplass</option>
+                    <option '.($_SESSION['userdata']->__get('businessModel') == 4 ? "selected" : "").' value="4">B2G</option>
                 </select>      
                 
                 <label for="title_register">Stillingstittel</label>
-                <input type="text" id="title_register" name="title" />      
+                <input type="text" id="title_register" name="title" value="'.$_SESSION['userdata']->__get('title').'"/>      
     
                 <label for="specification_register">Spesifikasjoner</label>
-                <input type="text" id="specification_register" name="specification">
+                <input type="text" id="specification_register" name="specification" value="'.$_SESSION['userdata']->__get('specification').'">
                 <div id="specOutput"></div>
     
                 <label for="age_register">Alder</label>
-                <input type="number" id="age_register" name="age" />
+                <input type="number" id="age_register" name="age" value="'.$_SESSION['userdata']->__get('age').'"/>
             ';
 }
 ?>
@@ -156,19 +156,19 @@
             </select>
 
             <label for="name_register">Navn</label>
-            <input type="text" id="name_register" name="name" />
+            <input type="text" id="name_register" name="name" value="<?php echo $_SESSION['userdata']->__get('name'); ?>" />
 
             <label for="email">Email</label>
-            <input type="text" id="email" name="email" />
+            <input type="text" id="email" name="email" value="<?php echo $_SESSION['userdata']->__get('email'); ?>" />
 
             <label for="twitter_register">Twitter brukernavn</label>
-            <input type="text" id="twitter_register" name="twitter" />
+            <input type="text" id="twitter_register" name="twitter" value="<?php echo $_SESSION['userdata']->__get('twitterHandle'); ?>" />
 
             <label for="instagram_register">Instagram brukernavn</label>
-            <input type="text" id="instagram_register" name="instagram" />
+            <input type="text" id="instagram_register" name="instagram" value="<?php echo $_SESSION['userdata']->__get('instagramHandle'); ?>" />
 
             <label for="facebook_register">Facebook brukernavn</label>
-            <input type="text" id="facebook_register" name="facebook" />
+            <input type="text" id="facebook_register" name="facebook" value="<?php echo $_SESSION['userdata']->__get('facebookHandle'); ?>" />
 
             <label for="password">Passord</label>
             <input type="password" id="password" name="password" />
