@@ -122,7 +122,7 @@
             <div class="sendingMessage">
                 <form action="javascript:void(0);" method="get">
                     <label>
-                        <input type="text" id="messageToSend" class="message">
+                        <textarea id="messageToSend" class="message"></textarea>
                     </label>
                     <button id="sendTheMessage" class="sendMessage"><i class="fas fa-paper-plane fa-2x"></i></button>
                 </form>
