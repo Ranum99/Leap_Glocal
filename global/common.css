@@ -8,13 +8,21 @@
     font-family: "Roboto", sans-serif;
 }
 
+html {
+    height: 100%;
+}
+
 body {
+    height: 100%;
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 main {
     width: 100%;
     margin: 0 auto;
+    flex: 1 0 auto;
 }
 
 .profileButton {
