@@ -5,8 +5,10 @@
     if ( !isset($_POST['message']) || empty($_POST['message']) )
         return;
 
-    $conversationId = $_GET['conversation'];
-    $message = $_GET['message'];
+    $conversationId = $_POST['conversation'];
+    //$conversationId = 1;
+    $message = $_POST['message'];
+    //$message = 'lol';
     $userMeId = $_SESSION['userdata']->__get('id_user');
 
     include_once '../backend/db.php';
@@ -16,10 +18,21 @@
     $outputBuilder = '';
 
     $stmt = "
-            INSERT INTO message (conversationId, message, userIdFrom, timeSent)
-            VALUES (?, ?, ?, now())
-        ";
+        INSERT INTO message (conversationId, message, userIdFrom, timeSent)
+        VALUES (?, ?, ?, now())
+    ";
+
+
+    $returnValue = '';
 
     $stmt = $conn->prepare($stmt);
     $stmt->bind_param('sss', $conversationId, $message, $userMeId);
-    $stmt->execute();
+    if ($stmt->execute()) {
+        $returnValue = '200';
+    } else {
+        $returnValue = '201';
+    }
+
+    echo $returnValue;
+
+    $stmt->close();

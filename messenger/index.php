@@ -122,15 +122,15 @@
             <div class="sendingMessage">
                 <form action="javascript:void(0);" method="get">
                     <label>
-                        <input type="text" class="message">
+                        <input type="text" id="messageToSend" class="message">
                     </label>
-                    <button class="sendMessage"><i class="fas fa-paper-plane fa-2x"></i></button>
+                    <button id="sendTheMessage" class="sendMessage"><i class="fas fa-paper-plane fa-2x"></i></button>
                 </form>
             </div>
         </section>
     </main>
 
     <!-- HERE COMES <FOOTER/> FROM PHP FILE -->
-    <?php include_once "../partsOfWebsite/footer.php"?>
+    <?php //include_once "../partsOfWebsite/footer.php"?>
 </body>
 </html>
