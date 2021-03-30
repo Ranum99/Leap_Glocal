@@ -116,6 +116,7 @@ main > section > div.messages > p.sent {
     margin-left: auto;
     color: #FFFFFF;
     padding: 10px;
+    font-size: 20px;
 }
 
 main > section > div.messages > p.received {

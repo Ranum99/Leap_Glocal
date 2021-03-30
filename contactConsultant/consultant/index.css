@@ -40,7 +40,7 @@ input {
     display: flex;
 }
 
-input:focus {
+input:focus, .offerPriceBtn:focus {
     outline: none;
 }
 
