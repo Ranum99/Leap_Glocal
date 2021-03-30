@@ -109,8 +109,10 @@ main > section > div.messages > p:not(:last-of-type) {
 }
 
 main > section > div.messages > p.sent {
-    background-color: #3f86ed;
+    background-color: #007Bff;
     margin-left: auto;
+    color: #FFFFFF;
+    padding: 10px;
 }
 
 main > section > div.messages > p.received {
