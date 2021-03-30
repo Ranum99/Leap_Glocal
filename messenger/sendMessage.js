@@ -1,7 +1,5 @@
 $(document).ready(function() {
     $('#sendTheMessage').on('click', function () {
-        $("#sendTheMessage").attr("disabled", "disabled");
-
         let messageToSend = document.getElementById('messageToSend');
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
@@ -25,5 +23,4 @@ $(document).ready(function() {
             }
         });
     });
-    $("#sendTheMessage").removeAttr("disabled");
 });
