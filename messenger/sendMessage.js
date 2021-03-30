@@ -21,6 +21,7 @@ $(document).ready(function() {
                     messageToSend.value = "";
                 }
                 else if(dataResult === '201'){
+                    $("#sendTheMessage").removeAttr("disabled");
                     alert("Error occured !");
                 }
             }
