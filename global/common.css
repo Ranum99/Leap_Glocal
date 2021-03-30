@@ -132,6 +132,33 @@ p {
     box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 }
 
+.redButton {
+    border-radius: 20px;
+    border: 1px solid #FF4B2B;
+    background-color: #FF4B2B;
+    width: 170px;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+.redButton:active {
+    transform: scale(0.95);
+}
+
+.redButton:focus {
+    outline: none;
+}
+
+.redButton.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
+}
+
 
 
 

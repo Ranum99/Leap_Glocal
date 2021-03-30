@@ -1,6 +1,6 @@
 <?php
     include_once '../../backend/session.php';
-    include_once 'backend/getAllQuestion.php';
+    include_once '../user/backend/getAllQuestion.php';
 
     $display = "none";
 
@@ -38,42 +38,50 @@
 <?php include_once "../../partsOfWebsite/nav.php"?>
 
 <main>
-    <p class="asButton" id="newQuestionBtn">Nytt spørsmål</p>
-    <section id="questionsFromUser">
-        <div>
-            <h2>Ingen svar:</h2>
-            <?php echo $unAnsweredOuput; ?>
-        </div>
-        <div>
-            <h2>Tilbud</h2>
-            <?php echo $hasOffersOutput; ?>
-        </div>
-        <div id="unOffered">
-            <h2>Valgt</h2>
-            <?php echo $answeredOuput; ?>
-        </div>
+    <a id="newQuestionBtn">Nytt spørsmål</a>
+
+    <section class="questionsFromUsers">
+        <article>
+            <h2 class="headlines">Ingen svar</h2>
+            <div class="grid-divs">
+                <?php echo $unAnsweredOuput; ?>
+            </div>
+        </article>
+        <article>
+            <h2 class="headlines">Tilbud</h2>
+            <div class="grid-divs">
+                <?php echo $hasOffersOutput; ?>
+            </div>
+        </article>
+        <article>
+            <h2 class="headlines">Valgt</h2>
+            <div class="grid-divs">
+                <?php echo $answeredOuput; ?>
+            </div>
+        </article>
+    </section>
+
+    <section id="newQuestionSection">
+        <div></div>
+        <form action="backend/addQuestion.php" id="questionForm" method="post">
+            <label for="typeOfSpecification">type</label>
+            <select name="specification" id="typeOfSpecification" required>
+                <option value="1">IT</option>
+                <option value="2">Økonomi</option>
+            </select>
+
+            <label for="heading">tittel</label>
+            <input type="text" id="heading" name="heading" required>
+
+            <label for="question">spørsmål</label>
+            <textarea id="question" name="question" required></textarea>
+
+            <div class="sendQuestionWrapper">
+                <button class="redButton" style="width: 300px; font-size: 18px;">Send spørsmål</button>
+            </div>
+        </form>
     </section>
 </main>
-
-<section id="newQuestionSection">
-    <div></div>
-    <form action="backend/addQuestion.php" id="questionForm" method="post">
-        <label for="typeOfSpecification">Type</label>
-        <select name="specification" id="typeOfSpecification" required>
-            <option value="1">IT</option>
-            <option value="2">Økonomi</option>
-        </select>
-
-        <label for="heading">Tittel</label>
-        <input type="text" id="heading" name="heading" required>
-
-        <label for="question">Spørsmål</label>
-        <textarea id="question" name="question" required></textarea>
-
-        <button>Send spørsmål</button>
-    </form>
-</section>
-
 
 <!-- HERE COMES <FOOTER/> FROM PHP FILE -->
 <?php include_once "../../partsOfWebsite/footer.php"?>

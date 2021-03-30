@@ -15,8 +15,9 @@ body {
     word-break: break-all;
 }
 
-textarea {
+#messageToSend {
     width: 100%;
+    font-size: 20px;
 }
 
 .message:focus {
@@ -111,17 +112,19 @@ main > section > div.messages > p:not(:last-of-type) {
     margin: 0 0 10px 0;
 }
 
-main > section > div.messages > p.sent {
-    background-color: #007Bff;
+main > section > div.messages > p.sent, main > section > div.messages > p.received {
     margin-left: auto;
     color: #FFFFFF;
     padding: 10px;
     font-size: 20px;
 }
 
+main > section >div.messages > p.sent {
+    background-color: #007Bff;
+}
+
 main > section > div.messages > p.received {
     background-color: crimson;
-    margin-right: auto;
 }
 
 main > section > div.sendingMessage > form {

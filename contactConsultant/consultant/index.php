@@ -1,6 +1,6 @@
 <?php
     include_once '../../backend/session.php';
-    include_once 'backend/getAllQuestions.php';
+    include_once '../consultant/backend/getAllQuestions.php';
 
     $get_myJobs = get_myJobs();
 
@@ -11,7 +11,6 @@
     $display = "none";
     if (isset($_GET['offer']) && $_GET['offer'])
         $display = "block";
-
 ?>
 
 <!DOCTYPE html>
@@ -31,28 +30,25 @@
 <main>
     <section id="questionsFromUsers">
         <article class="tasks">
-            <h2>Dine oppdrag:</h2>
+            <h2>Dine oppdrag</h2>
             <div>
                 <?php echo $get_myJobs; ?>
             </div>
         </article>
         <article>
-            <h2>Besvarte spørsmål:</h2>
+            <h2>Besvarte spørsmål</h2>
             <div>
                 <?php echo $answeredQuesitons; ?>
             </div>
         </article>
         <article>
-            <h2>Ubesvarte spørmål:</h2>
+            <h2>Ubesvarte spørmål</h2>
             <div>
                 <?php echo $unansweredQuesitons; ?>
             </div>
         </article>
     </section>
 </main>
-
-
-
 
 <!-- HERE COMES <FOOTER/> FROM PHP FILE -->
 <?php include_once "../../partsOfWebsite/footer.php"?>

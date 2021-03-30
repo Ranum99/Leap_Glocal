@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="loginRegisterBtnWrapper">
-                    <button>Registrer</button>
+                    <button class="redButton">Registrer</button>
                 </div>
             </form>
         </section>

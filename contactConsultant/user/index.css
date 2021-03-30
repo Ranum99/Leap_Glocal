@@ -3,102 +3,122 @@ main {
     margin: 10px auto;
 }
 
-#questionsFromUser {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
+body {
+    background-color: #e2e8f0;
 }
 
-
-#questionsFromUser > div:not(:first-of-type) {
-    border-left: 2px dotted black;
-    padding-left: 10px;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
-#questionsFromUser > div > article {
+.blueUnderlineBtn {
+    border-radius: 4px;
+    font-size: 22px;
+    padding: 4px 6px;
+    color: #000000 !important;
+    text-decoration: none;
+}
+
+.blueUnderlineBtn::after {
+    max-width: 100%;
+    height: 2px;
+    display: block;
+    content: "";
+    background: #007Bff;
+    opacity: 1;
+    margin-bottom: -6px;
+    margin-top: 1px;
+}
+
+.blueUnderlineDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#newQuestionBtn {
+    display: inline-block;
+    padding: 0.6em 1.7em;
+    margin: 50px 0.3em 20px 0;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: black;
+    background-color: #FFFFFF;
+    text-align: center;
+    transition: all 0.2s;
+    border: 1px solid #FF4B2B;
+
+}
+
+#newQuestionBtn:hover {
+    color: white;
+    background-color: #FF4B2B;
+}
+
+.questionsFromUsers {
+    display: flex;
+    flex-direction: column;
+}
+
+.headlines {
+    font-size: 30px;
+}
+
+.articles {
     display: grid;
     grid-template-columns: 2fr 1.5fr;
+    border-radius: 4px;
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
 }
 
-#questionsFromUser > div > article:not(:last-of-type) {
-    padding-bottom: 10px;
-    border-bottom: 1px solid black;
+.grid-divs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
 }
 
-#questionsFromUser > div > article:not(:last-of-type) {
-    margin-bottom: 10px;
-}
-
-#questionsFromUser > div:not(:nth-of-type(2)) > article > div:last-of-type,
-#questionsFromUser > div:not(:nth-of-type(2)) > article > div:last-of-type {
-    border-left: 2px dotted black;
-    margin: 0;
-    padding: 10px 0 10px 10px;
-}
-
-#questionsFromUser > div > article > div:last-of-type > p,
-#questionsFromUser > div > article > div:last-of-type > a {
-    margin: 0;
-    color: black;
-}
-
-#questionsFromUser > div > article > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#questionsFromUser > div > article > div > h2 {
-    margin: 0;
-    padding: 10px 0;
-    text-decoration: underline;
-}
-
-#questionsFromUser > div > article > div > p {
-    margin: 0;
-    padding: 0 10px 10px 0;
-}
-
-#questionsFromUser > div > article > ul {
+.headingFromSQL {
     padding: 10px;
     margin: 0;
-    border-left: 2px dotted black;
+    font-size: 28px;
 }
 
-#questionsFromUser > div > article > ul > li {
-    list-style: none;
+.p-price {
+    font-size: 22px;
+    margin:  4px 0 0 0;
+    padding: 4px;
+}
+
+.questionFromSQL {
+    margin: 0;
+    padding: 0 10px 10px 10px;
+    font-size: 22px;
+}
+
+.questionsFromUsers > article:nth-of-type(-n + 2) > div > article > div:last-of-type {
     display: flex;
     flex-direction: column;
-    padding: 10px 0;
+    justify-content: left;
 }
-
-#questionsFromUser > div > article > ul > li:first-of-type {
-    padding: 0 0 10px 0;
-}
-
-#questionsFromUser > div > article > ul > li:last-of-type {
-    padding: 10px 0 0 0;
-}
-
-#questionsFromUser > div > article > ul > li:not(:last-of-type) {
-    border-bottom: 2px dotted black;
-}
-
-#questionsFromUser > div > article > ul > li > div > a {
-    color: black;
-}
-
 
 #newQuestionSection {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 50vh;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: black;
 }
 
 #newQuestionSection > div {
@@ -113,8 +133,8 @@ main {
 
 #newQuestionSection > form {
     width: 30%;
-    padding: 15px;
-    background-color: white;
+    padding: 20px;
+    background-color: #FFFFFF;
     z-index: 100;
     display: flex;
     flex-direction: column;
@@ -131,7 +151,36 @@ main {
 }
 
 #newQuestionSection > form > label {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 900;
     font-variant: small-caps;
 }
+
+#heading:focus, #question:focus, #typeOfSpecification:focus {
+    outline: none;
+}
+
+#heading, #typeOfSpecification {
+    height: 50px;
+    font-size: 20px;
+}
+
+#question {
+    height: 100px;
+    font-size: 20px;
+}
+
+.sendQuestionWrapper  {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.centerAlign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+

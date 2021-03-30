@@ -34,10 +34,10 @@
                 $isOffer = false;
 
                 $output = '
-                    <article>
+                    <article class="articles">
                         <div>
-                            <h2>'.$headingFromSQL.'</h2>
-                            <p>'.$questionFromSQL.'</p>
+                            <h2 class="headingFromSQL">'.$headingFromSQL.'</h2>
+                            <p class="questionFromSQL">'.$questionFromSQL.'</p>
                         </div>
                 ';
 
@@ -77,7 +77,10 @@
         $stmtGetAllQuestionForUser->store_result();
         $stmtGetAllQuestionForUser->fetch();
 
-        return '<div><a href="http://localhost/skole/leap-glocal/messenger/?message='.$conversationId.'">Samtale med: '.$nameUserFromSQL.'</a></div>';
+        return '
+                <div class="blueUnderlineDiv">
+                    <a href="http://localhost/skole/leap-glocal/messenger/?message='.$conversationId.'" class="blueUnderlineBtn">Samtale med: '.$nameUserFromSQL.'</a>
+                </div>';
     }
 
     function getAllOffers($id_question) {
@@ -102,11 +105,20 @@
             $return .= '<ul>';
             while ($stmtGetAllQuestionForUser->fetch()) {
                 $hassedUserId = md5($idConsultantFromSQL);
-                $return .= '<li value="'.$id_offerFromSQL.'"><div>'.$priceFromSQL.' kr from <a href="../../profile.php?user='.$hassedUserId.'">'.$nameUserFromSQL.'</a></div><a href="backend/userChooseAnswer.php?question='.$id_question.'&answer='.$id_offerFromSQL.'&consultant='.$idConsultantFromSQL.'" class="asButton">Velg denne</a></li>';
+                $return .= '<li value="'.$id_offerFromSQL.'">
+                                <div class="blueUnderlineDiv">
+                                    <p class="p-price">'.$priceFromSQL.' kr fra </p><a href="../../profile.php?user='.$hassedUserId.'" class="blueUnderlineBtn">'.$nameUserFromSQL.'</a>  
+                                </div>
+                                <div class="blueUnderlineDiv">
+                                    <a href="backend/userChooseAnswer.php?question='.$id_question.'&answer='.$id_offerFromSQL.'&consultant='.$idConsultantFromSQL.'" class="blueUnderlineBtn">Velg denne</a>
+                                </div> 
+                            </li>';
             }
             $return .= '</ul>';
         } else {
-            $return = '<div><p>Ingen svar enda</p></div>';
+            $return = '<div class="centerAlign">
+                           <p>Ingen svar enda</p>
+                       </div>';
             $isOffer = false;
         }
 

@@ -47,7 +47,7 @@
             <a href="../resetPassword/index.php" class="forgot-password">Glemt passord?</a>
 
             <div class="loginRegisterBtnWrapper">
-                <button>Logg inn</button>
+                <button class="redButton">Logg inn</button>
             </div>
 
         </form>
