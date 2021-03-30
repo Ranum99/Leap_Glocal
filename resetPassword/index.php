@@ -79,13 +79,48 @@ if(isset($_POST["email"]) && (!empty($_POST["email"]))){
     }
 } else {
     ?>
-    <form method="post" action="" name="reset"><br /><br />
-        <label><strong>Enter Your Email Address:</strong></label><br /><br />
-        <input type="email" name="email" placeholder="username@email.com" />
-        <br /><br />
-        <input type="submit" value="Reset Password"/>
-    </form>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" type="text/css" href="../global/common.css">
+        <link rel="stylesheet" type="text/css" href="../loginRegister/css/registerAndLogin.css">
+        <link rel="stylesheet" type="text/css" href="../partsOfWebsite/css/footer.css">
+    </head>
+    <body>
+    <!-- HERE COMES <NAV/> FROM PHP FILE -->
+    <?php include_once "../partsOfWebsite/nav.php"?>
+
+    <main>
+        <div class="spacer"></div>
+
+        <!-- LOGIN -->
+        <section class="registerAndLoginForm">
+            <form action="" method="post" name="reset">
+                <h1 class="marginTop">Glemt passord</h1>
+
+                <div class="inputs">
+                    <label for="emailForgot" class="hide">Email</label>
+                    <input type="email" id="emailForgot" name="email" placeholder="Epost" required autofocus />
+                </div>
+
+                <div class="loginRegisterBtnWrapper">
+                    <button type="submit" value="Reset Password">Send</button>
+                </div>
+
+            </form>
+            <div class="toRegister">
+                <h2>Enda ikke medlem?</h2>
+                <p>For å starte reisen med oss, venligst registrer deg ved å trykke på knappen under.</p>
+                <a href="../loginRegister/register.php" class="regOrLoginBtn">Bli medlem</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- HERE COMES <FOOTER/> FROM PHP FILE -->
+    <?php include_once "../partsOfWebsite/footer.php"?>
+    </body>
+    </html>
 <?php } ?>

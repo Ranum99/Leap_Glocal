@@ -44,7 +44,7 @@
                 <input type="password" id="passwordLogin" name="password" placeholder="Passord" required />
             </div>
 
-            <a href="#" class="forgot-password">Glemt passord?</a>
+            <a href="../resetPassword/index.php" class="forgot-password">Glemt passord?</a>
 
             <div class="loginRegisterBtnWrapper">
                 <button>Logg inn</button>
