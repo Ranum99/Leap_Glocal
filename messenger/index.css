@@ -15,6 +15,10 @@ body {
     word-break: break-all;
 }
 
+textarea {
+    width: 700px;
+}
+
 .message:focus {
     outline: none;
 }
@@ -91,8 +95,7 @@ main > section > div.task > p > span {
 }
 
 main > section > div.messages {
-    max-height: 50vh;
-    min-height: 200px;
+    height: 50vh;
     overflow-y: scroll;
 }
 
