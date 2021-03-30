@@ -17,14 +17,13 @@ $(document).ready(function() {
             cache: false,
             success: function(dataResult){
                 if(dataResult === '200'){
-                    $("#sendTheMessage").removeAttr("disabled");
                     messageToSend.value = "";
                 }
                 else if(dataResult === '201'){
-                    $("#sendTheMessage").removeAttr("disabled");
                     alert("Error occured !");
                 }
             }
         });
     });
+    $("#sendTheMessage").removeAttr("disabled");
 });
