@@ -1,6 +1,13 @@
 <?php
 include('../backend/db.php');
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 if(isset($_POST["email"]) && (!empty($_POST["email"]))){
+    $conn = getDb();
+    $error = null;
+
     $email = $_POST["email"];
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
@@ -46,8 +53,8 @@ if(isset($_POST["email"]) && (!empty($_POST["email"]))){
 
         $email_to = $email;
         $fromserver = "noreply@yourwebsite.com";
-        require("PHPMailer/PHPMailerAutoload.php");
-        $mail = new PHPMailer();
+        require("vendor/autoload.php");
+        $mail = new PHPMailer(true);
         $mail->IsSMTP();
         $mail->Host = "mail.yourwebsite.com"; // Enter your host here
         $mail->SMTPAuth = true;
