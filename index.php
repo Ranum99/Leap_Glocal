@@ -19,6 +19,7 @@
     <div id="banner-bilde-forside">
         <!-- HERE COMES <NAV/> FROM PHP FILE -->
         <?php include_once "partsOfWebsite/nav.php" ?>
+
         <div class="banner-tekst">
             <h1 id="sporsmalOverskrift">Her finner du svar på alle dine spørsmål</h1>
 
@@ -88,29 +89,6 @@
                 </div>
             </div>
         </section>
-        <!--
-        <section>
-            <div id="functions">
-                <a href="">
-                    <h3>Finn andre gründere</h3>
-                    <p>Her kan du søke på andre gründere nært of fjernt med samme ideer for å muligens få noe hjelp.</p>
-                </a>
-                <a href="">
-                    <h3>Gründerhuber og akseleratorer</h3>
-                    <p>Meld deg på forskjellige gründerhubber og akseleratorer nært og fjernt for å finne gode ideer til din startup.</p>
-                </a>
-                <a href="">
-                    <h3>Støtteordninger</h3>
-                    <p>Nettop start opp eller langt ut i prosessen, men ikke er helt sikker på hvilken rettigheter på støtte du har?</p>
-                </a>
-                <a href="contactConsultant/user/">
-                    <h3>Kontakt en konsulent</h3>
-                    <p>Har du et spørsmål du ikke finner svaret på, eller noe som trenger spesialkompetanse, kotakt en kompetent konsulent her.</p>
-                </a>
-            </div>
-        </section> -->
-
-
     </main>
 
     <?php
