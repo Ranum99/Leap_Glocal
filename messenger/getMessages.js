@@ -2,6 +2,8 @@ $(document).ready(function() {
     var intervalId = window.setInterval(function(){
         getMessages();
     }, 1001);
+
+
 });
 
 function getMessages() {
