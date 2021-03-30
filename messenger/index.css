@@ -16,7 +16,7 @@ body {
 }
 
 textarea {
-    width: 700px;
+    width: 100%;
 }
 
 .message:focus {
