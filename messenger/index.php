@@ -131,6 +131,6 @@
     </main>
 
     <!-- HERE COMES <FOOTER/> FROM PHP FILE -->
-    <?php //include_once "../partsOfWebsite/footer.php"?>
+    <?php include_once "../partsOfWebsite/footer.php"?>
 </body>
 </html>
