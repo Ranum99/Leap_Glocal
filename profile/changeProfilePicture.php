@@ -24,8 +24,10 @@ if(isset($_POST['but_upload'])){
         $stmtCheckForId = $dbh->prepare("SELECT userId FROM images WHERE userId = ?");
         $stmtCheckForId->bind_param('i', $id_user);
         $stmtCheckForId->execute();
+        $stmtCheckForId->store_result();
+        $amountOfLines = $stmtCheckForId->num_rows;
 
-        if($stmtCheckForId->rowCount() > 0) {
+        if($amountOfLines > 0) {
             $stmtUpdateImage = "UPDATE images SET name = ? WHERE userId = ?";
             $stmtUpdateImage = $conn->prepare($stmtUpdateImage);
             $stmtUpdateImage->bind_param('si', $name, $id_user);
@@ -36,17 +38,6 @@ if(isset($_POST['but_upload'])){
             $stmtInsertImage = $conn->prepare($stmtInsertImage);
             $stmtInsertImage->bind_param('si', $name, $id_user);
             $stmtInsertImage->execute();
-        }
-
-        $stmtCheckId = "SELECT userId FROM images WHERE userID = ?";
-        $stmtCheckId =  $conn->prepare($stmtCheckId);
-        $stmtCheckId->bind_param('i', $id_user);
-        $stmtCheckId->execute();
-        $stmtCheckId->close();
-
-        if(mysqli_num_rows($stmtCheckId) > 0)
-        {
-            // row exists. do whatever you would like to do.
         }
 
         // Insert record
