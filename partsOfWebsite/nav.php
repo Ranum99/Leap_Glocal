@@ -8,6 +8,7 @@
             $linkForConsultant = '<a href="\skole\leap-glocal\contactConsultant\consultant\">Mulige spørsmål</a>';
         }
         echo '
+        <script src="https://kit.fontawesome.com/397d207bea.js" crossorigin="anonymous"></script>
         <div class="navDiv">
             <nav>
                 <a href="/skole/leap-glocal"><img alt="Leap Glocal logo" src="/skole/leap-glocal/img/leap_logo_full.png"></a>
@@ -25,6 +26,7 @@
         ';
     } else {
         echo '
+        <script src="https://kit.fontawesome.com/397d207bea.js" crossorigin="anonymous"></script>
         <div class="navDiv">
             <nav>
                 <a href="/skole/leap-glocal"><img alt="Leap Glocal logo" src="/skole/leap-glocal/img/leap_logo_full.png"></a>
