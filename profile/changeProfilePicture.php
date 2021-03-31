@@ -38,19 +38,16 @@ if(isset($_POST['but_upload'])){
             $stmtInsertImage->execute();
         }
 
-        /*$query = "SELECT userId FROM images WHERE userID = ?";
-        $query =  $conn->prepare($query);
-        $query->bind_param('i', $id_user);
-        $query->execute();
-        $query->close();
+        $stmtCheckId = "SELECT userId FROM images WHERE userID = ?";
+        $stmtCheckId =  $conn->prepare($stmtCheckId);
+        $stmtCheckId->bind_param('i', $id_user);
+        $stmtCheckId->execute();
+        $stmtCheckId->close();
 
-
-        $result = mysqli_query($query);
-
-        if(mysqli_num_rows($result) > 0)
+        if(mysqli_num_rows($stmtCheckId) > 0)
         {
             // row exists. do whatever you would like to do.
-        }*/
+        }
 
         // Insert record
         // $query = "insert into images(name) values('".$name."')";
