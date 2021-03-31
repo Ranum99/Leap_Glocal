@@ -84,9 +84,8 @@
 
         return $outputBuilder;
     }
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

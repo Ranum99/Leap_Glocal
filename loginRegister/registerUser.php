@@ -145,13 +145,13 @@
         <!-- Fill in remaining info -->
         <div id="wrapper">
         <h1>Fyll inn resterende info</h1>
-
+s
             <form action="" method="post" id="wrapper2">
                     <label for="image_register">Bilde *</label>
                     <input type="file" accept="image/png, image/jpeg" id="image_register" name="image" required />
                     <label for="country_register">Land *</label>
                     <select id="country_register" name="country" required >
-                        <option value="NOR" selected>Norge</option>
+                        <option value="Norge" selected>Norge</option>
                     </select>
                     <?php echo $formOutput; ?>
 

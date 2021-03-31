@@ -312,13 +312,17 @@
                                    facebookHandle = ?
                                WHERE id_user = ?";
     $stmtUpdateUserdataToDB = $conn->prepare($stmtUpdateUserdataToDB);
-    $stmtUpdateUserdataToDB->bind_param('ssssssssssssssssssssssssssssss', $email_post, $password_post, $name_post, $telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled, $image_post, $country_post, $benefits_post, $gender_post, $industry_post, $startupPhase_post, $lookingFor_post, $businessModel_post, $title_post, $numOfEmp_post, $twitter_post, $instagram_post, $facebook_post, $userId);
+    $stmtUpdateUserdataToDB->bind_param('ssssssssssssssssssssssssssssss', $email_post, $password_post, $name_post, $telephone_post, $postalCode_post, $place_post,
+                                        $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post,
+                                        $age_post, $requiredColumnsFilled, $image_post, $country_post, $benefits_post, $gender_post, $industry_post, $startupPhase_post, $lookingFor_post,
+                                        $businessModel_post, $title_post, $numOfEmp_post, $twitter_post, $instagram_post, $facebook_post, $userId);
     $stmtUpdateUserdataToDB->execute();
     $stmtUpdateUserdataToDB->close();
 
     // ADDING TO SESSION
-    setRestOfSession_updateFull($email_post, $password_post, $name_post, $telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled, $image_post, $country_post, $benefits_post, $gender_post, $industry_post, $startupPhase_post, $lookingFor_post, $businessModel_post, $title_post, $numOfEmp_post, $twitter_post, $instagram_post, $facebook_post);
-
+    setRestOfSession_updateFull($email_post, $password_post, $name_post, $telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post,
+                                $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled, $image_post, $country_post, $benefits_post, $gender_post, $industry_post, $startupPhase_post,
+                                $lookingFor_post, $businessModel_post, $title_post, $numOfEmp_post, $twitter_post, $instagram_post, $facebook_post);
     // Going back to main
     header('LOCATION: ../../profile.php');
 

@@ -35,16 +35,50 @@
         $user = $_SESSION['userdata'];
 
     function getDataForUser($connen, $id_user, $user) {
-        $stmtGetUserdata = "SELECT email FROM users
+        $emailFromSQL = null;
+        $nameFromSQL = null;
+        $phoneNumberFromSQL = null;
+        $addressFromSQL = null;
+        $descriptionFromSQL = null;
+        $countryFromSQL = null;
+        $orgNumberFromSQL = null;
+        $imageFromSQL = null;
+        $startupPhaseFromSQL = null;
+        $lookingForFromSQL = null;
+        $specificationFromSQL = null;
+        $websiteURLFromSQL = null;
+        $twitterHandleFromSQL = null;
+        $instagramHandleFromSQL = null;
+        $facebookHandleFromSQL = null;
+
+        $stmtGetUserdata = "SELECT email, name, phoneNumber, address, description, country, orgNumber, image, 
+                                   startupPhase, lookingFor, specification, websiteURL, twitterHandle, instagramHandle, facebookHandle 
+                            FROM users
                             WHERE id_user = ?";
         $stmtGetUserdata = $connen->prepare($stmtGetUserdata);
         $stmtGetUserdata->bind_param('s', $id_user);
         $stmtGetUserdata->execute();
-        $stmtGetUserdata->bind_result($emailFromSQL);
+        $stmtGetUserdata->bind_result($emailFromSQL, $nameFromSQL, $phoneNumberFromSQL, $addressFromSQL, $descriptionFromSQL, $countryFromSQL, $orgNumberFromSQL, $imageFromSQL,
+                                      $startupPhaseFromSQL, $lookingForFromSQL, $specificationFromSQL, $websiteURLFromSQL, $twitterHandleFromSQL, $instagramHandleFromSQL, $facebookHandleFromSQL);
         $stmtGetUserdata->store_result();
         $stmtGetUserdata->fetch();
 
         $user->__set('email', $emailFromSQL);
+        $user->__set('name', $nameFromSQL);
+        $user->__set('phoneNumber', $phoneNumberFromSQL);
+        $user->__set('address', $addressFromSQL);
+        $user->__set('description', $descriptionFromSQL);
+        $user->__set('country', $countryFromSQL);
+        $user->__set('orgNumber', $orgNumberFromSQL);
+        $user->__set('image', $imageFromSQL);
+        $user->__set('startupPhase', $startupPhaseFromSQL);
+        $user->__set('lookingFor', $lookingForFromSQL);
+        $user->__set('specification', $specificationFromSQL);
+        $user->__set('websiteURL', $websiteURLFromSQL);
+        $user->__set('twitterHandle', $twitterHandleFromSQL);
+        $user->__set('instagramHandle', $instagramHandleFromSQL);
+        $user->__set('facebookHandle', $facebookHandleFromSQL);
+
     }
 
     if ($_SESSION['userdata']->__get('typeOfUser') == 1) {
@@ -86,12 +120,15 @@
                     <p class="profileCardText">
                         <?php echo $user->__get('description')?>
                         <br><br>
-                        <?php echo $user->__get('address')?>, <?php echo $user->__get('country')?>
+                        <?php echo $user->__get('address')?>, <?php echo $user->__get('postalCode')?> <?php echo $user->__get('place')?>
+                        <br>
+                        <?php echo $user->__get('country')?>
                     </p>
                     <?php echo $fillInRestOfDataBtn; ?>
                     <?php if ($user == $_SESSION['userdata']) echo '<a href="backend/logout.php" class="logOutBtn">Log Out</a>' ?>
                     <a href="/" class="messageBtn">Message</a>
-                    <a href="profile/profileEditForm.php" class="editProfileBtn">Edit Profile</a>
+                    <?php if ($user == $_SESSION['userdata']) echo '<a href="profile/profileEditForm.php" class="editProfileBtn">Edit Profile</a>' ?>
+
                 </div>
                 <div class="links">
                     <div class="firstMargin">

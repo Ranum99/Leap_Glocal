@@ -152,7 +152,7 @@
 
             <label for="country_register">Land</label>
             <select id="country_register" name="country" >
-                <option value="NOR" selected>Norge</option>
+                <option value="Norge" selected>Norge</option>
             </select>
 
             <label for="name_register">Navn</label>
