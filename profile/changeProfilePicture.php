@@ -16,10 +16,8 @@ if(isset($_POST['but_upload'])){
 
     // Check extension
     if (in_array($imageFileType,$extensions_arr) ){
-
         $id_user = $_SESSION['userdata']->__get('id_user');
         $conn = getDb();
-
         $dbh = getDb();
         $stmtCheckForId = $dbh->prepare("SELECT userId FROM images WHERE userId = ?");
         $stmtCheckForId->bind_param('i', $id_user);
@@ -40,15 +38,11 @@ if(isset($_POST['but_upload'])){
             $stmtInsertImage->execute();
         }
 
-        // Insert record
-        // $query = "insert into images(name) values('".$name."')";
-        // mysqli_query($conn,$query);
-
         // Upload file
         move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);
 
+        header('LOCATION: ../profile.php');
     }
-
 }
 ?>
 

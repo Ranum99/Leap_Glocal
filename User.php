@@ -25,7 +25,6 @@ class User
     private $durationOfLastPayment = null;
     private $age = null;
     private $requiredColumnsFilled = null;
-    private $image = null;
     private $country = null;
     private $benefits = null;
     private $numOfEmp = null;

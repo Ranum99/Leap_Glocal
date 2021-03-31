@@ -17,7 +17,6 @@
     $ratingNumberOfVoters = 0;
 
     //Update of DB
-    $image_post = null;
     $country_post = null;
     $benefits_post = null;
     $numOfEmp_post = null;
@@ -57,11 +56,6 @@
                     return;
                 }
             }
-
-
-            // Setting website url if filled
-            if (isset($_POST['image']) && !empty($_POST['image']))
-                $image_post = $_POST['image'];
 
             // Setting website url if filled
             if (isset($_POST['webURL']) && !empty($_POST['webURL']))
@@ -139,10 +133,6 @@
                 }
             }
 
-            // Setting website url if filled
-            if (isset($_POST['image']) && !empty($_POST['image']))
-                $image_post = $_POST['image'];
-
             // Setting description if filled
             if (isset($_POST['description']) && !empty($_POST['description']))
                 $description_post = $_POST['description'];
@@ -186,10 +176,6 @@
                 }
             }
 
-            // Setting website url if filled
-            if (isset($_POST['image']) && !empty($_POST['image']))
-                $image_post = $_POST['image'];
-
             // Setting variables
             $country_post = $_POST['country'];
             $telephone_post = $_POST['telephone'];
@@ -209,7 +195,6 @@
             $requiredColumnsFilled = 1;
             break;
     }
-
 
     function checkPost($array) {
         $isValidPost = true;
@@ -242,7 +227,6 @@
                                    description = ?,
                                    age = ?,
                                    requiredColumnsFilled = ?,
-                                   image = ?,
                                    country = ?,
                                    benefits = ?,
                                    gender = ?,
@@ -254,12 +238,12 @@
                                    numOfEmp = ?
                                WHERE id_user = ?";
     $stmtUpdateUserdataToDB = $conn->prepare($stmtUpdateUserdataToDB);
-    $stmtUpdateUserdataToDB->bind_param('ssssssssssssssssssssssss', $telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled, $image_post, $country_post, $benefits_post, $gender_post, $industry_post, $startupPhase_post, $lookingFor_post, $businessModel_post, $title_post, $numOfEmp_post, $userId);
+    $stmtUpdateUserdataToDB->bind_param('sssssssssssssssssssssss', $telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled, $country_post, $benefits_post, $gender_post, $industry_post, $startupPhase_post, $lookingFor_post, $businessModel_post, $title_post, $numOfEmp_post, $userId);
     $stmtUpdateUserdataToDB->execute();
     $stmtUpdateUserdataToDB->close();
 
     // ADDING TO SESSION
-    setRestOfSession_registerFull($telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled, $image_post, $country_post, $benefits_post, $gender_post, $industry_post, $startupPhase_post, $lookingFor_post, $businessModel_post, $title_post, $numOfEmp_post);
+    setRestOfSession_registerFull($telephone_post, $postalCode_post, $place_post, $address_post, $orgnumber_post, $rating1to5, $ratingNumberOfVoters, $specification_post, $levelOfXp_post, $webURL_post, $description_post, $age_post, $requiredColumnsFilled, $country_post, $benefits_post, $gender_post, $industry_post, $startupPhase_post, $lookingFor_post, $businessModel_post, $title_post, $numOfEmp_post);
 
     // Going back to main
     header('LOCATION: ../index.php');

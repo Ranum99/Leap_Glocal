@@ -5,7 +5,7 @@
 
     // loginUserSession("contact@ranum.com","test123");
 
-    function setRestOfSession_registerFull($telephone, $postalCode, $place, $address, $orgnumber, $rating1to5, $ratingNumberOfVoters, $specification, $levelOfXp, $webURL, $description, $age, $requiredColumnsFilled, $image, $country, $benefits, $gender, $industry, $startupPhase, $lookingFor, $businessModel, $title, $numOfEmp) {
+    function setRestOfSession_registerFull($telephone, $postalCode, $place, $address, $orgnumber, $rating1to5, $ratingNumberOfVoters, $specification, $levelOfXp, $webURL, $description, $age, $requiredColumnsFilled, $country, $benefits, $gender, $industry, $startupPhase, $lookingFor, $businessModel, $title, $numOfEmp) {
         $_SESSION['userdata']->__set('phoneNumber', $telephone);
         $_SESSION['userdata']->__set('postalCode', $postalCode);
         $_SESSION['userdata']->__set('place', $place);
@@ -19,7 +19,6 @@
         $_SESSION['userdata']->__set('description', $description);
         $_SESSION['userdata']->__set('age', $age);
         $_SESSION['userdata']->__set('requiredColumnsFilled', $requiredColumnsFilled);
-        $_SESSION['userdata']->__set('image', $image);
         $_SESSION['userdata']->__set('country', $country);
         $_SESSION['userdata']->__set('benefits', $benefits);
         $_SESSION['userdata']->__set('numOfEmp', $numOfEmp);
@@ -31,7 +30,7 @@
         $_SESSION['userdata']->__set('title', $title);
     }
 
-    function setRestOfSession_updateFull($email, $password, $name, $telephone, $postalCode, $place, $address, $orgnumber, $rating1to5, $ratingNumberOfVoters, $specification, $levelOfXp, $webURL, $description, $age, $requiredColumnsFilled, $image, $country, $benefits, $gender, $industry, $startupPhase, $lookingFor, $businessModel, $title, $numOfEmp, $twitterHandle, $instagramHandle, $facebookHandle) {
+    function setRestOfSession_updateFull($email, $password, $name, $telephone, $postalCode, $place, $address, $orgnumber, $rating1to5, $ratingNumberOfVoters, $specification, $levelOfXp, $webURL, $description, $age, $requiredColumnsFilled, $country, $benefits, $gender, $industry, $startupPhase, $lookingFor, $businessModel, $title, $numOfEmp, $twitterHandle, $instagramHandle, $facebookHandle) {
         $_SESSION['userdata']->__set('email', $email);
         $_SESSION['userdata']->__set('password', $password);
         $_SESSION['userdata']->__set('name', $name);
@@ -48,7 +47,6 @@
         $_SESSION['userdata']->__set('description', $description);
         $_SESSION['userdata']->__set('age', $age);
         $_SESSION['userdata']->__set('requiredColumnsFilled', $requiredColumnsFilled);
-        $_SESSION['userdata']->__set('image', $image);
         $_SESSION['userdata']->__set('country', $country);
         $_SESSION['userdata']->__set('benefits', $benefits);
         $_SESSION['userdata']->__set('numOfEmp', $numOfEmp);
@@ -105,7 +103,7 @@
         $connen = new mysqli(getHostToDatabase(), getDbUsernameToDatabase(), getDbPasswordToDatabase(), getDbNameToDatabase());
 
         $stmtGetUserInfo = "SELECT id_user, name, phoneNumber, postalCode, place, address, orgNumber, rating1to5, rating_numberOfVoters, specification, 
-                                   levelOfExperience, websiteURL, description, userHasPaid, userLastPayment, durationOfLastPayment, age, requiredColumnsFilled, image,
+                                   levelOfExperience, websiteURL, description, userHasPaid, userLastPayment, durationOfLastPayment, age, requiredColumnsFilled,
                                    country, benefits, gender, industry, startupPhase, lookingFor, businessModel, title, numOfEmp, twitterHandle, instagramHandle, facebookHandle
                             FROM users
                             WHERE email = ?
@@ -116,7 +114,7 @@
         $stmtGetUserInfo->bind_result($idFromSQL, $nameFromSQL, $phoneNumberFromSQL, $postalCodeFromSQL, $placeFromSQL, $addressFromSQL, $orgNumberFromSQL,
                                         $rating1to5FromSQL, $rating_numberOfVotersFromSQL, $specificationFromSQL, $levelOfExperienceFromSQL, $websiteURLFromSQL,
                                         $descriptionFromSQL, $userHasPaidFromSQL, $userLastPaymentFromSQL, $durationOfLastPaymentFromSQL, $ageFromSQL, $requiredColumnsFilled,
-                                        $imageFromSQL, $countryFromSQL, $benefitsFromSQL, $genderFromSQL, $industryFromSQL, $startupPhaseFromSQL, $lookingForFromSQL, $businessModelFromSQL,
+                                        $countryFromSQL, $benefitsFromSQL, $genderFromSQL, $industryFromSQL, $startupPhaseFromSQL, $lookingForFromSQL, $businessModelFromSQL,
                                         $titleFromSQL, $numOfEmpFromSQL, $twitterHandleFromSQL, $instagramHandleFromSQL, $facebookHandleFromSQL);
         $stmtGetUserInfo->store_result();
 
@@ -140,7 +138,6 @@
             $user->__set('durationOfLastPayment', $durationOfLastPaymentFromSQL);
             $user->__set('age', $ageFromSQL);
             $user->__set('requiredColumnsFilled', $requiredColumnsFilled);
-            $user->__set('image', $imageFromSQL);
             $user->__set('country', $countryFromSQL);
             $user->__set('benefits', $benefitsFromSQL);
             $user->__set('numOfEmp', $numOfEmpFromSQL);

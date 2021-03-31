@@ -106,10 +106,6 @@
     $stmtGetProfilePicture->store_result();
     $stmtGetProfilePicture->fetch();
 
-    /*$sql = "SELECT name FROM images WHERE userId=$user__Id";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
-    $image = $row['name'];*/
     $image_src = "profile/profilePictures/".$image;
 ?>
 
