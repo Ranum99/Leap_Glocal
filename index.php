@@ -16,9 +16,10 @@
     <script src="https://kit.fontawesome.com/397d207bea.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<!-- HERE COMES <NAV/> FROM PHP FILE -->
+<?php include_once "partsOfWebsite/nav.php" ?>
+
     <div id="banner-bilde-forside">
-        <!-- HERE COMES <NAV/> FROM PHP FILE -->
-        <?php include_once "partsOfWebsite/nav.php" ?>
 
         <div class="banner-tekst">
             <h1 id="sporsmalOverskrift">Her finner du svar på alle dine spørsmål</h1>
