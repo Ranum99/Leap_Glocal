@@ -115,7 +115,8 @@
         <div class="pageWrapper">
             <div class="alignLeft">
                 <div class="profileCard">
-                    <img id="profilePicture" src="img/pb-test.jpg">
+                    <a href="profile/changeProfilePicture.php"><img src="img/pb-test.jpg" id="profilePicture" alt="profile picture"></a>
+
                     <h2><?php echo $user->__get('name')?></h2>
                     <p class="profileCardText">
                         <?php echo $user->__get('description')?>

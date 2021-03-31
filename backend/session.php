@@ -63,6 +63,10 @@
         $_SESSION['userdata']->__set('facebookHandle', $facebookHandle);
     }
 
+    function setRestOfSession_updateImage($image) {
+        $_SESSION['userdata']->__set('image', $image);
+    }
+
     function setIDSession($user) {
         include_once 'db.php';
 
