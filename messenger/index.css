@@ -125,6 +125,7 @@ main > section >div.messages > p.sent {
 
 main > section > div.messages > p.received {
     background-color: crimson;
+    margin-left: 0;
 }
 
 main > section > div.sendingMessage > form {
