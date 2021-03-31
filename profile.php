@@ -56,7 +56,7 @@
                             FROM users
                             WHERE id_user = ?";
         $stmtGetUserdata = $connen->prepare($stmtGetUserdata);
-        $stmtGetUserdata->bind_param('s', $id_user);
+        $stmtGetUserdata->bind_param('i', $id_user);
         $stmtGetUserdata->execute();
         $stmtGetUserdata->bind_result($emailFromSQL, $nameFromSQL, $phoneNumberFromSQL, $addressFromSQL, $descriptionFromSQL, $countryFromSQL, $orgNumberFromSQL, $imageFromSQL,
                                       $startupPhaseFromSQL, $lookingForFromSQL, $specificationFromSQL, $websiteURLFromSQL, $twitterHandleFromSQL, $instagramHandleFromSQL, $facebookHandleFromSQL);
@@ -95,6 +95,22 @@
         ';
     }
 
+    $conn = getDb();
+    $user__Id = $_SESSION['userdata']->__get('id_user');
+
+    $stmtGetProfilePicture = "SELECT name FROM images WHERE userId = ?";
+    $stmtGetProfilePicture = $conn->prepare($stmtGetProfilePicture);
+    $stmtGetProfilePicture->bind_param('i', $user__Id);
+    $stmtGetProfilePicture->execute();
+    $stmtGetProfilePicture->bind_result($image);
+    $stmtGetProfilePicture->store_result();
+    $stmtGetProfilePicture->fetch();
+
+    /*$sql = "SELECT name FROM images WHERE userId=$user__Id";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+    $image = $row['name'];*/
+    $image_src = "profile/profilePictures/".$image;
 ?>
 
 <!DOCTYPE html>
@@ -115,7 +131,10 @@
         <div class="pageWrapper">
             <div class="alignLeft">
                 <div class="profileCard">
-                    <a href="profile/changeProfilePicture.php"><img src="img/pb-test.jpg" id="profilePicture" alt="profile picture"></a>
+
+                    <a href="profile/changeProfilePicture.php"><img src='<?php echo $image_src;  ?>' id="profilePicture" alt="profile picture"width="150" height="150"></a>
+
+                    <!--<a href="profile/changeProfilePicture.php"><img src="img/pb-test.jpg" id="profilePicture" alt="profile picture"></a>-->
 
                     <h2><?php echo $user->__get('name')?></h2>
                     <p class="profileCardText">
