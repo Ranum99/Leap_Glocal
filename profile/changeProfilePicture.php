@@ -20,9 +20,9 @@ if(isset($_POST['but_upload'])){
         $id_user = $_SESSION['userdata']->__get('id_user');
         $conn = getDb();
 
-        $dbh = new PDO("mysql:host=localhost;dbname=leap-glocal", 'root', '');
-        $stmtCheckForId = $dbh->prepare("SELECT userId FROM images WHERE userId = ':id'");
-        $stmtCheckForId->bindParam(':id', $id_user);
+        $dbh = getDb();
+        $stmtCheckForId = $dbh->prepare("SELECT userId FROM images WHERE userId = ?");
+        $stmtCheckForId->bind_param('i', $id_user);
         $stmtCheckForId->execute();
 
         if($stmtCheckForId->rowCount() > 0) {
