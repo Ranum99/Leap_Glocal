@@ -107,6 +107,49 @@
     $stmtGetProfilePicture->fetch();
 
     $image_src = "profile/profilePictures/".$image;
+
+    if(isset($_POST['but_upload'])){
+
+        $name = $_FILES['file']['name'];
+        $target_dir = "profile/profilePictures/";
+        $target_file = $target_dir . basename($_FILES["file"]["name"]);
+
+        // Select file type
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+        // Valid file extensions
+        $extensions_arr = array("jpg","jpeg","png","gif");
+
+        // Check extension
+        if (in_array($imageFileType,$extensions_arr) ){
+            $id_user = $_SESSION['userdata']->__get('id_user');
+            $conn = getDb();
+            $dbh = getDb();
+            $stmtCheckForId = $dbh->prepare("SELECT userId FROM images WHERE userId = ?");
+            $stmtCheckForId->bind_param('i', $id_user);
+            $stmtCheckForId->execute();
+            $stmtCheckForId->store_result();
+            $amountOfLines = $stmtCheckForId->num_rows;
+
+            if($amountOfLines > 0) {
+                $stmtUpdateImage = "UPDATE images SET name = ? WHERE userId = ?";
+                $stmtUpdateImage = $conn->prepare($stmtUpdateImage);
+                $stmtUpdateImage->bind_param('si', $name, $id_user);
+                $stmtUpdateImage->execute();
+                $stmtUpdateImage->close();
+            } else {
+                $stmtInsertImage = "INSERT INTO images (name, userId) VALUES(?, ?)";
+                $stmtInsertImage = $conn->prepare($stmtInsertImage);
+                $stmtInsertImage->bind_param('si', $name, $id_user);
+                $stmtInsertImage->execute();
+            }
+
+            // Upload file
+            move_uploaded_file($_FILES['file']['tmp_name'],$target_dir.$name);
+
+            header('LOCATION: profile.php');
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -118,6 +161,7 @@
     <link rel="stylesheet" type="text/css" href="global/common.css">
     <script src="https://kit.fontawesome.com/397d207bea.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/84fdcc201f.js" crossorigin="anonymous"></script>
+    <script src="profile/js/popUp.js"></script>
 </head>
 <body>
     <!-- HERE COMES <NAV/> FROM PHP FILE -->
@@ -127,8 +171,14 @@
         <div class="pageWrapper">
             <div class="alignLeft">
                 <div class="profileCard">
-
-                    <a href="profile/changeProfilePicture.php"><img src='<?php echo $image_src;  ?>' id="profilePicture" alt="profile picture" width="150" height="150"></a>
+                    <div class="profile-image-container">
+                        <img src='<?php echo $image_src;  ?>' id="profilePicture" alt="profile picture" width="150" height="150" class="image" />
+                        <div class="overlay">
+                            <a id="newProfilePicture" class="icon">
+                                <i class="fa fa-upload fa-sm"></i>
+                            </a>
+                        </div>
+                    </div>
 
                     <h2><?php echo $user->__get('name')?></h2>
                     <p class="profileCardText">
@@ -212,6 +262,25 @@
                     <h6>Specification</h6>
                     <p class="displayTop9"><?php echo $user->__get('specification')?></p>
                 </div>
+            </div>
+
+            <div id="newProfilePictureDiv">
+                <div></div>
+                <form method="post" action="" id="pictureForm" enctype='multipart/form-data'>
+                    <h1>Bytt profilbilde</h1>
+
+                    <div class="ButtonWrapper">
+                        <label for="file" class="custom-file-upload">
+                            <i class="fas fa-file-upload"></i>Velg fil
+                        </label>
+                    </div>
+
+                    <input id="file" type='file' name='file' />
+
+                    <div class="submitBtnWrapper">
+                        <input type='submit' value='Bytt bilde' name='but_upload' id="submitBtn" class="redButton">
+                    </div>
+                </form>
             </div>
         </div>
     </main>

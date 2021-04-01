@@ -8,6 +8,113 @@ main {
     height: 1000px;
 }
 
+#newProfilePictureDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+#newProfilePictureDiv > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.5;
+    background-color: black;
+}
+
+#newProfilePictureDiv > form {
+    width: 30%;
+    padding: 20px;
+    background-color: #FFFFFF;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+#newProfilePictureDiv > form > * {
+    margin: 5px 0;
+}
+
+#newProfilePictureDiv > form > input {
+    margin: 5px 0 10px 0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid black;
+    width: 100px;
+    padding: 6px 12px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+}
+
+.ButtonWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.submitBtnWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+#pictureForm > h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.profile-image-container {
+    position: relative;
+}
+
+.image {
+
+}
+
+.overlay {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 10px auto;
+    transition: .3s ease;
+    background-color: white;
+}
+
+.profile-image-container:hover .overlay {
+    opacity: 1;
+}
+
+.icon {
+    color: black;
+    font-size: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
 .pageWrapper {
     display: grid;
     grid-template-columns: 1.5fr 2fr;
