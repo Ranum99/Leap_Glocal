@@ -128,9 +128,7 @@
             <div class="alignLeft">
                 <div class="profileCard">
 
-                    <a href="profile/changeProfilePicture.php"><img src='<?php echo $image_src;  ?>' id="profilePicture" alt="profile picture"width="150" height="150"></a>
-
-                    <!--<a href="profile/changeProfilePicture.php"><img src="img/pb-test.jpg" id="profilePicture" alt="profile picture"></a>-->
+                    <a href="profile/changeProfilePicture.php"><img src='<?php echo $image_src;  ?>' id="profilePicture" alt="profile picture" width="150" height="150"></a>
 
                     <h2><?php echo $user->__get('name')?></h2>
                     <p class="profileCardText">

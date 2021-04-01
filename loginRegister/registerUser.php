@@ -145,7 +145,6 @@
         <!-- Fill in remaining info -->
         <div id="wrapper">
         <h1>Fyll inn resterende info</h1>
-s
             <form action="" method="post" id="wrapper2">
                     <label for="country_register">Land *</label>
                     <select id="country_register" name="country" required >

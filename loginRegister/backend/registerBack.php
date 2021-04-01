@@ -112,7 +112,7 @@
 
     function insertUserInDb($email, $password, $name, $typeUser) {
         include_once '\xampp\htdocs\skole\leap-glocal\backend\db.php';
-
+        include_once '../../backend/session.php';
         $conn = getDb();
 
         // Inserting userdata into DB
@@ -123,9 +123,21 @@
         $stmtInsertUserdataToDB->execute();
         $stmtInsertUserdataToDB->close();
 
-        // Setting session
-        include_once '\xampp\htdocs\skole\leap-glocal\backend\session.php';
         setSession_register($email, $name, $password, $typeUser);
+
+        $userId = $_SESSION['userdata']->__get('id_user');
+        $defaultPicture = "default.jpg";
+
+        $stmtDefaultProfilePicture = "INSERT INTO images (userId, name)
+                                      VALUES (?, ?)";
+        $stmtDefaultProfilePicture = $conn->prepare($stmtDefaultProfilePicture);
+        $stmtDefaultProfilePicture->bind_param('is', $userId, $defaultPicture);
+        $stmtDefaultProfilePicture->execute();
+        $stmtDefaultProfilePicture->close();
+
+        // Setting session
+
+
 
         //TODO: go to new site where user can pay
             //TODO: meanwhile go to new site where user can fill out rest of info
