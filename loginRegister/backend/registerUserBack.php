@@ -205,11 +205,11 @@
     }
 
 
-    include_once '../backend/session.php';
+    include_once '../../backend/session.php';
     $userId = $_SESSION['userdata']->__get('id_user');
 
     // Updating userdata in DB for user
-    include_once '../backend/db.php';
+    include_once '../../backend/db.php';
 
     $conn = getDb();
 

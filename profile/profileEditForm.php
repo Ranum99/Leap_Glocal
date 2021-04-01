@@ -147,9 +147,6 @@
         <h1>Rediger profil</h1>
 
         <form action="" method="post" id="wrapper2">
-            <label for="image_register">Bilde</label>
-            <input type="file" accept="image/png, image/jpeg" id="image_register" name="image" />
-
             <label for="country_register">Land</label>
             <select id="country_register" name="country" >
                 <option value="Norge" selected>Norge</option>
