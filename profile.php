@@ -269,6 +269,8 @@
                 <form method="post" action="" id="pictureForm" enctype='multipart/form-data'>
                     <h1>Bytt profilbilde</h1>
 
+                    <p style="text-align: center">Her kan du laste opp et bilde for å bruke det som profilbilde</p>
+
                     <div class="ButtonWrapper">
                         <label for="file" class="custom-file-upload">
                             <i class="fas fa-file-upload"></i>Velg fil
