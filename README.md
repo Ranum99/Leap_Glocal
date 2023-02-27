@@ -4,6 +4,7 @@
 * Aleksander Ranum
 * Aleksander Sandnes
 
+## **Project description**
 This repository contains the code written for a bachelor project at a higher education institution. The project aimed to create a website for a startup called Leap Glocal.
 
 The goal of the project was to build a platform where startups could present themselves and connect with investors and other stakeholders. The website was to be built using a combination of PHP, HTML, CSS, and JavaScript on the frontend, and PHP on the backend.
