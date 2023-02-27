@@ -1,8 +1,8 @@
 # Leap Glocal
 
 ## **Group Members**
-* Aleksander Ranum
-* Aleksander Sandnes
+* Aleksander Ranum (Ranum99)
+* Aleksander Sandnes (AleksanderSandnes)
 
 ## **Project description**
 This repository contains the code written for a bachelor project at a higher education institution. The project aimed to create a website for a startup called Leap Glocal.
